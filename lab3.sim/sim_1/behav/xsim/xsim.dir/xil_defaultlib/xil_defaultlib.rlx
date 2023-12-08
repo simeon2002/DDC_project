@@ -1,0 +1,8 @@
+0.7
+2020.1
+May 27 2020
+19:59:15
+/home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+/home/sims0702/Documents/lab3/lab3.srcs/sim_1/new/VGA_timing_TB.v,1698764253,verilog,,,,VGA_timing_TB,,,,,,,,
+/home/sims0702/Documents/lab3/lab3.srcs/sources_1/new/VGA_timings.v,1699476424,verilog,,/home/sims0702/Documents/lab3/lab3.srcs/sources_1/new/counter.v,,VGA_timings,,,,,,,,
+/home/sims0702/Documents/lab3/lab3.srcs/sources_1/new/counter.v,1698746801,verilog,,/home/sims0702/Documents/lab3/lab3.srcs/sim_1/new/VGA_timing_TB.v,,counter,,,,,,,,
