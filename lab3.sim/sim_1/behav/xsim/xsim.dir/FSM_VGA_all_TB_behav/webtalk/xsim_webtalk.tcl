@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_TB_behav/webtalk/
+webtalk_init -webtalk_dir /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_all_TB_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue Dec 12 16:24:27 2023" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue Dec 12 15:48:09 2023" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2020.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2902540" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "3902a2fe-750e-4c15-af38-2b5f38a762a3" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "eb1b6db777824d429f8d9590ebdf74d3" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "139" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "16" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 20.04.6 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "AMD Ryzen 7 4800H with Radeon Graphics" -context "user_environment"
@@ -33,10 +33,10 @@ webtalk_add_data -client xsim -key Debug -value "typical" -context "xsim\\comman
 webtalk_add_data -client xsim -key Simulation_Image_Code -value "30 KB" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Image_Data -value "4 KB" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Total_Processes -value "36" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Total_Processes -value "38" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "5" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip unimacro_ver unisims_ver " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "1.16_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "247924_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 1146060992 -regid "" -xml /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_TB_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_TB_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_TB_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "1.08_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "243408_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 2121658087 -regid "" -xml /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_all_TB_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_all_TB_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/sims0702/Documents/lab3/lab3.sim/sim_1/behav/xsim/xsim.dir/FSM_VGA_all_TB_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

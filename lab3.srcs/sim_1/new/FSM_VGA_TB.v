@@ -30,7 +30,7 @@ reg r_iPush_left;
 wire oLED_left; //, oLED_right, oLED_down, oLED_up;
 wire [9 : 0] w_oShapeX, w_oShapeY, w_oShape_size;
 //reg [1:0] r_iDirectionPushed;
-localparam direction = 3;
+localparam direction = 1;
 //// module instantiation
 //FSM_VGA #(.CLOCK_FREQ(15))
 //    FSM_VGA_inst(
