@@ -5,13 +5,4 @@ Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.counter_default
-Compiling module xil_defaultlib.timer_1s(CLOCK_FREQ=15)
-Compiling module xil_defaultlib.FSM_VGA(CLOCK_FREQ=15)
-Compiling module xil_defaultlib.FSM_VGA_all(CLOCK_FREQ=15)
-Compiling module xil_defaultlib.FSM_VGA_all_NEW_TB
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot FSM_VGA_all_NEW_TB_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

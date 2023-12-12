@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/sims0702/Documents/lab3/lab3.runs/synth_1'
+HD_PWD='/home/sims0702/DDC_project/lab3.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

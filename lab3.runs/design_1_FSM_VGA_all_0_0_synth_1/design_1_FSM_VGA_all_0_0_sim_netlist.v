@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Tue Dec 12 17:06:28 2023
+// Date        : Tue Dec 12 23:26:27 2023
 // Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_FSM_VGA_all_0_0_sim_netlist.v
@@ -13,33 +13,28 @@
 `timescale 1 ps / 1 ps
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
-   (oShapeX,
+   (oShapeY,
     oLED,
-    oShapeY,
+    oShapeX,
     iRst,
+    iPush_down,
+    iPush_left,
     iClk,
     iPush_up,
-    iPush_down,
-    iPush_right,
-    iPush_left);
-  output [9:0]oShapeX;
-  output oLED;
+    iPush_right);
   output [9:0]oShapeY;
+  output oLED;
+  output [9:0]oShapeX;
   input iRst;
+  input iPush_down;
+  input iPush_left;
   input iClk;
   input iPush_up;
-  input iPush_down;
   input iPush_right;
-  input iPush_left;
 
   wire \FSM_sequential_rFSM_current[0]_i_2_n_0 ;
-  wire \FSM_sequential_rFSM_current[0]_i_3_n_0 ;
-  wire \FSM_sequential_rFSM_current[0]_i_4_n_0 ;
   wire \FSM_sequential_rFSM_current[1]_i_2_n_0 ;
-  wire \FSM_sequential_rFSM_current[1]_i_3_n_0 ;
-  wire \FSM_sequential_rFSM_current[1]_i_4_n_0 ;
-  wire \FSM_sequential_rFSM_current[1]_i_5_n_0 ;
-  wire \FSM_sequential_rFSM_current[1]_i_6_n_0 ;
+  wire \FSM_sequential_rFSM_current[2]_i_2_n_0 ;
   wire \FSM_sequential_rFSM_current[2]_i_3_n_0 ;
   wire iClk;
   wire iPush_down;
@@ -47,7 +42,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
   wire iPush_right;
   wire iPush_up;
   wire iRst;
-  wire [9:9]in10;
   wire oLED;
   wire [9:0]oShapeX;
   wire [9:0]oShapeY;
@@ -59,20 +53,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
   wire \r_oShapeX_next_reg[1]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[2]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[3]_i_1_n_0 ;
+  wire \r_oShapeX_next_reg[3]_i_2_n_0 ;
   wire \r_oShapeX_next_reg[4]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[4]_i_2_n_0 ;
-  wire \r_oShapeX_next_reg[4]_i_3_n_0 ;
   wire \r_oShapeX_next_reg[5]_i_1_n_0 ;
-  wire \r_oShapeX_next_reg[5]_i_2_n_0 ;
-  wire \r_oShapeX_next_reg[5]_i_3_n_0 ;
   wire \r_oShapeX_next_reg[6]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[7]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[7]_i_2_n_0 ;
   wire \r_oShapeX_next_reg[7]_i_3_n_0 ;
   wire \r_oShapeX_next_reg[8]_i_1_n_0 ;
-  wire \r_oShapeX_next_reg[8]_i_2_n_0 ;
-  wire \r_oShapeX_next_reg[8]_i_3_n_0 ;
-  wire \r_oShapeX_next_reg[8]_i_4_n_0 ;
   wire \r_oShapeX_next_reg[9]_i_1_n_0 ;
   wire \r_oShapeX_next_reg[9]_i_2_n_0 ;
   wire \r_oShapeX_next_reg[9]_i_3_n_0 ;
@@ -83,144 +72,73 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
   wire \r_oShapeY_next_reg[3]_i_1_n_0 ;
   wire \r_oShapeY_next_reg[4]_i_1_n_0 ;
   wire \r_oShapeY_next_reg[4]_i_2_n_0 ;
-  wire \r_oShapeY_next_reg[4]_i_3_n_0 ;
   wire \r_oShapeY_next_reg[5]_i_1_n_0 ;
+  wire \r_oShapeY_next_reg[5]_i_2_n_0 ;
+  wire \r_oShapeY_next_reg[5]_i_3_n_0 ;
   wire \r_oShapeY_next_reg[6]_i_1_n_0 ;
-  wire \r_oShapeY_next_reg[6]_i_2_n_0 ;
   wire \r_oShapeY_next_reg[7]_i_1_n_0 ;
   wire \r_oShapeY_next_reg[7]_i_2_n_0 ;
   wire \r_oShapeY_next_reg[7]_i_3_n_0 ;
   wire \r_oShapeY_next_reg[8]_i_1_n_0 ;
-  wire \r_oShapeY_next_reg[8]_i_2_n_0 ;
-  wire \r_oShapeY_next_reg[8]_i_3_n_0 ;
   wire \r_oShapeY_next_reg[9]_i_1_n_0 ;
   wire \r_oShapeY_next_reg[9]_i_2_n_0 ;
   wire \r_oShapeY_next_reg[9]_i_3_n_0 ;
   wire \r_oShapeY_next_reg[9]_i_4_n_0 ;
   wire \r_oShapeY_next_reg[9]_i_5_n_0 ;
-  wire \r_oShapeY_next_reg[9]_i_6_n_0 ;
-  wire \r_oShapeY_next_reg[9]_i_7_n_0 ;
   wire timer_inst_n_0;
   wire timer_inst_n_1;
   wire timer_inst_n_2;
-  wire w_iBoundary_hor;
-  wire w_iBoundary_hor__0;
-  wire w_iBoundary_hor_reg_i_1_n_0;
-  wire w_iBoundary_hor_reg_i_2_n_0;
-  wire w_iBoundary_hor_reg_i_3_n_0;
-  wire w_iBoundary_hor_reg_i_5_n_0;
-  wire w_iBoundary_hor_reg_i_6_n_0;
-  wire w_iBoundary_vert;
-  wire w_iBoundary_vert__0;
-  wire w_iBoundary_vert_reg_i_1_n_0;
-  wire w_iBoundary_vert_reg_i_2_n_0;
-  wire w_iBoundary_vert_reg_i_3_n_0;
-  wire w_iBoundary_vert_reg_i_5_n_0;
-  wire w_iBoundary_vert_reg_i_6_n_0;
-  wire w_iBoundary_vert_reg_i_7_n_0;
-  wire w_iBoundary_vert_reg_i_8_n_0;
 
-  LUT6 #(
-    .INIT(64'h00000000EEFE0000)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     \FSM_sequential_rFSM_current[0]_i_2 
-       (.I0(iPush_up),
-        .I1(w_iBoundary_hor),
-        .I2(iPush_down),
-        .I3(iPush_right),
-        .I4(rFSM_current[1]),
-        .I5(rFSM_current[2]),
-        .O(\FSM_sequential_rFSM_current[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT5 #(
-    .INIT(32'h00000001)) 
-    \FSM_sequential_rFSM_current[0]_i_3 
-       (.I0(iPush_up),
-        .I1(iPush_down),
-        .I2(iPush_right),
-        .I3(iPush_left),
-        .I4(rFSM_current[2]),
-        .O(\FSM_sequential_rFSM_current[0]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT3 #(
-    .INIT(8'h62)) 
-    \FSM_sequential_rFSM_current[0]_i_4 
-       (.I0(rFSM_current[2]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[0]),
-        .O(\FSM_sequential_rFSM_current[0]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000010000)) 
-    \FSM_sequential_rFSM_current[1]_i_2 
-       (.I0(iPush_up),
-        .I1(w_iBoundary_hor),
-        .I2(iPush_down),
-        .I3(iPush_right),
-        .I4(iPush_left),
-        .I5(w_iBoundary_vert_reg_i_6_n_0),
-        .O(\FSM_sequential_rFSM_current[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'h00040000)) 
-    \FSM_sequential_rFSM_current[1]_i_3 
-       (.I0(w_iBoundary_vert),
+       (.I0(iPush_right),
         .I1(iPush_up),
-        .I2(rFSM_current[0]),
-        .I3(rFSM_current[2]),
-        .I4(rFSM_current[1]),
-        .O(\FSM_sequential_rFSM_current[1]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT4 #(
-    .INIT(16'h0200)) 
-    \FSM_sequential_rFSM_current[1]_i_4 
-       (.I0(rFSM_current[0]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[2]),
-        .I3(\FSM_sequential_rFSM_current[1]_i_6_n_0 ),
-        .O(\FSM_sequential_rFSM_current[1]_i_4_n_0 ));
+        .O(\FSM_sequential_rFSM_current[0]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h0000FFFE)) 
-    \FSM_sequential_rFSM_current[1]_i_5 
-       (.I0(iPush_up),
+  LUT4 #(
+    .INIT(16'hFF0E)) 
+    \FSM_sequential_rFSM_current[1]_i_2 
+       (.I0(iPush_left),
         .I1(iPush_down),
         .I2(iPush_right),
-        .I3(iPush_left),
-        .I4(w_iBoundary_vert_reg_i_6_n_0),
-        .O(\FSM_sequential_rFSM_current[1]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_sequential_rFSM_current[1]_i_6 
-       (.I0(iPush_left),
+        .I3(iPush_up),
+        .O(\FSM_sequential_rFSM_current[1]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFEFFFFFFFE0000)) 
+    \FSM_sequential_rFSM_current[2]_i_2 
+       (.I0(iPush_up),
         .I1(iPush_right),
         .I2(iPush_down),
-        .I3(iPush_up),
-        .O(\FSM_sequential_rFSM_current[1]_i_6_n_0 ));
-  LUT6 #(
-    .INIT(64'h0303030311031100)) 
+        .I3(iPush_left),
+        .I4(rFSM_current[1]),
+        .I5(rFSM_current[2]),
+        .O(\FSM_sequential_rFSM_current[2]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hBABBBABA)) 
     \FSM_sequential_rFSM_current[2]_i_3 
-       (.I0(w_iBoundary_vert),
+       (.I0(rFSM_current[2]),
         .I1(iPush_up),
-        .I2(w_iBoundary_hor),
+        .I2(iPush_right),
         .I3(iPush_down),
         .I4(iPush_left),
-        .I5(iPush_right),
         .O(\FSM_sequential_rFSM_current[2]_i_3_n_0 ));
-  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:011,sMove_right:100,sMove_down:101,sMove_left:110,sIdle:001,sWait:010" *) 
+  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:101,sMove_right:011,sMove_down:100,sMove_left:001,sIdle:110,sWait:010" *) 
   FDRE \FSM_sequential_rFSM_current_reg[0] 
        (.C(iClk),
         .CE(1'b1),
         .D(timer_inst_n_2),
         .Q(rFSM_current[0]),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:011,sMove_right:100,sMove_down:101,sMove_left:110,sIdle:001,sWait:010" *) 
+  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:101,sMove_right:011,sMove_down:100,sMove_left:001,sIdle:110,sWait:010" *) 
   FDRE \FSM_sequential_rFSM_current_reg[1] 
        (.C(iClk),
         .CE(1'b1),
         .D(timer_inst_n_1),
         .Q(rFSM_current[1]),
         .R(1'b0));
-  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:011,sMove_right:100,sMove_down:101,sMove_left:110,sIdle:001,sWait:010" *) 
+  (* FSM_ENCODED_STATES = "sInit:000,sMove_up:101,sMove_right:011,sMove_down:100,sMove_left:001,sIdle:110,sWait:010" *) 
   FDRE \FSM_sequential_rFSM_current_reg[2] 
        (.C(iClk),
         .CE(1'b1),
@@ -236,20 +154,20 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .PRE(r_iEn_timer),
         .Q(oLED));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
-    .INIT(8'h92)) 
+    .INIT(8'h8A)) 
     r_iEn_timer_reg_i_1
-       (.I0(rFSM_current[0]),
+       (.I0(rFSM_current[1]),
         .I1(rFSM_current[2]),
-        .I2(rFSM_current[1]),
+        .I2(rFSM_current[0]),
         .O(r_iEn_timer_reg_i_1_n_0));
   LUT3 #(
-    .INIT(8'h10)) 
+    .INIT(8'h02)) 
     r_iEn_timer_reg_i_2
-       (.I0(rFSM_current[0]),
-        .I1(rFSM_current[2]),
-        .I2(rFSM_current[1]),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[0]),
+        .I2(rFSM_current[2]),
         .O(r_iEn_timer));
   FDRE \r_oShapeX_current_reg[0] 
        (.C(iClk),
@@ -320,9 +238,9 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[0]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
-    .INIT(8'h02)) 
+    .INIT(8'h04)) 
     \r_oShapeX_next_reg[0]_i_1 
        (.I0(rFSM_current[2]),
         .I1(rFSM_current[0]),
@@ -337,15 +255,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[1]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
-    .INIT(32'hFDDFDFFD)) 
+    .INIT(32'hBFFBFBBF)) 
     \r_oShapeX_next_reg[1]_i_1 
        (.I0(rFSM_current[2]),
         .I1(rFSM_current[0]),
-        .I2(oShapeX[0]),
-        .I3(oShapeX[1]),
-        .I4(rFSM_current[1]),
+        .I2(rFSM_current[1]),
+        .I3(oShapeX[0]),
+        .I4(oShapeX[1]),
         .O(\r_oShapeX_next_reg[1]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -357,14 +275,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeX_next[2]));
   LUT6 #(
-    .INIT(64'h00000000E1780000)) 
+    .INIT(64'h000000006CC90000)) 
     \r_oShapeX_next_reg[2]_i_1 
-       (.I0(oShapeX[1]),
-        .I1(oShapeX[0]),
-        .I2(oShapeX[2]),
-        .I3(rFSM_current[1]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[0]),
+       (.I0(rFSM_current[1]),
+        .I1(oShapeX[2]),
+        .I2(oShapeX[0]),
+        .I3(oShapeX[1]),
+        .I4(rFSM_current[0]),
+        .I5(rFSM_current[2]),
         .O(\r_oShapeX_next_reg[2]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -375,16 +293,24 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[3]));
-  LUT6 #(
-    .INIT(64'hBFFFC002AAA80002)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'hEBFF)) 
     \r_oShapeX_next_reg[3]_i_1 
-       (.I0(\r_oShapeX_next_reg[8]_i_3_n_0 ),
+       (.I0(rFSM_current[2]),
+        .I1(oShapeX[3]),
+        .I2(\r_oShapeX_next_reg[3]_i_2_n_0 ),
+        .I3(rFSM_current[0]),
+        .O(\r_oShapeX_next_reg[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h7FFE)) 
+    \r_oShapeX_next_reg[3]_i_2 
+       (.I0(rFSM_current[1]),
         .I1(oShapeX[2]),
         .I2(oShapeX[0]),
         .I3(oShapeX[1]),
-        .I4(oShapeX[3]),
-        .I5(\r_oShapeX_next_reg[7]_i_3_n_0 ),
-        .O(\r_oShapeX_next_reg[3]_i_1_n_0 ));
+        .O(\r_oShapeX_next_reg[3]_i_2_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -394,34 +320,25 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[4]));
-  LUT6 #(
-    .INIT(64'h00000000A53C0000)) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'h0220)) 
     \r_oShapeX_next_reg[4]_i_1 
-       (.I0(\r_oShapeX_next_reg[4]_i_2_n_0 ),
-        .I1(\r_oShapeX_next_reg[4]_i_3_n_0 ),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[2]),
         .I2(oShapeX[4]),
-        .I3(rFSM_current[1]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[0]),
+        .I3(\r_oShapeX_next_reg[4]_i_2_n_0 ),
         .O(\r_oShapeX_next_reg[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'h80000001)) 
     \r_oShapeX_next_reg[4]_i_2 
-       (.I0(oShapeX[2]),
+       (.I0(oShapeX[1]),
         .I1(oShapeX[0]),
-        .I2(oShapeX[1]),
+        .I2(oShapeX[2]),
         .I3(oShapeX[3]),
+        .I4(rFSM_current[1]),
         .O(\r_oShapeX_next_reg[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
-    \r_oShapeX_next_reg[4]_i_3 
-       (.I0(oShapeX[2]),
-        .I1(oShapeX[0]),
-        .I2(oShapeX[1]),
-        .I3(oShapeX[3]),
-        .O(\r_oShapeX_next_reg[4]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -431,36 +348,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[5]));
-  LUT6 #(
-    .INIT(64'h00000000A53C0000)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT4 #(
+    .INIT(16'h0220)) 
     \r_oShapeX_next_reg[5]_i_1 
-       (.I0(\r_oShapeX_next_reg[5]_i_2_n_0 ),
-        .I1(\r_oShapeX_next_reg[5]_i_3_n_0 ),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[2]),
         .I2(oShapeX[5]),
-        .I3(rFSM_current[1]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[0]),
+        .I3(\r_oShapeX_next_reg[7]_i_3_n_0 ),
         .O(\r_oShapeX_next_reg[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \r_oShapeX_next_reg[5]_i_2 
-       (.I0(oShapeX[3]),
-        .I1(oShapeX[1]),
-        .I2(oShapeX[0]),
-        .I3(oShapeX[2]),
-        .I4(oShapeX[4]),
-        .O(\r_oShapeX_next_reg[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT5 #(
-    .INIT(32'h80000000)) 
-    \r_oShapeX_next_reg[5]_i_3 
-       (.I0(oShapeX[3]),
-        .I1(oShapeX[1]),
-        .I2(oShapeX[0]),
-        .I3(oShapeX[2]),
-        .I4(oShapeX[4]),
-        .O(\r_oShapeX_next_reg[5]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -471,14 +367,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeX_next[6]));
   LUT6 #(
-    .INIT(64'h00000000A53C0000)) 
+    .INIT(64'h0222220220000020)) 
     \r_oShapeX_next_reg[6]_i_1 
-       (.I0(\r_oShapeX_next_reg[8]_i_2_n_0 ),
-        .I1(\r_oShapeX_next_reg[7]_i_2_n_0 ),
-        .I2(oShapeX[6]),
-        .I3(rFSM_current[1]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[0]),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[2]),
+        .I2(\r_oShapeX_next_reg[7]_i_3_n_0 ),
+        .I3(oShapeX[5]),
+        .I4(rFSM_current[1]),
+        .I5(oShapeX[6]),
         .O(\r_oShapeX_next_reg[6]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -490,32 +386,31 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeX_next[7]));
   LUT6 #(
-    .INIT(64'hCFFFF404C8C80404)) 
+    .INIT(64'h2AAAAA8A80000020)) 
     \r_oShapeX_next_reg[7]_i_1 
-       (.I0(\r_oShapeX_next_reg[8]_i_2_n_0 ),
-        .I1(\r_oShapeX_next_reg[8]_i_3_n_0 ),
-        .I2(oShapeX[6]),
-        .I3(\r_oShapeX_next_reg[7]_i_2_n_0 ),
-        .I4(oShapeX[7]),
-        .I5(\r_oShapeX_next_reg[7]_i_3_n_0 ),
+       (.I0(\r_oShapeX_next_reg[7]_i_2_n_0 ),
+        .I1(oShapeX[5]),
+        .I2(\r_oShapeX_next_reg[7]_i_3_n_0 ),
+        .I3(oShapeX[6]),
+        .I4(rFSM_current[1]),
+        .I5(oShapeX[7]),
         .O(\r_oShapeX_next_reg[7]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h8000000000000000)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \r_oShapeX_next_reg[7]_i_2 
-       (.I0(oShapeX[4]),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[2]),
+        .O(\r_oShapeX_next_reg[7]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h8000000000000001)) 
+    \r_oShapeX_next_reg[7]_i_3 
+       (.I0(oShapeX[3]),
         .I1(oShapeX[2]),
         .I2(oShapeX[0]),
         .I3(oShapeX[1]),
-        .I4(oShapeX[3]),
-        .I5(oShapeX[5]),
-        .O(\r_oShapeX_next_reg[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'h04)) 
-    \r_oShapeX_next_reg[7]_i_3 
-       (.I0(rFSM_current[1]),
-        .I1(rFSM_current[2]),
-        .I2(rFSM_current[0]),
+        .I4(oShapeX[4]),
+        .I5(rFSM_current[1]),
         .O(\r_oShapeX_next_reg[7]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -526,42 +421,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeX_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeX_next[8]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFE010000)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'h2002)) 
     \r_oShapeX_next_reg[8]_i_1 
-       (.I0(\r_oShapeX_next_reg[8]_i_2_n_0 ),
-        .I1(oShapeX[6]),
-        .I2(oShapeX[7]),
-        .I3(oShapeX[8]),
-        .I4(\r_oShapeX_next_reg[8]_i_3_n_0 ),
-        .I5(\r_oShapeX_next_reg[8]_i_4_n_0 ),
-        .O(\r_oShapeX_next_reg[8]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \r_oShapeX_next_reg[8]_i_2 
-       (.I0(oShapeX[4]),
-        .I1(oShapeX[2]),
-        .I2(oShapeX[0]),
-        .I3(oShapeX[1]),
-        .I4(oShapeX[3]),
-        .I5(oShapeX[5]),
-        .O(\r_oShapeX_next_reg[8]_i_2_n_0 ));
-  LUT3 #(
-    .INIT(8'h08)) 
-    \r_oShapeX_next_reg[8]_i_3 
-       (.I0(rFSM_current[1]),
+       (.I0(rFSM_current[0]),
         .I1(rFSM_current[2]),
-        .I2(rFSM_current[0]),
-        .O(\r_oShapeX_next_reg[8]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'h28888888)) 
-    \r_oShapeX_next_reg[8]_i_4 
-       (.I0(\r_oShapeX_next_reg[7]_i_3_n_0 ),
-        .I1(oShapeX[8]),
-        .I2(oShapeX[7]),
-        .I3(oShapeX[6]),
-        .I4(\r_oShapeX_next_reg[7]_i_2_n_0 ),
-        .O(\r_oShapeX_next_reg[8]_i_4_n_0 ));
+        .I2(\r_oShapeX_next_reg[9]_i_3_n_0 ),
+        .I3(oShapeX[8]),
+        .O(\r_oShapeX_next_reg[8]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -572,41 +440,32 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeX_next[9]));
   LUT6 #(
-    .INIT(64'h0000000099F00000)) 
+    .INIT(64'h2020202002202002)) 
     \r_oShapeX_next_reg[9]_i_1 
-       (.I0(\r_oShapeX_next_reg[9]_i_3_n_0 ),
-        .I1(oShapeX[9]),
-        .I2(in10),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[2]),
+        .I2(oShapeX[9]),
         .I3(rFSM_current[1]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[0]),
+        .I4(oShapeX[8]),
+        .I5(\r_oShapeX_next_reg[9]_i_3_n_0 ),
         .O(\r_oShapeX_next_reg[9]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
-    .INIT(8'h0D)) 
+    .INIT(8'h31)) 
     \r_oShapeX_next_reg[9]_i_2 
        (.I0(rFSM_current[1]),
         .I1(rFSM_current[2]),
         .I2(rFSM_current[0]),
         .O(\r_oShapeX_next_reg[9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \r_oShapeX_next_reg[9]_i_3 
-       (.I0(oShapeX[8]),
-        .I1(\r_oShapeX_next_reg[8]_i_2_n_0 ),
-        .I2(oShapeX[6]),
-        .I3(oShapeX[7]),
-        .O(\r_oShapeX_next_reg[9]_i_3_n_0 ));
   LUT5 #(
-    .INIT(32'h7FFF8000)) 
-    \r_oShapeX_next_reg[9]_i_4 
-       (.I0(\r_oShapeX_next_reg[7]_i_2_n_0 ),
-        .I1(oShapeX[8]),
-        .I2(oShapeX[7]),
-        .I3(oShapeX[6]),
-        .I4(oShapeX[9]),
-        .O(in10));
+    .INIT(32'h7FFFFFFB)) 
+    \r_oShapeX_next_reg[9]_i_3 
+       (.I0(oShapeX[6]),
+        .I1(\r_oShapeX_next_reg[7]_i_3_n_0 ),
+        .I2(oShapeX[5]),
+        .I3(oShapeX[7]),
+        .I4(rFSM_current[1]),
+        .O(\r_oShapeX_next_reg[9]_i_3_n_0 ));
   FDRE \r_oShapeY_current_reg[0] 
        (.C(iClk),
         .CE(1'b1),
@@ -676,14 +535,12 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeY_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeY_next[0]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'hF77F)) 
+  LUT3 #(
+    .INIT(8'h04)) 
     \r_oShapeY_next_reg[0]_i_1 
-       (.I0(rFSM_current[0]),
-        .I1(oShapeY[0]),
-        .I2(rFSM_current[2]),
-        .I3(rFSM_current[1]),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(oShapeY[0]),
         .O(\r_oShapeY_next_reg[0]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -694,12 +551,12 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .G(\r_oShapeY_next_reg[9]_i_2_n_0 ),
         .GE(1'b1),
         .Q(r_oShapeY_next[1]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'h00609000)) 
+    .INIT(32'hFF96FFFF)) 
     \r_oShapeY_next_reg[1]_i_1 
-       (.I0(oShapeY[0]),
-        .I1(oShapeY[1]),
+       (.I0(oShapeY[1]),
+        .I1(oShapeY[0]),
         .I2(rFSM_current[0]),
         .I3(rFSM_current[1]),
         .I4(rFSM_current[2]),
@@ -714,14 +571,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[2]));
   LUT6 #(
-    .INIT(64'h00007800E1000000)) 
+    .INIT(64'h4044440404000040)) 
     \r_oShapeY_next_reg[2]_i_1 
-       (.I0(oShapeY[1]),
-        .I1(oShapeY[0]),
-        .I2(oShapeY[2]),
-        .I3(rFSM_current[0]),
-        .I4(rFSM_current[1]),
-        .I5(rFSM_current[2]),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(rFSM_current[0]),
+        .I3(oShapeY[1]),
+        .I4(oShapeY[0]),
+        .I5(oShapeY[2]),
         .O(\r_oShapeY_next_reg[2]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -733,14 +590,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[3]));
   LUT6 #(
-    .INIT(64'hFFFE80032AAA8000)) 
+    .INIT(64'hBFFD4002FFFFFFFF)) 
     \r_oShapeY_next_reg[3]_i_1 
-       (.I0(\r_oShapeY_next_reg[9]_i_5_n_0 ),
-        .I1(oShapeY[2]),
-        .I2(oShapeY[0]),
-        .I3(oShapeY[1]),
+       (.I0(rFSM_current[0]),
+        .I1(oShapeY[0]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[2]),
         .I4(oShapeY[3]),
-        .I5(\r_oShapeY_next_reg[9]_i_7_n_0 ),
+        .I5(\r_oShapeY_next_reg[9]_i_3_n_0 ),
         .O(\r_oShapeY_next_reg[3]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -752,33 +609,23 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[4]));
   LUT6 #(
-    .INIT(64'h00005A00C3000000)) 
+    .INIT(64'h4444400400000440)) 
     \r_oShapeY_next_reg[4]_i_1 
-       (.I0(\r_oShapeY_next_reg[4]_i_2_n_0 ),
-        .I1(\r_oShapeY_next_reg[4]_i_3_n_0 ),
-        .I2(oShapeY[4]),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(oShapeY[3]),
         .I3(rFSM_current[0]),
-        .I4(rFSM_current[1]),
-        .I5(rFSM_current[2]),
+        .I4(\r_oShapeY_next_reg[4]_i_2_n_0 ),
+        .I5(oShapeY[4]),
         .O(\r_oShapeY_next_reg[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
-    .INIT(16'h8000)) 
+    .INIT(16'hBFFD)) 
     \r_oShapeY_next_reg[4]_i_2 
-       (.I0(oShapeY[2]),
+       (.I0(rFSM_current[0]),
         .I1(oShapeY[0]),
         .I2(oShapeY[1]),
-        .I3(oShapeY[3]),
+        .I3(oShapeY[2]),
         .O(\r_oShapeY_next_reg[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \r_oShapeY_next_reg[4]_i_3 
-       (.I0(oShapeY[2]),
-        .I1(oShapeY[0]),
-        .I2(oShapeY[1]),
-        .I3(oShapeY[3]),
-        .O(\r_oShapeY_next_reg[4]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -789,15 +636,35 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[5]));
   LUT6 #(
-    .INIT(64'h00005A00C3000000)) 
+    .INIT(64'h4400400400444004)) 
     \r_oShapeY_next_reg[5]_i_1 
-       (.I0(\r_oShapeY_next_reg[9]_i_3_n_0 ),
-        .I1(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I2(oShapeY[5]),
-        .I3(rFSM_current[0]),
-        .I4(rFSM_current[1]),
-        .I5(rFSM_current[2]),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(\r_oShapeY_next_reg[5]_i_2_n_0 ),
+        .I3(oShapeY[5]),
+        .I4(rFSM_current[0]),
+        .I5(\r_oShapeY_next_reg[5]_i_3_n_0 ),
         .O(\r_oShapeY_next_reg[5]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h7FFFFFFF)) 
+    \r_oShapeY_next_reg[5]_i_2 
+       (.I0(oShapeY[3]),
+        .I1(oShapeY[0]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[2]),
+        .I4(oShapeY[4]),
+        .O(\r_oShapeY_next_reg[5]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \r_oShapeY_next_reg[5]_i_3 
+       (.I0(oShapeY[4]),
+        .I1(oShapeY[2]),
+        .I2(oShapeY[0]),
+        .I3(oShapeY[1]),
+        .I4(oShapeY[3]),
+        .O(\r_oShapeY_next_reg[5]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -808,25 +675,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[6]));
   LUT6 #(
-    .INIT(64'hFFFC808F4C4C8080)) 
+    .INIT(64'h4400400400444004)) 
     \r_oShapeY_next_reg[6]_i_1 
-       (.I0(\r_oShapeY_next_reg[9]_i_3_n_0 ),
-        .I1(\r_oShapeY_next_reg[9]_i_5_n_0 ),
-        .I2(oShapeY[5]),
-        .I3(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I4(oShapeY[6]),
-        .I5(\r_oShapeY_next_reg[9]_i_7_n_0 ),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(\r_oShapeY_next_reg[7]_i_2_n_0 ),
+        .I3(oShapeY[6]),
+        .I4(rFSM_current[0]),
+        .I5(\r_oShapeY_next_reg[7]_i_3_n_0 ),
         .O(\r_oShapeY_next_reg[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \r_oShapeY_next_reg[6]_i_2 
-       (.I0(oShapeY[3]),
-        .I1(oShapeY[1]),
-        .I2(oShapeY[0]),
-        .I3(oShapeY[2]),
-        .I4(oShapeY[4]),
-        .O(\r_oShapeY_next_reg[6]_i_2_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -837,28 +694,34 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[7]));
   LUT6 #(
-    .INIT(64'hFF7080FF70708080)) 
+    .INIT(64'hAA008A20A00A8A20)) 
     \r_oShapeY_next_reg[7]_i_1 
-       (.I0(\r_oShapeY_next_reg[7]_i_2_n_0 ),
-        .I1(\r_oShapeY_next_reg[9]_i_3_n_0 ),
-        .I2(\r_oShapeY_next_reg[9]_i_5_n_0 ),
-        .I3(\r_oShapeY_next_reg[7]_i_3_n_0 ),
-        .I4(oShapeY[7]),
-        .I5(\r_oShapeY_next_reg[9]_i_7_n_0 ),
+       (.I0(\r_oShapeY_next_reg[9]_i_3_n_0 ),
+        .I1(\r_oShapeY_next_reg[7]_i_2_n_0 ),
+        .I2(oShapeY[6]),
+        .I3(oShapeY[7]),
+        .I4(rFSM_current[0]),
+        .I5(\r_oShapeY_next_reg[7]_i_3_n_0 ),
         .O(\r_oShapeY_next_reg[7]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT6 #(
+    .INIT(64'h7FFFFFFFFFFFFFFF)) 
     \r_oShapeY_next_reg[7]_i_2 
-       (.I0(oShapeY[5]),
-        .I1(oShapeY[6]),
+       (.I0(oShapeY[4]),
+        .I1(oShapeY[2]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[0]),
+        .I4(oShapeY[3]),
+        .I5(oShapeY[5]),
         .O(\r_oShapeY_next_reg[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \r_oShapeY_next_reg[7]_i_3 
        (.I0(oShapeY[5]),
-        .I1(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I2(oShapeY[6]),
+        .I1(oShapeY[3]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[0]),
+        .I4(oShapeY[2]),
+        .I5(oShapeY[4]),
         .O(\r_oShapeY_next_reg[7]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
@@ -870,32 +733,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[8]));
   LUT6 #(
-    .INIT(64'hFF7080FF70708080)) 
+    .INIT(64'h0044044044000440)) 
     \r_oShapeY_next_reg[8]_i_1 
-       (.I0(\r_oShapeY_next_reg[9]_i_3_n_0 ),
-        .I1(\r_oShapeY_next_reg[8]_i_2_n_0 ),
-        .I2(\r_oShapeY_next_reg[9]_i_5_n_0 ),
-        .I3(\r_oShapeY_next_reg[8]_i_3_n_0 ),
-        .I4(oShapeY[8]),
-        .I5(\r_oShapeY_next_reg[9]_i_7_n_0 ),
+       (.I0(rFSM_current[1]),
+        .I1(rFSM_current[2]),
+        .I2(\r_oShapeY_next_reg[9]_i_4_n_0 ),
+        .I3(oShapeY[8]),
+        .I4(rFSM_current[0]),
+        .I5(\r_oShapeY_next_reg[9]_i_5_n_0 ),
         .O(\r_oShapeY_next_reg[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'h80)) 
-    \r_oShapeY_next_reg[8]_i_2 
-       (.I0(oShapeY[6]),
-        .I1(oShapeY[5]),
-        .I2(oShapeY[7]),
-        .O(\r_oShapeY_next_reg[8]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \r_oShapeY_next_reg[8]_i_3 
-       (.I0(oShapeY[6]),
-        .I1(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I2(oShapeY[5]),
-        .I3(oShapeY[7]),
-        .O(\r_oShapeY_next_reg[8]_i_3_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
@@ -906,242 +752,82 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA
         .GE(1'b1),
         .Q(r_oShapeY_next[9]));
   LUT6 #(
-    .INIT(64'hFF7080FF70708080)) 
+    .INIT(64'hA00A2A80AA002A80)) 
     \r_oShapeY_next_reg[9]_i_1 
        (.I0(\r_oShapeY_next_reg[9]_i_3_n_0 ),
         .I1(\r_oShapeY_next_reg[9]_i_4_n_0 ),
-        .I2(\r_oShapeY_next_reg[9]_i_5_n_0 ),
-        .I3(\r_oShapeY_next_reg[9]_i_6_n_0 ),
-        .I4(oShapeY[9]),
-        .I5(\r_oShapeY_next_reg[9]_i_7_n_0 ),
+        .I2(oShapeY[8]),
+        .I3(oShapeY[9]),
+        .I4(rFSM_current[0]),
+        .I5(\r_oShapeY_next_reg[9]_i_5_n_0 ),
         .O(\r_oShapeY_next_reg[9]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
-    .INIT(8'h29)) 
+    .INIT(8'h45)) 
     \r_oShapeY_next_reg[9]_i_2 
-       (.I0(rFSM_current[0]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[2]),
-        .O(\r_oShapeY_next_reg[9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'h80000000)) 
-    \r_oShapeY_next_reg[9]_i_3 
-       (.I0(oShapeY[3]),
-        .I1(oShapeY[1]),
-        .I2(oShapeY[0]),
-        .I3(oShapeY[2]),
-        .I4(oShapeY[4]),
-        .O(\r_oShapeY_next_reg[9]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
-    \r_oShapeY_next_reg[9]_i_4 
-       (.I0(oShapeY[7]),
-        .I1(oShapeY[5]),
-        .I2(oShapeY[6]),
-        .I3(oShapeY[8]),
-        .O(\r_oShapeY_next_reg[9]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
-  LUT3 #(
-    .INIT(8'h40)) 
-    \r_oShapeY_next_reg[9]_i_5 
        (.I0(rFSM_current[1]),
         .I1(rFSM_current[2]),
         .I2(rFSM_current[0]),
-        .O(\r_oShapeY_next_reg[9]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \r_oShapeY_next_reg[9]_i_6 
-       (.I0(oShapeY[7]),
-        .I1(oShapeY[5]),
-        .I2(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I3(oShapeY[6]),
-        .I4(oShapeY[8]),
-        .O(\r_oShapeY_next_reg[9]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+        .O(\r_oShapeY_next_reg[9]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \r_oShapeY_next_reg[9]_i_3 
+       (.I0(rFSM_current[2]),
+        .I1(rFSM_current[1]),
+        .O(\r_oShapeY_next_reg[9]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'h08)) 
-    \r_oShapeY_next_reg[9]_i_7 
-       (.I0(rFSM_current[0]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[2]),
-        .O(\r_oShapeY_next_reg[9]_i_7_n_0 ));
+    \r_oShapeY_next_reg[9]_i_4 
+       (.I0(oShapeY[7]),
+        .I1(oShapeY[6]),
+        .I2(\r_oShapeY_next_reg[7]_i_2_n_0 ),
+        .O(\r_oShapeY_next_reg[9]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    \r_oShapeY_next_reg[9]_i_5 
+       (.I0(oShapeY[7]),
+        .I1(\r_oShapeY_next_reg[7]_i_3_n_0 ),
+        .I2(oShapeY[6]),
+        .O(\r_oShapeY_next_reg[9]_i_5_n_0 ));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_timer_1s timer_inst
-       (.E(\r_oShapeX_next_reg[9]_i_2_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[0] (timer_inst_n_0),
-        .\FSM_sequential_rFSM_current_reg[0]_0 (\FSM_sequential_rFSM_current[0]_i_2_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[0]_1 (\FSM_sequential_rFSM_current[0]_i_3_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[0]_2 (\FSM_sequential_rFSM_current[0]_i_4_n_0 ),
+       (.\FSM_sequential_rFSM_current_reg[0] (timer_inst_n_0),
+        .\FSM_sequential_rFSM_current_reg[0]_0 (timer_inst_n_1),
+        .\FSM_sequential_rFSM_current_reg[0]_1 (\FSM_sequential_rFSM_current[0]_i_2_n_0 ),
         .\FSM_sequential_rFSM_current_reg[1] (\FSM_sequential_rFSM_current[1]_i_2_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[1]_0 (\FSM_sequential_rFSM_current[1]_i_3_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[1]_1 (\FSM_sequential_rFSM_current[1]_i_4_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[1]_2 (\FSM_sequential_rFSM_current[1]_i_5_n_0 ),
-        .\FSM_sequential_rFSM_current_reg[2] (\FSM_sequential_rFSM_current[2]_i_3_n_0 ),
+        .\FSM_sequential_rFSM_current_reg[2] (\FSM_sequential_rFSM_current[2]_i_2_n_0 ),
+        .\FSM_sequential_rFSM_current_reg[2]_0 (\FSM_sequential_rFSM_current[2]_i_3_n_0 ),
         .iClk(iClk),
+        .iPush_down(iPush_down),
+        .iPush_down_0(timer_inst_n_2),
+        .iPush_left(iPush_left),
         .iRst(iRst),
-        .iRst_0(timer_inst_n_1),
-        .iRst_1(timer_inst_n_2),
         .oLED(oLED),
-        .rFSM_current(rFSM_current));
-  LDCP w_iBoundary_hor_reg
-       (.CLR(w_iBoundary_hor_reg_i_3_n_0),
-        .D(w_iBoundary_hor_reg_i_1_n_0),
-        .G(w_iBoundary_hor_reg_i_2_n_0),
-        .PRE(w_iBoundary_hor__0),
-        .Q(w_iBoundary_hor));
-  LUT6 #(
-    .INIT(64'h0F0FCF3F0A0ACA3A)) 
-    w_iBoundary_hor_reg_i_1
-       (.I0(iPush_up),
-        .I1(oShapeX[9]),
-        .I2(w_iBoundary_vert_reg_i_6_n_0),
-        .I3(oShapeX[7]),
-        .I4(w_iBoundary_hor_reg_i_5_n_0),
-        .I5(w_iBoundary_hor_reg_i_6_n_0),
-        .O(w_iBoundary_hor_reg_i_1_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFF41FFFFFFFF)) 
-    w_iBoundary_hor_reg_i_2
-       (.I0(w_iBoundary_hor_reg_i_5_n_0),
-        .I1(oShapeX[9]),
-        .I2(oShapeX[7]),
-        .I3(rFSM_current[0]),
-        .I4(rFSM_current[2]),
-        .I5(rFSM_current[1]),
-        .O(w_iBoundary_hor_reg_i_2_n_0));
-  LUT5 #(
-    .INIT(32'h00000010)) 
-    w_iBoundary_hor_reg_i_3
-       (.I0(w_iBoundary_vert_reg_i_6_n_0),
-        .I1(oShapeX[9]),
-        .I2(iPush_right),
-        .I3(iPush_up),
-        .I4(\r_oShapeX_next_reg[9]_i_3_n_0 ),
-        .O(w_iBoundary_hor_reg_i_3_n_0));
-  LUT5 #(
-    .INIT(32'h00000004)) 
-    w_iBoundary_hor_reg_i_4
-       (.I0(oShapeX[9]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[2]),
-        .I3(rFSM_current[0]),
-        .I4(\r_oShapeX_next_reg[9]_i_3_n_0 ),
-        .O(w_iBoundary_hor__0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    w_iBoundary_hor_reg_i_5
-       (.I0(oShapeX[6]),
-        .I1(\r_oShapeX_next_reg[8]_i_2_n_0 ),
-        .I2(oShapeX[8]),
-        .O(w_iBoundary_hor_reg_i_5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT3 #(
-    .INIT(8'hEF)) 
-    w_iBoundary_hor_reg_i_6
-       (.I0(iPush_down),
-        .I1(iPush_right),
-        .I2(iPush_left),
-        .O(w_iBoundary_hor_reg_i_6_n_0));
-  LDCP w_iBoundary_vert_reg
-       (.CLR(w_iBoundary_vert_reg_i_3_n_0),
-        .D(w_iBoundary_vert_reg_i_1_n_0),
-        .G(w_iBoundary_vert_reg_i_2_n_0),
-        .PRE(w_iBoundary_vert__0),
-        .Q(w_iBoundary_vert));
-  LUT5 #(
-    .INIT(32'h20202F20)) 
-    w_iBoundary_vert_reg_i_1
-       (.I0(w_iBoundary_vert_reg_i_5_n_0),
-        .I1(oShapeY[9]),
-        .I2(w_iBoundary_vert_reg_i_6_n_0),
-        .I3(w_iBoundary_vert_reg_i_7_n_0),
-        .I4(iPush_up),
-        .O(w_iBoundary_vert_reg_i_1_n_0));
-  LUT6 #(
-    .INIT(64'hAEAAAAABAAAAAAAA)) 
-    w_iBoundary_vert_reg_i_2
-       (.I0(w_iBoundary_vert_reg_i_6_n_0),
-        .I1(oShapeY[6]),
-        .I2(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I3(oShapeY[5]),
-        .I4(oShapeY[7]),
-        .I5(w_iBoundary_vert_reg_i_8_n_0),
-        .O(w_iBoundary_vert_reg_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h0000000000010000)) 
-    w_iBoundary_vert_reg_i_3
-       (.I0(w_iBoundary_vert_reg_i_6_n_0),
-        .I1(iPush_right),
-        .I2(iPush_up),
-        .I3(oShapeY[9]),
-        .I4(iPush_down),
-        .I5(\r_oShapeY_next_reg[9]_i_6_n_0 ),
-        .O(w_iBoundary_vert_reg_i_3_n_0));
-  LUT5 #(
-    .INIT(32'h00000004)) 
-    w_iBoundary_vert_reg_i_4
-       (.I0(oShapeY[9]),
-        .I1(rFSM_current[1]),
-        .I2(rFSM_current[2]),
-        .I3(rFSM_current[0]),
-        .I4(\r_oShapeY_next_reg[9]_i_6_n_0 ),
-        .O(w_iBoundary_vert__0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h08000001)) 
-    w_iBoundary_vert_reg_i_5
-       (.I0(oShapeY[8]),
-        .I1(oShapeY[6]),
-        .I2(\r_oShapeY_next_reg[6]_i_2_n_0 ),
-        .I3(oShapeY[5]),
-        .I4(oShapeY[7]),
-        .O(w_iBoundary_vert_reg_i_5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT3 #(
-    .INIT(8'hFD)) 
-    w_iBoundary_vert_reg_i_6
-       (.I0(rFSM_current[1]),
-        .I1(rFSM_current[2]),
-        .I2(rFSM_current[0]),
-        .O(w_iBoundary_vert_reg_i_6_n_0));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    w_iBoundary_vert_reg_i_7
-       (.I0(iPush_down),
-        .I1(iPush_right),
-        .I2(iPush_left),
-        .O(w_iBoundary_vert_reg_i_7_n_0));
-  LUT3 #(
-    .INIT(8'h09)) 
-    w_iBoundary_vert_reg_i_8
-       (.I0(oShapeY[8]),
-        .I1(oShapeY[7]),
-        .I2(oShapeY[9]),
-        .O(w_iBoundary_vert_reg_i_8_n_0));
+        .rFSM_current(rFSM_current),
+        .r_iEn_timer(r_iEn_timer));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA_all
    (Q,
     oLED,
-    \r_oShapeY_current_reg[9] ,
+    oShapeX,
     iRst,
+    iPush_down,
+    iPush_left,
     iClk,
     iPush_up,
-    iPush_down,
-    iPush_right,
-    iPush_left);
+    iPush_right);
   output [9:0]Q;
   output oLED;
-  output [9:0]\r_oShapeY_current_reg[9] ;
+  output [9:0]oShapeX;
   input iRst;
+  input iPush_down;
+  input iPush_left;
   input iClk;
   input iPush_up;
-  input iPush_down;
   input iPush_right;
-  input iPush_left;
 
   wire [9:0]Q;
   wire iClk;
@@ -1151,7 +837,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA_all
   wire iPush_up;
   wire iRst;
   wire oLED;
-  wire [9:0]\r_oShapeY_current_reg[9] ;
+  wire [9:0]oShapeX;
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA FSM_VGA_inst
        (.iClk(iClk),
@@ -1161,46 +847,41 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA_all
         .iPush_up(iPush_up),
         .iRst(iRst),
         .oLED(oLED),
-        .oShapeX(Q),
-        .oShapeY(\r_oShapeY_current_reg[9] ));
+        .oShapeX(oShapeX),
+        .oShapeY(Q));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
    (\FSM_sequential_rFSM_current_reg[0] ,
-    iRst_0,
-    iRst_1,
+    \FSM_sequential_rFSM_current_reg[0]_0 ,
+    iPush_down_0,
     oLED,
     iClk,
     \FSM_sequential_rFSM_current_reg[2] ,
+    \FSM_sequential_rFSM_current_reg[2]_0 ,
     rFSM_current,
     iRst,
     \FSM_sequential_rFSM_current_reg[1] ,
-    \FSM_sequential_rFSM_current_reg[1]_0 ,
-    \FSM_sequential_rFSM_current_reg[1]_1 ,
-    \FSM_sequential_rFSM_current_reg[1]_2 ,
-    \FSM_sequential_rFSM_current_reg[0]_0 ,
     \FSM_sequential_rFSM_current_reg[0]_1 ,
-    E,
-    \FSM_sequential_rFSM_current_reg[0]_2 );
+    iPush_down,
+    iPush_left,
+    r_iEn_timer);
   output \FSM_sequential_rFSM_current_reg[0] ;
-  output iRst_0;
-  output iRst_1;
+  output \FSM_sequential_rFSM_current_reg[0]_0 ;
+  output iPush_down_0;
   input oLED;
   input iClk;
   input \FSM_sequential_rFSM_current_reg[2] ;
+  input \FSM_sequential_rFSM_current_reg[2]_0 ;
   input [2:0]rFSM_current;
   input iRst;
   input \FSM_sequential_rFSM_current_reg[1] ;
-  input \FSM_sequential_rFSM_current_reg[1]_0 ;
-  input \FSM_sequential_rFSM_current_reg[1]_1 ;
-  input \FSM_sequential_rFSM_current_reg[1]_2 ;
-  input \FSM_sequential_rFSM_current_reg[0]_0 ;
   input \FSM_sequential_rFSM_current_reg[0]_1 ;
-  input [0:0]E;
-  input \FSM_sequential_rFSM_current_reg[0]_2 ;
+  input iPush_down;
+  input iPush_left;
+  input r_iEn_timer;
 
-  wire [0:0]E;
-  wire \FSM_sequential_rFSM_current[2]_i_2_n_0 ;
+  wire \FSM_sequential_rFSM_current[2]_i_10_n_0 ;
   wire \FSM_sequential_rFSM_current[2]_i_4_n_0 ;
   wire \FSM_sequential_rFSM_current[2]_i_5_n_0 ;
   wire \FSM_sequential_rFSM_current[2]_i_6_n_0 ;
@@ -1210,16 +891,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
   wire \FSM_sequential_rFSM_current_reg[0] ;
   wire \FSM_sequential_rFSM_current_reg[0]_0 ;
   wire \FSM_sequential_rFSM_current_reg[0]_1 ;
-  wire \FSM_sequential_rFSM_current_reg[0]_2 ;
   wire \FSM_sequential_rFSM_current_reg[1] ;
-  wire \FSM_sequential_rFSM_current_reg[1]_0 ;
-  wire \FSM_sequential_rFSM_current_reg[1]_1 ;
-  wire \FSM_sequential_rFSM_current_reg[1]_2 ;
   wire \FSM_sequential_rFSM_current_reg[2] ;
+  wire \FSM_sequential_rFSM_current_reg[2]_0 ;
   wire iClk;
+  wire iPush_down;
+  wire iPush_down_0;
+  wire iPush_left;
   wire iRst;
-  wire iRst_0;
-  wire iRst_1;
   wire oLED;
   wire \rCurrent_count[0]_i_1_n_0 ;
   wire \rCurrent_count[0]_i_3_n_0 ;
@@ -1275,108 +954,108 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
   wire \rCurrent_count_reg[8]_i_1_n_6 ;
   wire \rCurrent_count_reg[8]_i_1_n_7 ;
   wire [2:0]rFSM_current;
+  wire r_iEn_timer;
   wire [25:0]w_oQ;
   wire [3:1]\NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED ;
   wire [3:2]\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED ;
 
   LUT6 #(
-    .INIT(64'h00000000FFFFFFF2)) 
+    .INIT(64'h0000000000007500)) 
     \FSM_sequential_rFSM_current[0]_i_1 
-       (.I0(\FSM_sequential_rFSM_current_reg[0]_0 ),
-        .I1(\FSM_sequential_rFSM_current[2]_i_2_n_0 ),
-        .I2(\FSM_sequential_rFSM_current_reg[0]_1 ),
-        .I3(E),
-        .I4(\FSM_sequential_rFSM_current_reg[0]_2 ),
+       (.I0(\FSM_sequential_rFSM_current_reg[0]_1 ),
+        .I1(iPush_down),
+        .I2(iPush_left),
+        .I3(r_iEn_timer),
+        .I4(\FSM_sequential_rFSM_current[2]_i_4_n_0 ),
         .I5(iRst),
-        .O(iRst_1));
+        .O(iPush_down_0));
   LUT6 #(
-    .INIT(64'h00000000FFFEFEFE)) 
+    .INIT(64'h000000007F7F7B7F)) 
     \FSM_sequential_rFSM_current[1]_i_1 
-       (.I0(\FSM_sequential_rFSM_current_reg[1] ),
-        .I1(\FSM_sequential_rFSM_current_reg[1]_0 ),
-        .I2(\FSM_sequential_rFSM_current_reg[1]_1 ),
-        .I3(\FSM_sequential_rFSM_current_reg[1]_2 ),
-        .I4(\FSM_sequential_rFSM_current[2]_i_2_n_0 ),
+       (.I0(rFSM_current[0]),
+        .I1(rFSM_current[1]),
+        .I2(rFSM_current[2]),
+        .I3(\FSM_sequential_rFSM_current_reg[1] ),
+        .I4(\FSM_sequential_rFSM_current[2]_i_4_n_0 ),
         .I5(iRst),
-        .O(iRst_0));
-  LUT6 #(
-    .INIT(64'h0000000000040000)) 
+        .O(\FSM_sequential_rFSM_current_reg[0]_0 ));
+  LUT5 #(
+    .INIT(32'h00000057)) 
     \FSM_sequential_rFSM_current[2]_i_1 
-       (.I0(\FSM_sequential_rFSM_current[2]_i_2_n_0 ),
-        .I1(\FSM_sequential_rFSM_current_reg[2] ),
-        .I2(rFSM_current[0]),
-        .I3(rFSM_current[2]),
-        .I4(rFSM_current[1]),
-        .I5(iRst),
+       (.I0(\FSM_sequential_rFSM_current_reg[2] ),
+        .I1(\FSM_sequential_rFSM_current_reg[2]_0 ),
+        .I2(\FSM_sequential_rFSM_current[2]_i_4_n_0 ),
+        .I3(rFSM_current[0]),
+        .I4(iRst),
         .O(\FSM_sequential_rFSM_current_reg[0] ));
   LUT6 #(
+    .INIT(64'hFFFFEFFFFFFFFFFF)) 
+    \FSM_sequential_rFSM_current[2]_i_10 
+       (.I0(w_oQ[15]),
+        .I1(w_oQ[8]),
+        .I2(w_oQ[13]),
+        .I3(w_oQ[16]),
+        .I4(w_oQ[6]),
+        .I5(w_oQ[3]),
+        .O(\FSM_sequential_rFSM_current[2]_i_10_n_0 ));
+  LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \FSM_sequential_rFSM_current[2]_i_2 
-       (.I0(\FSM_sequential_rFSM_current[2]_i_4_n_0 ),
-        .I1(\FSM_sequential_rFSM_current[2]_i_5_n_0 ),
-        .I2(\FSM_sequential_rFSM_current[2]_i_6_n_0 ),
-        .I3(\FSM_sequential_rFSM_current[2]_i_7_n_0 ),
-        .I4(\FSM_sequential_rFSM_current[2]_i_8_n_0 ),
-        .I5(\FSM_sequential_rFSM_current[2]_i_9_n_0 ),
-        .O(\FSM_sequential_rFSM_current[2]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFDF)) 
     \FSM_sequential_rFSM_current[2]_i_4 
-       (.I0(w_oQ[14]),
-        .I1(w_oQ[15]),
-        .I2(w_oQ[16]),
-        .I3(w_oQ[17]),
+       (.I0(\FSM_sequential_rFSM_current[2]_i_5_n_0 ),
+        .I1(\FSM_sequential_rFSM_current[2]_i_6_n_0 ),
+        .I2(\FSM_sequential_rFSM_current[2]_i_7_n_0 ),
+        .I3(\FSM_sequential_rFSM_current[2]_i_8_n_0 ),
+        .I4(\FSM_sequential_rFSM_current[2]_i_9_n_0 ),
+        .I5(\FSM_sequential_rFSM_current[2]_i_10_n_0 ),
         .O(\FSM_sequential_rFSM_current[2]_i_4_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \FSM_sequential_rFSM_current[2]_i_5 
-       (.I0(w_oQ[19]),
-        .I1(w_oQ[18]),
-        .I2(w_oQ[21]),
-        .I3(w_oQ[20]),
+       (.I0(w_oQ[2]),
+        .I1(w_oQ[19]),
+        .I2(w_oQ[22]),
+        .I3(w_oQ[12]),
         .O(\FSM_sequential_rFSM_current[2]_i_5_n_0 ));
   LUT4 #(
-    .INIT(16'hFFFE)) 
+    .INIT(16'hFFF7)) 
     \FSM_sequential_rFSM_current[2]_i_6 
-       (.I0(w_oQ[7]),
-        .I1(w_oQ[6]),
-        .I2(w_oQ[9]),
-        .I3(w_oQ[8]),
+       (.I0(w_oQ[24]),
+        .I1(w_oQ[1]),
+        .I2(w_oQ[23]),
+        .I3(w_oQ[25]),
         .O(\FSM_sequential_rFSM_current[2]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hDFFF)) 
     \FSM_sequential_rFSM_current[2]_i_7 
        (.I0(w_oQ[11]),
         .I1(w_oQ[10]),
-        .I2(w_oQ[13]),
-        .I3(w_oQ[12]),
+        .I2(w_oQ[21]),
+        .I3(w_oQ[4]),
         .O(\FSM_sequential_rFSM_current[2]_i_7_n_0 ));
   LUT4 #(
-    .INIT(16'h7FFF)) 
+    .INIT(16'hDFFF)) 
     \FSM_sequential_rFSM_current[2]_i_8 
-       (.I0(w_oQ[3]),
-        .I1(w_oQ[2]),
-        .I2(w_oQ[5]),
-        .I3(w_oQ[4]),
+       (.I0(w_oQ[20]),
+        .I1(w_oQ[17]),
+        .I2(w_oQ[14]),
+        .I3(w_oQ[18]),
         .O(\FSM_sequential_rFSM_current[2]_i_8_n_0 ));
-  LUT6 #(
-    .INIT(64'hFBFFFFFFFFFFFFFF)) 
+  LUT4 #(
+    .INIT(16'hFFDF)) 
     \FSM_sequential_rFSM_current[2]_i_9 
-       (.I0(w_oQ[25]),
-        .I1(w_oQ[24]),
-        .I2(w_oQ[23]),
-        .I3(w_oQ[22]),
-        .I4(w_oQ[1]),
-        .I5(w_oQ[0]),
+       (.I0(w_oQ[0]),
+        .I1(w_oQ[9]),
+        .I2(w_oQ[5]),
+        .I3(w_oQ[7]),
         .O(\FSM_sequential_rFSM_current[2]_i_9_n_0 ));
   LUT6 #(
-    .INIT(64'hABAAFFFFABAAABAA)) 
+    .INIT(64'hFF7AFFFFFF7AFF7A)) 
     \rCurrent_count[0]_i_1 
-       (.I0(iRst),
-        .I1(rFSM_current[2]),
-        .I2(rFSM_current[1]),
-        .I3(rFSM_current[0]),
-        .I4(\FSM_sequential_rFSM_current[2]_i_2_n_0 ),
+       (.I0(rFSM_current[2]),
+        .I1(rFSM_current[1]),
+        .I2(rFSM_current[0]),
+        .I3(iRst),
+        .I4(\FSM_sequential_rFSM_current[2]_i_4_n_0 ),
         .I5(oLED),
         .O(\rCurrent_count[0]_i_1_n_0 ));
   LUT1 #(
@@ -1650,7 +1329,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   VCC VCC
        (.P(\<const1> ));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FSM_VGA_all inst
-       (.Q(oShapeX),
+       (.Q(oShapeY),
         .iClk(iClk),
         .iPush_down(iPush_down),
         .iPush_left(iPush_left),
@@ -1658,77 +1337,69 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
         .iPush_up(iPush_up),
         .iRst(iRst),
         .oLED(oLED),
-        .\r_oShapeY_current_reg[9] (oShapeY));
+        .oShapeX(oShapeX));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_timer_1s
    (\FSM_sequential_rFSM_current_reg[0] ,
-    iRst_0,
-    iRst_1,
+    \FSM_sequential_rFSM_current_reg[0]_0 ,
+    iPush_down_0,
     oLED,
     iClk,
     \FSM_sequential_rFSM_current_reg[2] ,
+    \FSM_sequential_rFSM_current_reg[2]_0 ,
     rFSM_current,
     iRst,
     \FSM_sequential_rFSM_current_reg[1] ,
-    \FSM_sequential_rFSM_current_reg[1]_0 ,
-    \FSM_sequential_rFSM_current_reg[1]_1 ,
-    \FSM_sequential_rFSM_current_reg[1]_2 ,
-    \FSM_sequential_rFSM_current_reg[0]_0 ,
     \FSM_sequential_rFSM_current_reg[0]_1 ,
-    E,
-    \FSM_sequential_rFSM_current_reg[0]_2 );
+    iPush_down,
+    iPush_left,
+    r_iEn_timer);
   output \FSM_sequential_rFSM_current_reg[0] ;
-  output iRst_0;
-  output iRst_1;
+  output \FSM_sequential_rFSM_current_reg[0]_0 ;
+  output iPush_down_0;
   input oLED;
   input iClk;
   input \FSM_sequential_rFSM_current_reg[2] ;
+  input \FSM_sequential_rFSM_current_reg[2]_0 ;
   input [2:0]rFSM_current;
   input iRst;
   input \FSM_sequential_rFSM_current_reg[1] ;
-  input \FSM_sequential_rFSM_current_reg[1]_0 ;
-  input \FSM_sequential_rFSM_current_reg[1]_1 ;
-  input \FSM_sequential_rFSM_current_reg[1]_2 ;
-  input \FSM_sequential_rFSM_current_reg[0]_0 ;
   input \FSM_sequential_rFSM_current_reg[0]_1 ;
-  input [0:0]E;
-  input \FSM_sequential_rFSM_current_reg[0]_2 ;
+  input iPush_down;
+  input iPush_left;
+  input r_iEn_timer;
 
-  wire [0:0]E;
   wire \FSM_sequential_rFSM_current_reg[0] ;
   wire \FSM_sequential_rFSM_current_reg[0]_0 ;
   wire \FSM_sequential_rFSM_current_reg[0]_1 ;
-  wire \FSM_sequential_rFSM_current_reg[0]_2 ;
   wire \FSM_sequential_rFSM_current_reg[1] ;
-  wire \FSM_sequential_rFSM_current_reg[1]_0 ;
-  wire \FSM_sequential_rFSM_current_reg[1]_1 ;
-  wire \FSM_sequential_rFSM_current_reg[1]_2 ;
   wire \FSM_sequential_rFSM_current_reg[2] ;
+  wire \FSM_sequential_rFSM_current_reg[2]_0 ;
   wire iClk;
+  wire iPush_down;
+  wire iPush_down_0;
+  wire iPush_left;
   wire iRst;
-  wire iRst_0;
-  wire iRst_1;
   wire oLED;
   wire [2:0]rFSM_current;
+  wire r_iEn_timer;
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter counter_inst
-       (.E(E),
-        .\FSM_sequential_rFSM_current_reg[0] (\FSM_sequential_rFSM_current_reg[0] ),
+       (.\FSM_sequential_rFSM_current_reg[0] (\FSM_sequential_rFSM_current_reg[0] ),
         .\FSM_sequential_rFSM_current_reg[0]_0 (\FSM_sequential_rFSM_current_reg[0]_0 ),
         .\FSM_sequential_rFSM_current_reg[0]_1 (\FSM_sequential_rFSM_current_reg[0]_1 ),
-        .\FSM_sequential_rFSM_current_reg[0]_2 (\FSM_sequential_rFSM_current_reg[0]_2 ),
         .\FSM_sequential_rFSM_current_reg[1] (\FSM_sequential_rFSM_current_reg[1] ),
-        .\FSM_sequential_rFSM_current_reg[1]_0 (\FSM_sequential_rFSM_current_reg[1]_0 ),
-        .\FSM_sequential_rFSM_current_reg[1]_1 (\FSM_sequential_rFSM_current_reg[1]_1 ),
-        .\FSM_sequential_rFSM_current_reg[1]_2 (\FSM_sequential_rFSM_current_reg[1]_2 ),
         .\FSM_sequential_rFSM_current_reg[2] (\FSM_sequential_rFSM_current_reg[2] ),
+        .\FSM_sequential_rFSM_current_reg[2]_0 (\FSM_sequential_rFSM_current_reg[2]_0 ),
         .iClk(iClk),
+        .iPush_down(iPush_down),
+        .iPush_down_0(iPush_down_0),
+        .iPush_left(iPush_left),
         .iRst(iRst),
-        .iRst_0(iRst_0),
-        .iRst_1(iRst_1),
         .oLED(oLED),
-        .rFSM_current(rFSM_current));
+        .rFSM_current(rFSM_current),
+        .r_iEn_timer(r_iEn_timer));
 endmodule
 `ifndef GLBL
 `define GLBL

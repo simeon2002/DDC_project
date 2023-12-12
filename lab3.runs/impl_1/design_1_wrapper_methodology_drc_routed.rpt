@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Tue Dec 12 17:25:57 2023
+| Date         : Tue Dec 12 23:40:24 2023
 | Host         : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 26
+             Violations found: 24
 +-----------+------------------+------------------------------------------------+------------+
 | Rule      | Severity         | Description                                    | Violations |
 +-----------+------------------+------------------------------------------------+------------+
 | TIMING-6  | Critical Warning | No common primary clock between related clocks | 2          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                   | 1          |
-| TIMING-20 | Warning          | Non-clocked latch                              | 23         |
+| TIMING-20 | Warning          | Non-clocked latch                              | 21         |
 +-----------+------------------+------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -152,16 +152,6 @@ Related violations: <none>
 TIMING-20#21 Warning
 Non-clocked latch  
 The latch design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/r_oShapeY_next_reg[9] cannot be properly analyzed as its control pin design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/r_oShapeY_next_reg[9]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#22 Warning
-Non-clocked latch  
-The latch design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_hor_reg/L7 (in design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_hor_reg macro) cannot be properly analyzed as its control pin design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_hor_reg/L7/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#23 Warning
-Non-clocked latch  
-The latch design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_vert_reg/L7 (in design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_vert_reg macro) cannot be properly analyzed as its control pin design_1_i/FSM_VGA_all_0/inst/FSM_VGA_inst/w_iBoundary_vert_reg/L7/G is not reached by a timing clock
 Related violations: <none>
 
 
