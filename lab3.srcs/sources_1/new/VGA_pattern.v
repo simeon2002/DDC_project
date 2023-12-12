@@ -44,13 +44,16 @@ module VGA_pattern #(
     reg [3:0] r_oRed;
     reg [3:0] r_oGreen;
     reg [3:0] r_oBlue;
-    // test this please!  
     
     // moving shape dimension definitions.
     always @(*)
     begin
-        if (iCountH > iShapeX && iCountV > iShapeY &&
-            iCountH < iShapeX + iShapeSize && iCountV < iShapeY + iShapeSize)
+        if (
+            iCountH > iShapeX && 
+            iCountV > iShapeY &&
+            iCountH < iShapeX + iShapeSize && 
+            iCountV < iShapeY + iShapeSize
+            )
             begin
                 r_oRed <= 15;
                 r_oGreen <= 0;
