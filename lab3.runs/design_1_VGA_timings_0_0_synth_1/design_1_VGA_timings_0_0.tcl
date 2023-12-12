@@ -70,7 +70,12 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_VGA_timings_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-603765-billionaire-he-will-be/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1

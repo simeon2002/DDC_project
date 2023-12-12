@@ -2,8 +2,8 @@
 
 module FSM_VGA #(
     parameter CLOCK_FREQ = 25_000_000,
-    parameter shapeX = 0,
-    parameter shapeY = 210,
+    parameter shapeX = 2,
+    parameter shapeY = 1,
     parameter shape_size = 60,
     parameter VERTICAL_MIN = 0,
     parameter VERTICAL_MAX = 480,

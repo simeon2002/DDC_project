@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# VGA_pattern, VGA_timings
+# Debounce_Switch, Debounce_Switch, Debounce_Switch, Debounce_Switch, Debounce_Switch, FSM_VGA_all, VGA_pattern, VGA_timings
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -166,13 +166,84 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set iClk [ create_bd_port -dir I -type clk iClk ]
+  set iPush_down [ create_bd_port -dir I iPush_down ]
+  set iPush_left [ create_bd_port -dir I iPush_left ]
+  set iPush_right [ create_bd_port -dir I iPush_right ]
+  set iPush_up [ create_bd_port -dir I iPush_up ]
   set iRst [ create_bd_port -dir I iRst ]
   set oBlue [ create_bd_port -dir O -from 3 -to 0 oBlue ]
   set oGreen [ create_bd_port -dir O -from 3 -to 0 oGreen ]
   set oHS [ create_bd_port -dir O oHS ]
+  set oLED [ create_bd_port -dir O oLED ]
   set oRed [ create_bd_port -dir O -from 3 -to 0 oRed ]
   set oVS [ create_bd_port -dir O oVS ]
 
+  # Create instance: Debounce_Switch_0, and set properties
+  set block_name Debounce_Switch
+  set block_cell_name Debounce_Switch_0
+  if { [catch {set Debounce_Switch_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Debounce_Switch_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: Debounce_Switch_1, and set properties
+  set block_name Debounce_Switch
+  set block_cell_name Debounce_Switch_1
+  if { [catch {set Debounce_Switch_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Debounce_Switch_1 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: Debounce_Switch_2, and set properties
+  set block_name Debounce_Switch
+  set block_cell_name Debounce_Switch_2
+  if { [catch {set Debounce_Switch_2 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Debounce_Switch_2 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: Debounce_Switch_3, and set properties
+  set block_name Debounce_Switch
+  set block_cell_name Debounce_Switch_3
+  if { [catch {set Debounce_Switch_3 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Debounce_Switch_3 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: Debounce_Switch_4, and set properties
+  set block_name Debounce_Switch
+  set block_cell_name Debounce_Switch_4
+  if { [catch {set Debounce_Switch_4 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Debounce_Switch_4 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: FSM_VGA_all_0, and set properties
+  set block_name FSM_VGA_all
+  set block_cell_name FSM_VGA_all_0
+  if { [catch {set FSM_VGA_all_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $FSM_VGA_all_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: VGA_pattern_0, and set properties
   set block_name VGA_pattern
   set block_cell_name VGA_pattern_0
@@ -211,28 +282,16 @@ proc create_root_design { parentCell } {
    CONFIG.USE_RESET {false} \
  ] $clk_wiz_0
 
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {60} \
-   CONFIG.CONST_WIDTH {10} \
- ] $xlconstant_0
-
-  # Create instance: xlconstant_1, and set properties
-  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {210} \
-   CONFIG.CONST_WIDTH {10} \
- ] $xlconstant_1
-
-  # Create instance: xlconstant_2, and set properties
-  set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {290} \
-   CONFIG.CONST_WIDTH {10} \
- ] $xlconstant_2
-
   # Create port connections
+  connect_bd_net -net Debounce_Switch_0_o_Switch [get_bd_pins Debounce_Switch_0/o_Switch] [get_bd_pins FSM_VGA_all_0/iRst] [get_bd_pins VGA_timings_0/iRst]
+  connect_bd_net -net Debounce_Switch_1_o_Switch [get_bd_pins Debounce_Switch_1/o_Switch] [get_bd_pins FSM_VGA_all_0/iPush_right]
+  connect_bd_net -net Debounce_Switch_2_o_Switch [get_bd_pins Debounce_Switch_2/o_Switch] [get_bd_pins FSM_VGA_all_0/iPush_up]
+  connect_bd_net -net Debounce_Switch_3_o_Switch [get_bd_pins Debounce_Switch_3/o_Switch] [get_bd_pins FSM_VGA_all_0/iPush_left]
+  connect_bd_net -net Debounce_Switch_4_o_Switch [get_bd_pins Debounce_Switch_4/o_Switch] [get_bd_pins FSM_VGA_all_0/iPush_down]
+  connect_bd_net -net FSM_VGA_all_0_oLED [get_bd_ports oLED] [get_bd_pins FSM_VGA_all_0/oLED]
+  connect_bd_net -net FSM_VGA_all_0_oShapeX [get_bd_pins FSM_VGA_all_0/oShapeX] [get_bd_pins VGA_pattern_0/iShapeX]
+  connect_bd_net -net FSM_VGA_all_0_oShapeY [get_bd_pins FSM_VGA_all_0/oShapeY] [get_bd_pins VGA_pattern_0/iShapeY]
+  connect_bd_net -net FSM_VGA_all_0_oShape_size [get_bd_pins FSM_VGA_all_0/oShape_size] [get_bd_pins VGA_pattern_0/iShapeSize]
   connect_bd_net -net VGA_pattern_0_oBlue [get_bd_ports oBlue] [get_bd_pins VGA_pattern_0/oBlue]
   connect_bd_net -net VGA_pattern_0_oGreen [get_bd_ports oGreen] [get_bd_pins VGA_pattern_0/oGreen]
   connect_bd_net -net VGA_pattern_0_oHS [get_bd_ports oHS] [get_bd_pins VGA_pattern_0/oHS]
@@ -242,12 +301,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net VGA_timings_0_oCountV [get_bd_pins VGA_pattern_0/iCountV] [get_bd_pins VGA_timings_0/oCountV]
   connect_bd_net -net VGA_timings_0_oHS [get_bd_pins VGA_pattern_0/iHS] [get_bd_pins VGA_timings_0/oHS]
   connect_bd_net -net VGA_timings_0_oVS [get_bd_pins VGA_pattern_0/iVS] [get_bd_pins VGA_timings_0/oVS]
-  connect_bd_net -net clk_in1_0_1 [get_bd_ports iClk] [get_bd_pins clk_wiz_0/clk_in1]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins VGA_timings_0/iClk] [get_bd_pins clk_wiz_0/clk_out1]
-  connect_bd_net -net iRst_0_1 [get_bd_ports iRst] [get_bd_pins VGA_timings_0/iRst]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins VGA_pattern_0/iShapeSize] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net xlconstant_1_dout [get_bd_pins VGA_pattern_0/iShapeY] [get_bd_pins xlconstant_1/dout]
-  connect_bd_net -net xlconstant_2_dout [get_bd_pins VGA_pattern_0/iShapeX] [get_bd_pins xlconstant_2/dout]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins Debounce_Switch_0/i_Clk] [get_bd_pins Debounce_Switch_1/i_Clk] [get_bd_pins Debounce_Switch_2/i_Clk] [get_bd_pins Debounce_Switch_3/i_Clk] [get_bd_pins Debounce_Switch_4/i_Clk] [get_bd_pins FSM_VGA_all_0/iClk] [get_bd_pins VGA_timings_0/iClk] [get_bd_pins clk_wiz_0/clk_out1]
+  connect_bd_net -net iClk_1 [get_bd_ports iClk] [get_bd_pins clk_wiz_0/clk_in1]
+  connect_bd_net -net iPush_down_1 [get_bd_ports iPush_down] [get_bd_pins Debounce_Switch_4/i_Switch]
+  connect_bd_net -net iPush_left_1 [get_bd_ports iPush_left] [get_bd_pins Debounce_Switch_3/i_Switch]
+  connect_bd_net -net iPush_right_1 [get_bd_ports iPush_right] [get_bd_pins Debounce_Switch_1/i_Switch]
+  connect_bd_net -net iPush_up_1 [get_bd_ports iPush_up] [get_bd_pins Debounce_Switch_2/i_Switch]
+  connect_bd_net -net iRst_1 [get_bd_ports iRst] [get_bd_pins Debounce_Switch_0/i_Switch]
 
   # Create address segments
 

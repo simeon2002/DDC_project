@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Fri Dec  8 20:19:33 2023
+| Date         : Tue Dec 12 17:25:39 2023
 | Host         : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
 | Design       : design_1_wrapper
@@ -31,12 +31,12 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs              |   44 |     0 |     53200 |  0.08 |
-|   LUT as Logic          |   44 |     0 |     53200 |  0.08 |
+| Slice LUTs              |  171 |     0 |     53200 |  0.32 |
+|   LUT as Logic          |  171 |     0 |     53200 |  0.32 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |   20 |     0 |    106400 |  0.02 |
-|   Register as Flip Flop |   20 |     0 |    106400 |  0.02 |
-|   Register as Latch     |    0 |     0 |    106400 |  0.00 |
+| Slice Registers         |  189 |     0 |    106400 |  0.18 |
+|   Register as Flip Flop |  166 |     0 |    106400 |  0.16 |
+|   Register as Latch     |   23 |     0 |    106400 |  0.02 |
 | F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -48,16 +48,16 @@ Table of Contents
 +-------+--------------+-------------+--------------+
 | Total | Clock Enable | Synchronous | Asynchronous |
 +-------+--------------+-------------+--------------+
-| 0     |            _ |           - |            - |
+| 2     |            _ |           - |            - |
 | 0     |            _ |           - |          Set |
 | 0     |            _ |           - |        Reset |
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
-| 0     |          Yes |           - |        Reset |
+| 1     |          Yes |           - |          Set |
+| 20    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 20    |          Yes |       Reset |            - |
+| 166   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -67,22 +67,22 @@ Table of Contents
 +--------------------------------------------+------+-------+-----------+-------+
 |                  Site Type                 | Used | Fixed | Available | Util% |
 +--------------------------------------------+------+-------+-----------+-------+
-| Slice                                      |   20 |     0 |     13300 |  0.15 |
-|   SLICEL                                   |   15 |     0 |           |       |
-|   SLICEM                                   |    5 |     0 |           |       |
-| LUT as Logic                               |   44 |     0 |     53200 |  0.08 |
+| Slice                                      |   96 |     0 |     13300 |  0.72 |
+|   SLICEL                                   |   62 |     0 |           |       |
+|   SLICEM                                   |   34 |     0 |           |       |
+| LUT as Logic                               |  171 |     0 |     53200 |  0.32 |
 |   using O5 output only                     |    0 |       |           |       |
-|   using O6 output only                     |   27 |       |           |       |
-|   using O5 and O6                          |   17 |       |           |       |
+|   using O6 output only                     |  128 |       |           |       |
+|   using O5 and O6                          |   43 |       |           |       |
 | LUT as Memory                              |    0 |     0 |     17400 |  0.00 |
 |   LUT as Distributed RAM                   |    0 |     0 |           |       |
 |   LUT as Shift Register                    |    0 |     0 |           |       |
-| Slice Registers                            |   20 |     0 |    106400 |  0.02 |
-|   Register driven from within the Slice    |   19 |       |           |       |
-|   Register driven from outside the Slice   |    1 |       |           |       |
-|     LUT in front of the register is unused |    1 |       |           |       |
-|     LUT in front of the register is used   |    0 |       |           |       |
-| Unique Control Sets                        |    2 |       |     13300 |  0.02 |
+| Slice Registers                            |  189 |     0 |    106400 |  0.18 |
+|   Register driven from within the Slice    |  155 |       |           |       |
+|   Register driven from outside the Slice   |   34 |       |           |       |
+|     LUT in front of the register is unused |    6 |       |           |       |
+|     LUT in front of the register is used   |   28 |       |           |       |
+| Unique Control Sets                        |   14 |       |     13300 |  0.11 |
 +--------------------------------------------+------+-------+-----------+-------+
 * * Note: Available Control Sets calculated as Slice * 1, Review the Control Sets Report for more information regarding control sets.
 
@@ -116,9 +116,9 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   16 |    16 |       125 | 12.80 |
-|   IOB Master Pads           |    8 |       |           |       |
-|   IOB Slave Pads            |    8 |       |           |       |
+| Bonded IOB                  |   21 |    21 |       125 | 16.80 |
+|   IOB Master Pads           |   10 |       |           |       |
+|   IOB Slave Pads            |   11 |       |           |       |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -174,18 +174,20 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| LUT2       |   27 |                 LUT |
-| FDRE       |   20 |        Flop & Latch |
-| OBUF       |   14 |                  IO |
-| CARRY4     |   13 |          CarryLogic |
-| LUT6       |   10 |                 LUT |
-| LUT5       |    9 |                 LUT |
-| LUT1       |    7 |                 LUT |
-| LUT4       |    6 |                 LUT |
-| LUT3       |    2 |                 LUT |
-| IBUF       |    2 |                  IO |
+| FDRE       |  166 |        Flop & Latch |
+| LUT6       |   59 |                 LUT |
+| LUT4       |   51 |                 LUT |
+| CARRY4     |   48 |          CarryLogic |
+| LUT5       |   32 |                 LUT |
+| LUT3       |   30 |                 LUT |
+| LUT2       |   26 |                 LUT |
+| LDCE       |   22 |        Flop & Latch |
+| LUT1       |   16 |                 LUT |
+| OBUF       |   15 |                  IO |
+| IBUF       |    6 |                  IO |
 | BUFG       |    2 |               Clock |
 | MMCME2_ADV |    1 |               Clock |
+| LDPE       |    1 |        Flop & Latch |
 +------------+------+---------------------+
 
 
@@ -200,12 +202,18 @@ Table of Contents
 10. Instantiated Netlists
 -------------------------
 
-+--------------------------+------+
-|         Ref Name         | Used |
-+--------------------------+------+
-| design_1_clk_wiz_0_0     |    1 |
-| design_1_VGA_timings_0_0 |    1 |
-| design_1_VGA_pattern_0_0 |    1 |
-+--------------------------+------+
++------------------------------+------+
+|           Ref Name           | Used |
++------------------------------+------+
+| design_1_clk_wiz_0_0         |    1 |
+| design_1_VGA_timings_0_0     |    1 |
+| design_1_VGA_pattern_0_0     |    1 |
+| design_1_FSM_VGA_all_0_0     |    1 |
+| design_1_Debounce_Switch_0_4 |    1 |
+| design_1_Debounce_Switch_0_3 |    1 |
+| design_1_Debounce_Switch_0_2 |    1 |
+| design_1_Debounce_Switch_0_1 |    1 |
+| design_1_Debounce_Switch_0_0 |    1 |
++------------------------------+------+
 
 

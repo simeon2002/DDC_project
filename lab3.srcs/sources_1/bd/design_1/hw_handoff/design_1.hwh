@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec  8 20:15:59 2023" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 12 17:23:08 2023" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -16,7 +16,7 @@
     </PORT>
     <PORT DIR="I" NAME="iRst" SIGIS="undef" SIGNAME="External_Ports_iRst">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
+        <CONNECTION INSTANCE="Debounce_Switch_0" PORT="i_Switch"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="iClk" SIGIS="clk" SIGNAME="External_Ports_iClk">
@@ -39,11 +39,228 @@
         <CONNECTION INSTANCE="VGA_pattern_0" PORT="oHS"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="iPush_right" SIGIS="undef" SIGNAME="External_Ports_iPush_right">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="iPush_up" SIGIS="undef" SIGNAME="External_Ports_iPush_up">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Debounce_Switch_2" PORT="i_Switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="iPush_left" SIGIS="undef" SIGNAME="External_Ports_iPush_left">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Debounce_Switch_3" PORT="i_Switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="iPush_down" SIGIS="undef" SIGNAME="External_Ports_iPush_down">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Debounce_Switch_4" PORT="i_Switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="oLED" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oLED">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oLED"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
 
   <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/Debounce_Switch_0" HWVERSION="1.0" INSTANCE="Debounce_Switch_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debounce_Switch" VLNV="xilinx.com:module_ref:Debounce_Switch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_DEBOUNCE_LIMIT" VALUE="250000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debounce_Switch_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Switch" SIGIS="undef" SIGNAME="External_Ports_iRst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iRst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_Switch" SIGIS="undef" SIGNAME="Debounce_Switch_0_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iRst"/>
+            <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debounce_Switch_1" HWVERSION="1.0" INSTANCE="Debounce_Switch_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debounce_Switch" VLNV="xilinx.com:module_ref:Debounce_Switch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_DEBOUNCE_LIMIT" VALUE="250000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debounce_Switch_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Switch" SIGIS="undef" SIGNAME="External_Ports_iPush_right">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iPush_right"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_Switch" SIGIS="undef" SIGNAME="Debounce_Switch_1_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iPush_right"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debounce_Switch_2" HWVERSION="1.0" INSTANCE="Debounce_Switch_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debounce_Switch" VLNV="xilinx.com:module_ref:Debounce_Switch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_DEBOUNCE_LIMIT" VALUE="250000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debounce_Switch_0_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Switch" SIGIS="undef" SIGNAME="External_Ports_iPush_up">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iPush_up"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_Switch" SIGIS="undef" SIGNAME="Debounce_Switch_2_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iPush_up"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debounce_Switch_3" HWVERSION="1.0" INSTANCE="Debounce_Switch_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debounce_Switch" VLNV="xilinx.com:module_ref:Debounce_Switch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_DEBOUNCE_LIMIT" VALUE="250000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debounce_Switch_0_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Switch" SIGIS="undef" SIGNAME="External_Ports_iPush_left">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iPush_left"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_Switch" SIGIS="undef" SIGNAME="Debounce_Switch_3_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iPush_left"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debounce_Switch_4" HWVERSION="1.0" INSTANCE="Debounce_Switch_4" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debounce_Switch" VLNV="xilinx.com:module_ref:Debounce_Switch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="c_DEBOUNCE_LIMIT" VALUE="250000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debounce_Switch_0_4"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Switch" SIGIS="undef" SIGNAME="External_Ports_iPush_down">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iPush_down"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_Switch" SIGIS="undef" SIGNAME="Debounce_Switch_4_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iPush_down"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/FSM_VGA_all_0" HWVERSION="1.0" INSTANCE="FSM_VGA_all_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="FSM_VGA_all" VLNV="xilinx.com:module_ref:FSM_VGA_all:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLOCK_FREQ" VALUE="25000000"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_FSM_VGA_all_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="iClk" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iRst" SIGIS="undef" SIGNAME="Debounce_Switch_0_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_0" PORT="o_Switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iPush_left" SIGIS="undef" SIGNAME="Debounce_Switch_3_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_3" PORT="o_Switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iPush_down" SIGIS="undef" SIGNAME="Debounce_Switch_4_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_4" PORT="o_Switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iPush_right" SIGIS="undef" SIGNAME="Debounce_Switch_1_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_1" PORT="o_Switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iPush_up" SIGIS="undef" SIGNAME="Debounce_Switch_2_o_Switch">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_2" PORT="o_Switch"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="oShapeX" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShapeX">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeX"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="oShapeY" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShapeY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="oShape_size" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShape_size">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeSize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="oLED" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oLED">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="oLED"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/VGA_pattern_0" HWVERSION="1.0" INSTANCE="VGA_pattern_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="VGA_pattern" VLNV="xilinx.com:module_ref:VGA_pattern:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -66,14 +283,14 @@
             <CONNECTION INSTANCE="VGA_timings_0" PORT="oCountH"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="9" NAME="iShapeX" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
+        <PORT DIR="I" LEFT="9" NAME="iShapeX" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShapeX">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_2" PORT="dout"/>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oShapeX"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="9" NAME="iShapeSize" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+        <PORT DIR="I" LEFT="9" NAME="iShapeSize" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShape_size">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oShape_size"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="9" NAME="iCountV" RIGHT="0" SIGIS="undef" SIGNAME="VGA_timings_0_oCountV">
@@ -81,9 +298,9 @@
             <CONNECTION INSTANCE="VGA_timings_0" PORT="oCountV"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="9" NAME="iShapeY" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+        <PORT DIR="I" LEFT="9" NAME="iShapeY" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oShapeY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oShapeY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="iHS" SIGIS="undef" SIGNAME="VGA_timings_0_oHS">
@@ -146,9 +363,9 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="iRst" SIGIS="undef" SIGNAME="External_Ports_iRst">
+        <PORT DIR="I" NAME="iRst" SIGIS="undef" SIGNAME="Debounce_Switch_0_o_Switch">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="iRst"/>
+            <CONNECTION INSTANCE="Debounce_Switch_0" PORT="o_Switch"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="oHS" SIGIS="undef" SIGNAME="VGA_timings_0_oHS">
@@ -759,58 +976,13 @@
         </PORT>
         <PORT CLKFREQUENCY="25000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="Debounce_Switch_3" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="Debounce_Switch_1" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="Debounce_Switch_2" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="Debounce_Switch_0" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="Debounce_Switch_4" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="iClk"/>
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iClk"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x03C"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="9" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeSize"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x0D2"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_1"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="9" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeY"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/xlconstant_2" HWVERSION="1.1" INSTANCE="xlconstant_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="CONST_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="CONST_VAL" VALUE="0x122"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlconstant_0_2"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="9" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_2_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iShapeX"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Dec  4 01:04:42 2023
+// Date        : Tue Dec 12 17:12:28 2023
 // Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_VGA_timings_0_0_sim_netlist.v
@@ -14,266 +14,343 @@
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_timings
    (Q,
-    \r_CntCurr_reg[9] ,
+    \rCurrent_count_reg[9] ,
     oHS,
     oVS,
-    iRst,
-    iClk);
+    iClk,
+    iRst);
   output [9:0]Q;
-  output [9:0]\r_CntCurr_reg[9] ;
+  output [9:0]\rCurrent_count_reg[9] ;
   output oHS;
   output oVS;
-  input iRst;
   input iClk;
+  input iRst;
 
   wire [9:0]Q;
+  wire cntH_n_10;
+  wire cntV_n_10;
+  wire cntV_n_11;
   wire iClk;
   wire iRst;
   wire oHS;
   wire oVS;
-  wire [9:0]\r_CntCurr_reg[9] ;
+  wire [9:0]\rCurrent_count_reg[9] ;
   wire w_EnV2;
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter cntH
        (.E(w_EnV2),
         .Q(Q),
+        .SR(cntH_n_10),
         .iClk(iClk),
         .iRst(iRst),
-        .oHS(oHS));
+        .oHS(oHS),
+        .\rCurrent_count_reg[10]_0 (cntV_n_11),
+        .\rCurrent_count_reg[10]_1 (cntV_n_10));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0 cntV
        (.E(w_EnV2),
-        .Q(\r_CntCurr_reg[9] ),
+        .Q(\rCurrent_count_reg[9] ),
+        .SR(cntH_n_10),
         .iClk(iClk),
-        .iRst(iRst),
-        .oVS(oVS));
+        .oVS(oVS),
+        .\rCurrent_count_reg[10]_0 (Q[7]),
+        .\rCurrent_count_reg[2]_0 (cntV_n_10),
+        .\rCurrent_count_reg[9]_0 (cntV_n_11));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
    (Q,
+    SR,
     E,
     oHS,
+    \rCurrent_count_reg[10]_0 ,
+    \rCurrent_count_reg[10]_1 ,
     iRst,
     iClk);
   output [9:0]Q;
+  output [0:0]SR;
   output [0:0]E;
   output oHS;
+  input \rCurrent_count_reg[10]_0 ;
+  input \rCurrent_count_reg[10]_1 ;
   input iRst;
   input iClk;
 
   wire [0:0]E;
   wire [9:0]Q;
+  wire [0:0]SR;
   wire iClk;
   wire iRst;
   wire oHS;
-  wire [9:0]r_CntCurr;
-  wire \r_CntCurr[9]_i_2_n_0 ;
+  wire \rCurrent_count[9]_i_1__0_n_0 ;
+  wire \rCurrent_count[9]_i_3_n_0 ;
+  wire \rCurrent_count[9]_i_4_n_0 ;
+  wire \rCurrent_count[9]_i_5_n_0 ;
+  wire \rCurrent_count_reg[10]_0 ;
+  wire \rCurrent_count_reg[10]_1 ;
+  wire \rCurrent_count_reg_n_0_[10] ;
+  wire [10:0]wNext_count;
 
   LUT6 #(
-    .INIT(64'hFFFF81FFFFFFFFFF)) 
+    .INIT(64'hFBBBBBBFFFFFFFFF)) 
     oHS_INST_0
-       (.I0(Q[6]),
-        .I1(Q[5]),
+       (.I0(Q[8]),
+        .I1(Q[9]),
         .I2(Q[4]),
-        .I3(Q[7]),
-        .I4(Q[8]),
-        .I5(Q[9]),
+        .I3(Q[5]),
+        .I4(Q[6]),
+        .I5(Q[7]),
         .O(oHS));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT1 #(
     .INIT(2'h1)) 
-    \r_CntCurr[0]_i_1 
+    \rCurrent_count[0]_i_1 
        (.I0(Q[0]),
-        .O(r_CntCurr[0]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+        .O(wNext_count[0]));
+  LUT6 #(
+    .INIT(64'hFFFFDFFF00002000)) 
+    \rCurrent_count[10]_i_1 
+       (.I0(Q[6]),
+        .I1(\rCurrent_count[9]_i_3_n_0 ),
+        .I2(Q[5]),
+        .I3(Q[7]),
+        .I4(\rCurrent_count[9]_i_4_n_0 ),
+        .I5(\rCurrent_count_reg_n_0_[10] ),
+        .O(wNext_count[10]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \r_CntCurr[1]_i_1 
+    \rCurrent_count[1]_i_1 
        (.I0(Q[0]),
         .I1(Q[1]),
-        .O(r_CntCurr[1]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .O(wNext_count[1]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h78)) 
-    \r_CntCurr[2]_i_1 
+    \rCurrent_count[2]_i_1 
        (.I0(Q[1]),
         .I1(Q[0]),
         .I2(Q[2]),
-        .O(r_CntCurr[2]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .O(wNext_count[2]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
-    \r_CntCurr[3]_i_1 
+    \rCurrent_count[3]_i_1 
        (.I0(Q[2]),
         .I1(Q[0]),
         .I2(Q[1]),
         .I3(Q[3]),
-        .O(r_CntCurr[3]));
+        .O(wNext_count[3]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
-    \r_CntCurr[4]_i_1 
+    \rCurrent_count[4]_i_1 
        (.I0(Q[3]),
         .I1(Q[1]),
         .I2(Q[0]),
         .I3(Q[2]),
         .I4(Q[4]),
-        .O(r_CntCurr[4]));
+        .O(wNext_count[4]));
   LUT6 #(
-    .INIT(64'hAAAAAAAA55515555)) 
-    \r_CntCurr[5]_i_1 
-       (.I0(\r_CntCurr[9]_i_2_n_0 ),
-        .I1(Q[8]),
-        .I2(Q[7]),
-        .I3(Q[6]),
-        .I4(Q[9]),
+    .INIT(64'h7FFFFFFF80000000)) 
+    \rCurrent_count[5]_i_1 
+       (.I0(Q[4]),
+        .I1(Q[2]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[3]),
         .I5(Q[5]),
-        .O(r_CntCurr[5]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+        .O(wNext_count[5]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hD2)) 
-    \r_CntCurr[6]_i_1 
+    \rCurrent_count[6]_i_1 
        (.I0(Q[5]),
-        .I1(\r_CntCurr[9]_i_2_n_0 ),
+        .I1(\rCurrent_count[9]_i_3_n_0 ),
         .I2(Q[6]),
-        .O(r_CntCurr[6]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+        .O(wNext_count[6]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hDF20)) 
-    \r_CntCurr[7]_i_1 
+    \rCurrent_count[7]_i_1 
        (.I0(Q[6]),
-        .I1(\r_CntCurr[9]_i_2_n_0 ),
+        .I1(\rCurrent_count[9]_i_3_n_0 ),
         .I2(Q[5]),
         .I3(Q[7]),
-        .O(r_CntCurr[7]));
-  LUT6 #(
-    .INIT(64'hCCCCCCCC3CCCCCC4)) 
-    \r_CntCurr[8]_i_1 
-       (.I0(Q[9]),
-        .I1(Q[8]),
-        .I2(Q[5]),
+        .O(wNext_count[7]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hF7FF0800)) 
+    \rCurrent_count[8]_i_1 
+       (.I0(Q[7]),
+        .I1(Q[5]),
+        .I2(\rCurrent_count[9]_i_3_n_0 ),
         .I3(Q[6]),
-        .I4(Q[7]),
-        .I5(\r_CntCurr[9]_i_2_n_0 ),
-        .O(r_CntCurr[8]));
-  LUT6 #(
-    .INIT(64'h0000000000040000)) 
-    \r_CntCurr[9]_i_1 
-       (.I0(Q[5]),
-        .I1(Q[9]),
-        .I2(Q[6]),
-        .I3(Q[7]),
         .I4(Q[8]),
-        .I5(\r_CntCurr[9]_i_2_n_0 ),
+        .O(wNext_count[8]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00400000)) 
+    \rCurrent_count[9]_i_1 
+       (.I0(\rCurrent_count[9]_i_3_n_0 ),
+        .I1(\rCurrent_count_reg[10]_0 ),
+        .I2(\rCurrent_count[9]_i_5_n_0 ),
+        .I3(\rCurrent_count[9]_i_4_n_0 ),
+        .I4(\rCurrent_count_reg[10]_1 ),
+        .I5(iRst),
+        .O(SR));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00010000)) 
+    \rCurrent_count[9]_i_1__0 
+       (.I0(\rCurrent_count[9]_i_3_n_0 ),
+        .I1(\rCurrent_count[9]_i_4_n_0 ),
+        .I2(\rCurrent_count_reg_n_0_[10] ),
+        .I3(Q[7]),
+        .I4(\rCurrent_count[9]_i_5_n_0 ),
+        .I5(iRst),
+        .O(\rCurrent_count[9]_i_1__0_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000001000)) 
+    \rCurrent_count[9]_i_2 
+       (.I0(Q[5]),
+        .I1(Q[6]),
+        .I2(Q[9]),
+        .I3(Q[8]),
+        .I4(Q[7]),
+        .I5(\rCurrent_count[9]_i_3_n_0 ),
         .O(E));
   LUT6 #(
-    .INIT(64'hC6CCCCCCCCCCCCC4)) 
-    \r_CntCurr[9]_i_1__0 
+    .INIT(64'hF7FFFFFF08000000)) 
+    \rCurrent_count[9]_i_2__0 
        (.I0(Q[8]),
-        .I1(Q[9]),
-        .I2(\r_CntCurr[9]_i_2_n_0 ),
+        .I1(Q[6]),
+        .I2(\rCurrent_count[9]_i_3_n_0 ),
         .I3(Q[5]),
         .I4(Q[7]),
-        .I5(Q[6]),
-        .O(r_CntCurr[9]));
+        .I5(Q[9]),
+        .O(wNext_count[9]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h7FFFFFFF)) 
-    \r_CntCurr[9]_i_2 
+    \rCurrent_count[9]_i_3 
        (.I0(Q[3]),
         .I1(Q[1]),
         .I2(Q[0]),
         .I3(Q[2]),
         .I4(Q[4]),
-        .O(\r_CntCurr[9]_i_2_n_0 ));
-  FDRE \r_CntCurr_reg[0] 
+        .O(\rCurrent_count[9]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h7)) 
+    \rCurrent_count[9]_i_4 
+       (.I0(Q[8]),
+        .I1(Q[9]),
+        .O(\rCurrent_count[9]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \rCurrent_count[9]_i_5 
+       (.I0(Q[5]),
+        .I1(Q[6]),
+        .O(\rCurrent_count[9]_i_5_n_0 ));
+  FDRE \rCurrent_count_reg[0] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[0]),
+        .D(wNext_count[0]),
         .Q(Q[0]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[1] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[10] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[1]),
+        .D(wNext_count[10]),
+        .Q(\rCurrent_count_reg_n_0_[10] ),
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[1] 
+       (.C(iClk),
+        .CE(1'b1),
+        .D(wNext_count[1]),
         .Q(Q[1]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[2] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[2] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[2]),
+        .D(wNext_count[2]),
         .Q(Q[2]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[3] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[3] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[3]),
+        .D(wNext_count[3]),
         .Q(Q[3]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[4] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[4] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[4]),
+        .D(wNext_count[4]),
         .Q(Q[4]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[5] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[5] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[5]),
+        .D(wNext_count[5]),
         .Q(Q[5]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[6] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[6] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[6]),
+        .D(wNext_count[6]),
         .Q(Q[6]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[7] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[7] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[7]),
+        .D(wNext_count[7]),
         .Q(Q[7]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[8] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[8] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[8]),
+        .D(wNext_count[8]),
         .Q(Q[8]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[9] 
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
+  FDRE \rCurrent_count_reg[9] 
        (.C(iClk),
         .CE(1'b1),
-        .D(r_CntCurr[9]),
+        .D(wNext_count[9]),
         .Q(Q[9]),
-        .R(iRst));
+        .R(\rCurrent_count[9]_i_1__0_n_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "counter" *) 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
    (Q,
+    \rCurrent_count_reg[2]_0 ,
+    \rCurrent_count_reg[9]_0 ,
     oVS,
-    iRst,
+    \rCurrent_count_reg[10]_0 ,
+    SR,
     E,
     iClk);
   output [9:0]Q;
+  output \rCurrent_count_reg[2]_0 ;
+  output \rCurrent_count_reg[9]_0 ;
   output oVS;
-  input iRst;
+  input [0:0]\rCurrent_count_reg[10]_0 ;
+  input [0:0]SR;
   input [0:0]E;
   input iClk;
 
   wire [0:0]E;
   wire [9:0]Q;
+  wire [0:0]SR;
   wire iClk;
-  wire iRst;
   wire oVS;
   wire oVS_INST_0_i_1_n_0;
-  wire [9:0]r_CntCurr;
-  wire \r_CntCurr[3]_i_2_n_0 ;
-  wire \r_CntCurr[8]_i_2_n_0 ;
-  wire \r_CntCurr[9]_i_3_n_0 ;
-  wire \r_CntCurr[9]_i_4_n_0 ;
-  wire \r_CntCurr[9]_i_5_n_0 ;
+  wire \rCurrent_count[9]_i_6_n_0 ;
+  wire [0:0]\rCurrent_count_reg[10]_0 ;
+  wire \rCurrent_count_reg[2]_0 ;
+  wire \rCurrent_count_reg[9]_0 ;
+  wire \rCurrent_count_reg_n_0_[10] ;
+  wire [10:0]wNext_count__0;
 
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'hFFDF)) 
     oVS_INST_0
@@ -292,208 +369,196 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
         .I4(Q[5]),
         .I5(Q[4]),
         .O(oVS_INST_0_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT5 #(
-    .INIT(32'h00FF00BF)) 
-    \r_CntCurr[0]_i_1__0 
-       (.I0(\r_CntCurr[3]_i_2_n_0 ),
-        .I1(Q[3]),
-        .I2(Q[2]),
-        .I3(Q[0]),
-        .I4(Q[1]),
-        .O(r_CntCurr[0]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \rCurrent_count[0]_i_1__0 
+       (.I0(Q[0]),
+        .O(wNext_count__0[0]));
+  LUT6 #(
+    .INIT(64'hF7FFFFFF08000000)) 
+    \rCurrent_count[10]_i_1__0 
+       (.I0(Q[9]),
+        .I1(Q[7]),
+        .I2(\rCurrent_count[9]_i_6_n_0 ),
+        .I3(Q[6]),
+        .I4(Q[8]),
+        .I5(\rCurrent_count_reg_n_0_[10] ),
+        .O(wNext_count__0[10]));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \r_CntCurr[1]_i_1__0 
+    \rCurrent_count[1]_i_1__0 
        (.I0(Q[0]),
         .I1(Q[1]),
-        .O(r_CntCurr[1]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT5 #(
-    .INIT(32'h33CCCCC4)) 
-    \r_CntCurr[2]_i_1__0 
-       (.I0(Q[3]),
-        .I1(Q[2]),
-        .I2(\r_CntCurr[3]_i_2_n_0 ),
-        .I3(Q[1]),
-        .I4(Q[0]),
-        .O(r_CntCurr[2]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT5 #(
-    .INIT(32'h66CCCCC4)) 
-    \r_CntCurr[3]_i_1__0 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(\r_CntCurr[3]_i_2_n_0 ),
-        .I3(Q[1]),
-        .I4(Q[0]),
-        .O(r_CntCurr[3]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFEFFFFFFFF)) 
-    \r_CntCurr[3]_i_2 
-       (.I0(Q[5]),
-        .I1(Q[6]),
-        .I2(Q[8]),
-        .I3(Q[7]),
-        .I4(Q[4]),
-        .I5(Q[9]),
-        .O(\r_CntCurr[3]_i_2_n_0 ));
+        .O(wNext_count__0[1]));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT5 #(
-    .INIT(32'h7FFF8000)) 
-    \r_CntCurr[4]_i_1__0 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .I4(Q[4]),
-        .O(r_CntCurr[4]));
-  LUT6 #(
-    .INIT(64'h7FFFFFFF80000000)) 
-    \r_CntCurr[5]_i_1__0 
-       (.I0(Q[4]),
-        .I1(Q[1]),
-        .I2(Q[0]),
-        .I3(Q[3]),
-        .I4(Q[2]),
-        .I5(Q[5]),
-        .O(r_CntCurr[5]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'hBF40)) 
-    \r_CntCurr[6]_i_1__0 
-       (.I0(\r_CntCurr[8]_i_2_n_0 ),
-        .I1(Q[4]),
-        .I2(Q[5]),
-        .I3(Q[6]),
-        .O(r_CntCurr[6]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'hBFFF4000)) 
-    \r_CntCurr[7]_i_1__0 
-       (.I0(\r_CntCurr[8]_i_2_n_0 ),
-        .I1(Q[5]),
-        .I2(Q[4]),
-        .I3(Q[6]),
-        .I4(Q[7]),
-        .O(r_CntCurr[7]));
-  LUT6 #(
-    .INIT(64'hBFFFFFFF40000000)) 
-    \r_CntCurr[8]_i_1__0 
-       (.I0(\r_CntCurr[8]_i_2_n_0 ),
-        .I1(Q[6]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .I4(Q[7]),
-        .I5(Q[8]),
-        .O(r_CntCurr[8]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \r_CntCurr[8]_i_2 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \rCurrent_count[2]_i_1__0 
        (.I0(Q[1]),
         .I1(Q[0]),
-        .I2(Q[3]),
+        .I2(Q[2]),
+        .O(wNext_count__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \rCurrent_count[3]_i_1__0 
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .O(wNext_count__0[3]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \rCurrent_count[4]_i_1__0 
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
         .I3(Q[2]),
-        .O(\r_CntCurr[8]_i_2_n_0 ));
+        .I4(Q[4]),
+        .O(wNext_count__0[4]));
   LUT6 #(
-    .INIT(64'hEFFF1000EFFC1000)) 
-    \r_CntCurr[9]_i_2__0 
-       (.I0(\r_CntCurr[9]_i_3_n_0 ),
-        .I1(\r_CntCurr[9]_i_4_n_0 ),
+    .INIT(64'h7FFFFFFF80000000)) 
+    \rCurrent_count[5]_i_1__0 
+       (.I0(Q[4]),
+        .I1(Q[2]),
         .I2(Q[0]),
         .I3(Q[1]),
-        .I4(Q[9]),
-        .I5(\r_CntCurr[9]_i_5_n_0 ),
-        .O(r_CntCurr[9]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT5 #(
-    .INIT(32'h7FFFFFFF)) 
-    \r_CntCurr[9]_i_3 
-       (.I0(Q[7]),
-        .I1(Q[5]),
-        .I2(Q[4]),
-        .I3(Q[6]),
-        .I4(Q[8]),
-        .O(\r_CntCurr[9]_i_3_n_0 ));
+        .I4(Q[3]),
+        .I5(Q[5]),
+        .O(wNext_count__0[5]));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
-    .INIT(4'h7)) 
-    \r_CntCurr[9]_i_4 
+    .INIT(4'h9)) 
+    \rCurrent_count[6]_i_1__0 
+       (.I0(\rCurrent_count[9]_i_6_n_0 ),
+        .I1(Q[6]),
+        .O(wNext_count__0[6]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hD2)) 
+    \rCurrent_count[7]_i_1__0 
+       (.I0(Q[6]),
+        .I1(\rCurrent_count[9]_i_6_n_0 ),
+        .I2(Q[7]),
+        .O(wNext_count__0[7]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'hDF20)) 
+    \rCurrent_count[8]_i_1__0 
+       (.I0(Q[7]),
+        .I1(\rCurrent_count[9]_i_6_n_0 ),
+        .I2(Q[6]),
+        .I3(Q[8]),
+        .O(wNext_count__0[8]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT5 #(
+    .INIT(32'hF7FF0800)) 
+    \rCurrent_count[9]_i_3__0 
+       (.I0(Q[8]),
+        .I1(Q[6]),
+        .I2(\rCurrent_count[9]_i_6_n_0 ),
+        .I3(Q[7]),
+        .I4(Q[9]),
+        .O(wNext_count__0[9]));
+  LUT6 #(
+    .INIT(64'h0000000000000002)) 
+    \rCurrent_count[9]_i_4__0 
+       (.I0(Q[9]),
+        .I1(Q[8]),
+        .I2(Q[6]),
+        .I3(Q[7]),
+        .I4(\rCurrent_count_reg[10]_0 ),
+        .I5(\rCurrent_count_reg_n_0_[10] ),
+        .O(\rCurrent_count_reg[9]_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000008)) 
+    \rCurrent_count[9]_i_5__0 
        (.I0(Q[2]),
         .I1(Q[3]),
-        .O(\r_CntCurr[9]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \r_CntCurr[9]_i_5 
-       (.I0(Q[4]),
-        .I1(Q[7]),
-        .I2(Q[8]),
-        .I3(Q[6]),
+        .I2(Q[0]),
+        .I3(Q[1]),
         .I4(Q[5]),
-        .O(\r_CntCurr[9]_i_5_n_0 ));
-  FDRE \r_CntCurr_reg[0] 
+        .I5(Q[4]),
+        .O(\rCurrent_count_reg[2]_0 ));
+  LUT6 #(
+    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+    \rCurrent_count[9]_i_6 
+       (.I0(Q[4]),
+        .I1(Q[2]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(Q[3]),
+        .I5(Q[5]),
+        .O(\rCurrent_count[9]_i_6_n_0 ));
+  FDRE \rCurrent_count_reg[0] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[0]),
+        .D(wNext_count__0[0]),
         .Q(Q[0]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[1] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[10] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[1]),
+        .D(wNext_count__0[10]),
+        .Q(\rCurrent_count_reg_n_0_[10] ),
+        .R(SR));
+  FDRE \rCurrent_count_reg[1] 
+       (.C(iClk),
+        .CE(E),
+        .D(wNext_count__0[1]),
         .Q(Q[1]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[2] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[2] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[2]),
+        .D(wNext_count__0[2]),
         .Q(Q[2]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[3] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[3] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[3]),
+        .D(wNext_count__0[3]),
         .Q(Q[3]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[4] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[4] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[4]),
+        .D(wNext_count__0[4]),
         .Q(Q[4]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[5] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[5] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[5]),
+        .D(wNext_count__0[5]),
         .Q(Q[5]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[6] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[6] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[6]),
+        .D(wNext_count__0[6]),
         .Q(Q[6]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[7] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[7] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[7]),
+        .D(wNext_count__0[7]),
         .Q(Q[7]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[8] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[8] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[8]),
+        .D(wNext_count__0[8]),
         .Q(Q[8]),
-        .R(iRst));
-  FDRE \r_CntCurr_reg[9] 
+        .R(SR));
+  FDRE \rCurrent_count_reg[9] 
        (.C(iClk),
         .CE(E),
-        .D(r_CntCurr[9]),
+        .D(wNext_count__0[9]),
         .Q(Q[9]),
-        .R(iRst));
+        .R(SR));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_VGA_timings_0_0,VGA_timings,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
@@ -526,7 +591,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
         .iRst(iRst),
         .oHS(oHS),
         .oVS(oVS),
-        .\r_CntCurr_reg[9] (oCountV));
+        .\rCurrent_count_reg[9] (oCountV));
 endmodule
 `ifndef GLBL
 `define GLBL

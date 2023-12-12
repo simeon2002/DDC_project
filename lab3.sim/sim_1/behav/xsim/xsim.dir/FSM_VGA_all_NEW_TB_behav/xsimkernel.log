@@ -1,0 +1,4 @@
+Running: xsim.dir/FSM_VGA_all_NEW_TB_behav/xsimk -simmode gui -wdb FSM_VGA_all_NEW_TB_behav.wdb -simrunnum 0 -socket 52451
+Design successfully loaded
+Design Loading Memory Usage: 33536 KB (Peak: 33656 KB)
+Design Loading CPU Usage: 50 ms

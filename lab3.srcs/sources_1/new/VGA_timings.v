@@ -43,10 +43,10 @@ module VGA_timings #(
     wire w_EnV1, w_EnV2;
     reg r_oHS, r_oVS;
     
-    counter #(.LIM(H_TOT))
+    counter #(.LIMIT(H_TOT))
     cntH(.iClk(iClk), .iRst(iRst), .iEn(w_EnV1), .oQ(oCountH));
     
-    counter #(.LIM(V_TOT))
+    counter #(.LIMIT(V_TOT))
     cntV(.iClk(iClk), .iRst(iRst), .iEn(w_EnV2), .oQ(oCountV));
     
     assign w_EnV1 = 1; // i.e. always enabled.
