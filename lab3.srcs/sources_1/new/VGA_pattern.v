@@ -49,8 +49,8 @@ module VGA_pattern #(
     always @(*)
     begin
         if (
-            iCountH > iShapeX && 
-            iCountV > iShapeY &&
+            iCountH >= iShapeX && 
+            iCountV >= iShapeY &&
             iCountH < iShapeX + iShapeSize && 
             iCountV < iShapeY + iShapeSize
             )

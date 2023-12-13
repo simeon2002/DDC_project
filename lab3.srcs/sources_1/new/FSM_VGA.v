@@ -79,8 +79,8 @@ module FSM_VGA #(
                         // condition for whenever timer = 0 but button is pushed
                            wFSM_next <= sWait;
                         
-                         else
-                            wFSM_next <= sIdle;   
+                        else
+                           wFSM_next <= sIdle;   
             sMove_up:
                         wFSM_next <= sWait;
                             
@@ -117,24 +117,38 @@ module FSM_VGA #(
     begin
         if (rFSM_current == sWait)
         begin
+            r_oLED = 1;
             r_iEn_timer <= 1;
-            r_oLED <= 1;
+            r_oShapeY_next <= r_oShapeY_current;
+            r_oShapeX_next <= r_oShapeX_current;
         end
         else if (rFSM_current == sMove_up)
         begin
             r_oShapeY_next <= r_oShapeY_current - 1;
+            r_oShapeX_next <= r_oShapeX_current;
+            r_oLED = 1;
+            r_iEn_timer <= 0;
         end
         else if (rFSM_current == sMove_right)
         begin
             r_oShapeX_next <= r_oShapeX_current + 1;
+            r_oShapeY_next <= r_oShapeY_current;
+            r_oLED = 1;
+            r_iEn_timer <= 0;
         end
         else if (rFSM_current == sMove_down)
         begin
             r_oShapeY_next <= r_oShapeY_current + 1;
+            r_oShapeX_next <= r_oShapeX_current;
+            r_oLED = 1;
+            r_iEn_timer <= 0;
         end
         else if (rFSM_current == sMove_left)
         begin
             r_oShapeX_next <= r_oShapeX_current - 1;
+            r_oShapeY_next <= r_oShapeY_current;
+            r_oLED = 1;
+            r_iEn_timer <= 0;
             // check if we are at max:
         end
         else if (rFSM_current == sInit)
@@ -143,12 +157,16 @@ module FSM_VGA #(
             r_oShapeX_next <= shapeX;
             r_oShapeY_next <= shapeY;
             r_oShape_size <= shape_size;
+            r_oLED = 0;
+            r_iEn_timer <= 0;
         end
         else // idle state
         begin 
             r_iEn_timer <= 0; // disable timer
             // timerReset already happens above.
-            r_oLED <= 0; // turn LED off
+            r_oLED = 0; // turn LED off
+            r_oShapeY_next <= r_oShapeY_current;
+            r_oShapeX_next <= r_oShapeX_current;
              
        end
     end
