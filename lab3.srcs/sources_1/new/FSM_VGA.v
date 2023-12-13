@@ -53,49 +53,47 @@ module FSM_VGA #(
     timer_1s #(.CLOCK_FREQ(CLOCK_FREQ))
         timer_inst(.iClk(iClk), .iRst(w_iRst_timer), .iEn(r_iEn_timer), .oQ(oTimer));
 //    reg w_iBoundary_vert, w_iBoundary_hor;
-    always @(*)
-    begin
-        case (rFSM_current)
-            sInit:      wFSM_next <= sIdle;
+always @(*)
+begin
+    case (rFSM_current)
+        sInit: begin
+            wFSM_next <= sIdle;
+        end
             
-            sIdle:      if (iPush == 0)
-                            wFSM_next <= sIdle;
-                        else
-                            wFSM_next <= sWait;
-            
-            sWait:      if (iPush == 1 && oTimer == 1 && iDirection_pushed == 0 )
-                            wFSM_next <= sMove_up;
-                            
-                        else if (iPush == 1 && oTimer == 1  && iDirection_pushed == 1 )
-                            wFSM_next <= sMove_right;
-                            
-                        else if (iPush == 1 && oTimer == 1 && iDirection_pushed == 2 )
-                            wFSM_next <= sMove_down;
-                            
-                        else if (iPush == 1 && oTimer == 1 && iDirection_pushed == 3 )
-                            wFSM_next <= sMove_left;
-                            
-                        else if (iPush == 1 && oTimer == 0) 
-                        // condition for whenever timer = 0 but button is pushed
-                           wFSM_next <= sWait;
-                        
-                        else
-                           wFSM_next <= sIdle;   
-            sMove_up:
-                        wFSM_next <= sWait;
-                            
-            sMove_down: 
-                        wFSM_next <= sWait;
-            
-            sMove_right:
-                        wFSM_next <= sWait;
-                        
-            sMove_left:
-                        wFSM_next <= sWait;
-                                                       
-            default:    wFSM_next <= sInit;
-        endcase          
-    end
+        sIdle: begin
+            if (iPush == 0)
+                wFSM_next <= sIdle;
+            else
+                wFSM_next <= sWait;
+        end
+
+        sWait: begin
+            if (iPush == 1 && oTimer == 1) begin
+                case (iDirection_pushed)
+                    0: wFSM_next <= sMove_up;
+                    1: wFSM_next <= sMove_right;
+                    2: wFSM_next <= sMove_down;
+                    3: wFSM_next <= sMove_left;
+                    default: wFSM_next <= sWait;
+                endcase
+            end else if (iPush == 1 && oTimer == 0) begin
+                // Condition for whenever timer = 0 but button is pushed
+                wFSM_next <= sWait;
+            end else begin
+                wFSM_next <= sIdle;
+            end
+        end
+
+        sMove_up, sMove_down, sMove_right, sMove_left: begin
+            wFSM_next <= sWait;
+        end
+
+        default: begin
+            wFSM_next <= sInit;
+        end
+    endcase
+end
+
         
     // 3. defining output logic here.
     
@@ -113,63 +111,45 @@ module FSM_VGA #(
     
     
     /* output logic */
-    always @ (*)
+    always @(*)
     begin
-        if (rFSM_current == sWait)
-        begin
-            r_oLED = 1;
-            r_iEn_timer <= 1;
-            r_oShapeY_next <= r_oShapeY_current;
-            r_oShapeX_next <= r_oShapeX_current;
-        end
-        else if (rFSM_current == sMove_up)
-        begin
-            r_oShapeY_next <= r_oShapeY_current - 1;
-            r_oShapeX_next <= r_oShapeX_current;
-            r_oLED = 1;
-            r_iEn_timer <= 0;
-        end
-        else if (rFSM_current == sMove_right)
-        begin
-            r_oShapeX_next <= r_oShapeX_current + 1;
-            r_oShapeY_next <= r_oShapeY_current;
-            r_oLED = 1;
-            r_iEn_timer <= 0;
-        end
-        else if (rFSM_current == sMove_down)
-        begin
-            r_oShapeY_next <= r_oShapeY_current + 1;
-            r_oShapeX_next <= r_oShapeX_current;
-            r_oLED = 1;
-            r_iEn_timer <= 0;
-        end
-        else if (rFSM_current == sMove_left)
-        begin
-            r_oShapeX_next <= r_oShapeX_current - 1;
-            r_oShapeY_next <= r_oShapeY_current;
-            r_oLED = 1;
-            r_iEn_timer <= 0;
-            // check if we are at max:
-        end
-        else if (rFSM_current == sInit)
-        begin
-            // reset size of the shape. 
-            r_oShapeX_next <= shapeX;
-            r_oShapeY_next <= shapeY;
-            r_oShape_size <= shape_size;
-            r_oLED = 0;
-            r_iEn_timer <= 0;
-        end
-        else // idle state
-        begin 
-            r_iEn_timer <= 0; // disable timer
-            // timerReset already happens above.
-            r_oLED = 0; // turn LED off
-            r_oShapeY_next <= r_oShapeY_current;
-            r_oShapeX_next <= r_oShapeX_current;
-             
-       end
+        case (rFSM_current)
+            sWait: begin
+                r_iEn_timer <= 1;
+                r_oLED <= 1;
+            end
+    
+            sMove_up: begin
+                r_oShapeY_next <= r_oShapeY_current - 1;
+            end
+    
+            sMove_right: begin
+                r_oShapeX_next <= r_oShapeX_current + 1;
+            end
+    
+            sMove_down: begin
+                r_oShapeY_next <= r_oShapeY_current + 1;
+            end
+    
+            sMove_left: begin
+                r_oShapeX_next <= r_oShapeX_current - 1;
+            end
+    
+            sInit: begin
+                // Reset size of the shape.
+                r_oShapeX_next <= shapeX;
+                r_oShapeY_next <= shapeY;
+                r_oShape_size <= shape_size;
+            end
+    
+            default: begin
+                r_iEn_timer <= 0; // Disable timer
+                // Timer reset already happens elsewhere.
+                r_oLED <= 0; // Turn LED off
+            end
+        endcase
     end
+    
     
 //    // defining boundaries
 //    always @(*)
