@@ -55,15 +55,15 @@ module VGA_pattern #(
             iCountV < iShapeY + iShapeSize
             )
             begin
-                r_oRed <= 15;
-                r_oGreen <= 0;
-                r_oBlue <= 0;
+                r_oRed = 15;
+                r_oGreen = 0;
+                r_oBlue = 0;
             end
          else 
          begin
-            r_oRed <= 0;
-            r_oGreen <= 0;
-            r_oBlue <= 0;
+            r_oRed = 0;
+            r_oGreen = 0;
+            r_oBlue = 0;
          end
     end
  

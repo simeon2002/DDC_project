@@ -40,28 +40,28 @@ always @(*)
 begin 
     if (iPush_up == 1)
     begin
-        r_iDirection_pushed <= 0;
-        r_iButton_pushed <= 1;
+        r_iDirection_pushed = 0;
+        r_iButton_pushed = 1;
     end
     else if (iPush_right == 1)
     begin
-        r_iDirection_pushed <= 1;
-        r_iButton_pushed <= 1;
+        r_iDirection_pushed = 1;
+        r_iButton_pushed = 1;
     end
     else if (iPush_down == 1)
     begin
-        r_iDirection_pushed <= 2;
-        r_iButton_pushed <= 1;
+        r_iDirection_pushed = 2;
+        r_iButton_pushed = 1;
     end
     else if (iPush_left == 1)
     begin
-        r_iDirection_pushed <= 3;
-        r_iButton_pushed <= 1;
+        r_iDirection_pushed = 3;
+        r_iButton_pushed = 1;
     end
     else 
     begin
-        r_iDirection_pushed <= 0;
-        r_iButton_pushed <= 0;
+        r_iDirection_pushed = 0;
+        r_iButton_pushed = 0;
     end
 end
 

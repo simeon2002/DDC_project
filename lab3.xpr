@@ -38,7 +38,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="pynq-z2"/>
-    <Option Name="WTXSimLaunchSim" Val="223"/>
+    <Option Name="WTXSimLaunchSim" Val="235"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -126,17 +126,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_2/design_1_Debounce_Switch_0_2.xci">
-          <Proxy FileSetName="design_1_Debounce_Switch_0_2"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_4/design_1_Debounce_Switch_0_4.xci">
+          <Proxy FileSetName="design_1_Debounce_Switch_0_4"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_3/design_1_Debounce_Switch_0_3.xci">
           <Proxy FileSetName="design_1_Debounce_Switch_0_3"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_4/design_1_Debounce_Switch_0_4.xci">
-          <Proxy FileSetName="design_1_Debounce_Switch_0_4"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_2/design_1_Debounce_Switch_0_2.xci">
+          <Proxy FileSetName="design_1_Debounce_Switch_0_2"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_1/design_1_Debounce_Switch_0_1.xci">
-          <Proxy FileSetName="design_1_Debounce_Switch_0_1"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_FSM_VGA_all_0_0/design_1_FSM_VGA_all_0_0.xci">
+          <Proxy FileSetName="design_1_FSM_VGA_all_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_VGA_pattern_0_0/design_1_VGA_pattern_0_0.xci">
           <Proxy FileSetName="design_1_VGA_pattern_0_0"/>
@@ -144,11 +144,11 @@
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_VGA_timings_0_0/design_1_VGA_timings_0_0.xci">
           <Proxy FileSetName="design_1_VGA_timings_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_FSM_VGA_all_0_0/design_1_FSM_VGA_all_0_0.xci">
-          <Proxy FileSetName="design_1_FSM_VGA_all_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_0/design_1_Debounce_Switch_0_0.xci">
           <Proxy FileSetName="design_1_Debounce_Switch_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_Debounce_Switch_0_1/design_1_Debounce_Switch_0_1.xci">
+          <Proxy FileSetName="design_1_Debounce_Switch_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_1/hdl/design_1_wrapper.v">
@@ -393,7 +393,9 @@
     </Run>
     <Run Id="design_1_VGA_pattern_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_1_VGA_pattern_0_0" Part="xc7z020clg400-1" ConstrsSet="design_1_VGA_pattern_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_1_VGA_pattern_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -535,7 +537,9 @@
     </Run>
     <Run Id="design_1_VGA_pattern_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="design_1_VGA_pattern_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_1_VGA_pattern_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
