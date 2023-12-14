@@ -36,9 +36,8 @@ module VGA_timings #(
     (
     input wire iClk, iRst,
     output wire oHS, oVS,
-    output wire[$clog2(H_TOT)-1:0] oCountH,
-    output wire[$clog2(V_TOT)-1:0] oCountV
-    );
+    output wire[$clog2(H_TOT) - 1:0] oCountH,
+    output wire[$clog2(V_TOT) - 1:0] oCountV);
     
     wire w_EnV1, w_EnV2;
     reg r_oHS, r_oVS;

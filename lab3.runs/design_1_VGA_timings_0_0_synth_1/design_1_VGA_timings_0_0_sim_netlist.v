@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Tue Dec 12 23:20:22 2023
+// Date        : Thu Dec 14 11:38:24 2023
 // Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_VGA_timings_0_0_sim_netlist.v
@@ -28,67 +28,58 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_VGA_timings
 
   wire [9:0]Q;
   wire cntH_n_10;
-  wire cntV_n_10;
-  wire cntV_n_11;
+  wire cntH_n_11;
+  wire cntH_n_12;
   wire iClk;
   wire iRst;
   wire oHS;
   wire oVS;
   wire [9:0]\rCurrent_count_reg[9] ;
-  wire w_EnV2;
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter cntH
-       (.E(w_EnV2),
+       (.E(cntH_n_12),
         .Q(Q),
-        .SR(cntH_n_10),
         .iClk(iClk),
         .iRst(iRst),
         .oHS(oHS),
-        .\rCurrent_count_reg[10]_0 (cntV_n_11),
-        .\rCurrent_count_reg[10]_1 (cntV_n_10));
+        .\rCurrent_count_reg[3]_0 (cntH_n_10),
+        .\rCurrent_count_reg[5]_0 (cntH_n_11));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0 cntV
-       (.E(w_EnV2),
+       (.E(cntH_n_12),
         .Q(\rCurrent_count_reg[9] ),
-        .SR(cntH_n_10),
         .iClk(iClk),
+        .iRst(iRst),
         .oVS(oVS),
-        .\rCurrent_count_reg[10]_0 (Q[7]),
-        .\rCurrent_count_reg[2]_0 (cntV_n_10),
-        .\rCurrent_count_reg[9]_0 (cntV_n_11));
+        .\rCurrent_count_reg[0]_0 (cntH_n_10),
+        .\rCurrent_count_reg[0]_1 (cntH_n_11),
+        .\rCurrent_count_reg[0]_2 (Q[9:7]));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
    (Q,
-    SR,
+    \rCurrent_count_reg[3]_0 ,
+    \rCurrent_count_reg[5]_0 ,
     E,
     oHS,
-    \rCurrent_count_reg[10]_0 ,
-    \rCurrent_count_reg[10]_1 ,
     iRst,
     iClk);
   output [9:0]Q;
-  output [0:0]SR;
+  output \rCurrent_count_reg[3]_0 ;
+  output \rCurrent_count_reg[5]_0 ;
   output [0:0]E;
   output oHS;
-  input \rCurrent_count_reg[10]_0 ;
-  input \rCurrent_count_reg[10]_1 ;
   input iRst;
   input iClk;
 
   wire [0:0]E;
   wire [9:0]Q;
-  wire [0:0]SR;
   wire iClk;
   wire iRst;
   wire oHS;
   wire \rCurrent_count[9]_i_1__0_n_0 ;
-  wire \rCurrent_count[9]_i_3_n_0 ;
-  wire \rCurrent_count[9]_i_4_n_0 ;
-  wire \rCurrent_count[9]_i_5_n_0 ;
-  wire \rCurrent_count_reg[10]_0 ;
-  wire \rCurrent_count_reg[10]_1 ;
-  wire \rCurrent_count_reg_n_0_[10] ;
-  wire [10:0]wNext_count;
+  wire \rCurrent_count_reg[3]_0 ;
+  wire \rCurrent_count_reg[5]_0 ;
+  wire [9:0]wNext_count;
 
   LUT6 #(
     .INIT(64'hFBBBBBBFFFFFFFFF)) 
@@ -106,16 +97,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
     \rCurrent_count[0]_i_1 
        (.I0(Q[0]),
         .O(wNext_count[0]));
-  LUT6 #(
-    .INIT(64'hFFFFDFFF00002000)) 
-    \rCurrent_count[10]_i_1 
-       (.I0(Q[6]),
-        .I1(\rCurrent_count[9]_i_3_n_0 ),
-        .I2(Q[5]),
-        .I3(Q[7]),
-        .I4(\rCurrent_count[9]_i_4_n_0 ),
-        .I5(\rCurrent_count_reg_n_0_[10] ),
-        .O(wNext_count[10]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h6)) 
@@ -165,7 +146,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
     .INIT(8'hD2)) 
     \rCurrent_count[6]_i_1 
        (.I0(Q[5]),
-        .I1(\rCurrent_count[9]_i_3_n_0 ),
+        .I1(\rCurrent_count_reg[3]_0 ),
         .I2(Q[6]),
         .O(wNext_count[6]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
@@ -173,7 +154,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
     .INIT(16'hDF20)) 
     \rCurrent_count[7]_i_1 
        (.I0(Q[6]),
-        .I1(\rCurrent_count[9]_i_3_n_0 ),
+        .I1(\rCurrent_count_reg[3]_0 ),
         .I2(Q[5]),
         .I3(Q[7]),
         .O(wNext_count[7]));
@@ -183,28 +164,18 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
     \rCurrent_count[8]_i_1 
        (.I0(Q[7]),
         .I1(Q[5]),
-        .I2(\rCurrent_count[9]_i_3_n_0 ),
+        .I2(\rCurrent_count_reg[3]_0 ),
         .I3(Q[6]),
         .I4(Q[8]),
         .O(wNext_count[8]));
   LUT6 #(
-    .INIT(64'hFFFFFFFF00400000)) 
-    \rCurrent_count[9]_i_1 
-       (.I0(\rCurrent_count[9]_i_3_n_0 ),
-        .I1(\rCurrent_count_reg[10]_0 ),
-        .I2(\rCurrent_count[9]_i_5_n_0 ),
-        .I3(\rCurrent_count[9]_i_4_n_0 ),
-        .I4(\rCurrent_count_reg[10]_1 ),
-        .I5(iRst),
-        .O(SR));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF00010000)) 
+    .INIT(64'hFFFFFFFF10000000)) 
     \rCurrent_count[9]_i_1__0 
-       (.I0(\rCurrent_count[9]_i_3_n_0 ),
-        .I1(\rCurrent_count[9]_i_4_n_0 ),
-        .I2(\rCurrent_count_reg_n_0_[10] ),
-        .I3(Q[7]),
-        .I4(\rCurrent_count[9]_i_5_n_0 ),
+       (.I0(\rCurrent_count_reg[3]_0 ),
+        .I1(Q[7]),
+        .I2(Q[8]),
+        .I3(Q[9]),
+        .I4(\rCurrent_count_reg[5]_0 ),
         .I5(iRst),
         .O(\rCurrent_count[9]_i_1__0_n_0 ));
   LUT6 #(
@@ -215,14 +186,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
         .I2(Q[9]),
         .I3(Q[8]),
         .I4(Q[7]),
-        .I5(\rCurrent_count[9]_i_3_n_0 ),
+        .I5(\rCurrent_count_reg[3]_0 ),
         .O(E));
   LUT6 #(
     .INIT(64'hF7FFFFFF08000000)) 
     \rCurrent_count[9]_i_2__0 
        (.I0(Q[8]),
         .I1(Q[6]),
-        .I2(\rCurrent_count[9]_i_3_n_0 ),
+        .I2(\rCurrent_count_reg[3]_0 ),
         .I3(Q[5]),
         .I4(Q[7]),
         .I5(Q[9]),
@@ -236,31 +207,19 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter
         .I2(Q[0]),
         .I3(Q[2]),
         .I4(Q[4]),
-        .O(\rCurrent_count[9]_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h7)) 
-    \rCurrent_count[9]_i_4 
-       (.I0(Q[8]),
-        .I1(Q[9]),
-        .O(\rCurrent_count[9]_i_4_n_0 ));
+        .O(\rCurrent_count_reg[3]_0 ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h1)) 
-    \rCurrent_count[9]_i_5 
+    \rCurrent_count[9]_i_4 
        (.I0(Q[5]),
         .I1(Q[6]),
-        .O(\rCurrent_count[9]_i_5_n_0 ));
+        .O(\rCurrent_count_reg[5]_0 ));
   FDRE \rCurrent_count_reg[0] 
        (.C(iClk),
         .CE(1'b1),
         .D(wNext_count[0]),
         .Q(Q[0]),
-        .R(\rCurrent_count[9]_i_1__0_n_0 ));
-  FDRE \rCurrent_count_reg[10] 
-       (.C(iClk),
-        .CE(1'b1),
-        .D(wNext_count[10]),
-        .Q(\rCurrent_count_reg_n_0_[10] ),
         .R(\rCurrent_count[9]_i_1__0_n_0 ));
   FDRE \rCurrent_count_reg[1] 
        (.C(iClk),
@@ -321,34 +280,36 @@ endmodule
 (* ORIG_REF_NAME = "counter" *) 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
    (Q,
-    \rCurrent_count_reg[2]_0 ,
-    \rCurrent_count_reg[9]_0 ,
     oVS,
-    \rCurrent_count_reg[10]_0 ,
-    SR,
+    \rCurrent_count_reg[0]_0 ,
+    \rCurrent_count_reg[0]_1 ,
+    iRst,
+    \rCurrent_count_reg[0]_2 ,
     E,
     iClk);
   output [9:0]Q;
-  output \rCurrent_count_reg[2]_0 ;
-  output \rCurrent_count_reg[9]_0 ;
   output oVS;
-  input [0:0]\rCurrent_count_reg[10]_0 ;
-  input [0:0]SR;
+  input \rCurrent_count_reg[0]_0 ;
+  input \rCurrent_count_reg[0]_1 ;
+  input iRst;
+  input [2:0]\rCurrent_count_reg[0]_2 ;
   input [0:0]E;
   input iClk;
 
   wire [0:0]E;
   wire [9:0]Q;
-  wire [0:0]SR;
   wire iClk;
+  wire iRst;
   wire oVS;
   wire oVS_INST_0_i_1_n_0;
+  wire \rCurrent_count[9]_i_1_n_0 ;
+  wire \rCurrent_count[9]_i_4__0_n_0 ;
+  wire \rCurrent_count[9]_i_5_n_0 ;
   wire \rCurrent_count[9]_i_6_n_0 ;
-  wire [0:0]\rCurrent_count_reg[10]_0 ;
-  wire \rCurrent_count_reg[2]_0 ;
-  wire \rCurrent_count_reg[9]_0 ;
-  wire \rCurrent_count_reg_n_0_[10] ;
-  wire [10:0]wNext_count__0;
+  wire \rCurrent_count_reg[0]_0 ;
+  wire \rCurrent_count_reg[0]_1 ;
+  wire [2:0]\rCurrent_count_reg[0]_2 ;
+  wire [9:0]wNext_count__0;
 
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
@@ -375,16 +336,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
     \rCurrent_count[0]_i_1__0 
        (.I0(Q[0]),
         .O(wNext_count__0[0]));
-  LUT6 #(
-    .INIT(64'hF7FFFFFF08000000)) 
-    \rCurrent_count[10]_i_1__0 
-       (.I0(Q[9]),
-        .I1(Q[7]),
-        .I2(\rCurrent_count[9]_i_6_n_0 ),
-        .I3(Q[6]),
-        .I4(Q[8]),
-        .I5(\rCurrent_count_reg_n_0_[10] ),
-        .O(wNext_count__0[10]));
   (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h6)) 
@@ -453,6 +404,16 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
         .I2(Q[6]),
         .I3(Q[8]),
         .O(wNext_count__0[8]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00400000)) 
+    \rCurrent_count[9]_i_1 
+       (.I0(\rCurrent_count_reg[0]_0 ),
+        .I1(\rCurrent_count[9]_i_4__0_n_0 ),
+        .I2(\rCurrent_count_reg[0]_1 ),
+        .I3(Q[0]),
+        .I4(\rCurrent_count[9]_i_5_n_0 ),
+        .I5(iRst),
+        .O(\rCurrent_count[9]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
     .INIT(32'hF7FF0800)) 
@@ -464,25 +425,25 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
         .I4(Q[9]),
         .O(wNext_count__0[9]));
   LUT6 #(
-    .INIT(64'h0000000000000002)) 
+    .INIT(64'h0002000000000000)) 
     \rCurrent_count[9]_i_4__0 
        (.I0(Q[9]),
-        .I1(Q[8]),
-        .I2(Q[6]),
-        .I3(Q[7]),
-        .I4(\rCurrent_count_reg[10]_0 ),
-        .I5(\rCurrent_count_reg_n_0_[10] ),
-        .O(\rCurrent_count_reg[9]_0 ));
+        .I1(\rCurrent_count_reg[0]_2 [0]),
+        .I2(Q[7]),
+        .I3(Q[8]),
+        .I4(\rCurrent_count_reg[0]_2 [2]),
+        .I5(\rCurrent_count_reg[0]_2 [1]),
+        .O(\rCurrent_count[9]_i_4__0_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000000008)) 
-    \rCurrent_count[9]_i_5__0 
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .I2(Q[0]),
+    .INIT(64'h0000000000000020)) 
+    \rCurrent_count[9]_i_5 
+       (.I0(Q[3]),
+        .I1(Q[4]),
+        .I2(Q[2]),
         .I3(Q[1]),
-        .I4(Q[5]),
-        .I5(Q[4]),
-        .O(\rCurrent_count_reg[2]_0 ));
+        .I4(Q[6]),
+        .I5(Q[5]),
+        .O(\rCurrent_count[9]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'h7FFFFFFFFFFFFFFF)) 
     \rCurrent_count[9]_i_6 
@@ -498,67 +459,61 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter__parameterized0
         .CE(E),
         .D(wNext_count__0[0]),
         .Q(Q[0]),
-        .R(SR));
-  FDRE \rCurrent_count_reg[10] 
-       (.C(iClk),
-        .CE(E),
-        .D(wNext_count__0[10]),
-        .Q(\rCurrent_count_reg_n_0_[10] ),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[1] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[1]),
         .Q(Q[1]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[2] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[2]),
         .Q(Q[2]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[3] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[3]),
         .Q(Q[3]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[4] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[4]),
         .Q(Q[4]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[5] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[5]),
         .Q(Q[5]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[6] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[6]),
         .Q(Q[6]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[7] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[7]),
         .Q(Q[7]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[8] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[8]),
         .Q(Q[8]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
   FDRE \rCurrent_count_reg[9] 
        (.C(iClk),
         .CE(E),
         .D(wNext_count__0[9]),
         .Q(Q[9]),
-        .R(SR));
+        .R(\rCurrent_count[9]_i_1_n_0 ));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_VGA_timings_0_0,VGA_timings,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 

@@ -34,8 +34,8 @@ module VGA_pattern #(
     parameter   V_TOT   = HEIGHT + V_FP + V_PW + V_BP    //V TOT = 525
     )
     (
-    input wire[$clog2(H_TOT)-1:0] iCountH, iShapeX, iShapeSize,
-    input wire[$clog2(V_TOT)-1:0] iCountV, iShapeY,
+    input wire[$clog2(H_TOT) -1 :0] iCountH, iShapeX, iShapeSize,
+    input wire[$clog2(V_TOT) -1 :0] iCountV, iShapeY,
     input wire iHS, iVS,
     output wire [3:0] oRed, oGreen, oBlue,
     output wire oVS, oHS

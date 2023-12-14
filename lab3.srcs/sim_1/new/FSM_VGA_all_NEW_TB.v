@@ -7,8 +7,6 @@ reg r_iClk, r_iRst;
 reg r_iPush_left, r_iPush_down, r_iPush_right, r_iPush_up;
 wire w_oLED;
 wire [9 : 0] w_oShapeX, w_oShapeY, w_oShape_size;
-reg [1:0] r_iDirection_pushed;
-reg r_iButton_pushed;
 // module instantiation
 
 FSM_VGA_all #(.CLOCK_FREQ(15))
@@ -52,25 +50,25 @@ begin
     r_iPush_left = 1;
     #(50*T); // should toggle between the states every 15 cycles.
     r_iPush_left = 0;
-    #(10*T);
+    #(100*T);
     
     // button pushed.
     r_iPush_right = 1;
     #(50*T); // should toggle between the states every 15 cycles.
     r_iPush_right = 0;
-    #(5*T);
+    #(50*T);
     
     // button pushed.
     r_iPush_down = 1;
     #(50*T); // should toggle between the states every 15 cycles.
     r_iPush_down = 0;
-    #(5*T);
+    #(50*T);
     
     // button pushed.
     r_iPush_up = 1;
     #(50*T); // should toggle between the states every 15 cycles.
     r_iPush_up = 0;
-    #(5*T);
+    #(50*T);
     
     $stop;
 end

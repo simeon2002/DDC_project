@@ -2,9 +2,9 @@
 
 module counter #(parameter LIMIT = 15) (
     input wire iClk, iRst, iEn,
-    output wire [$clog2(LIMIT - 1) : 0] oQ
+    output wire [$clog2(LIMIT)-1 : 0] oQ
     );
-    localparam bits = $clog2(LIMIT - 1);
+    localparam bits = $clog2(LIMIT)- 1;
     reg [bits: 0] rCurrent_count;
    wire [bits: 0] wNext_count;
    

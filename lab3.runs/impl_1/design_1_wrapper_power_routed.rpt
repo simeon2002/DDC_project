@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date             : Thu Dec 14 09:40:25 2023
+| Date             : Thu Dec 14 11:40:01 2023
 | Host             : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      420 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      145 |     53200 |            0.27 |
+| Slice Logic    |    <0.001 |      414 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      142 |     53200 |            0.27 |
 |   CARRY4       |    <0.001 |       54 |     13300 |            0.41 |
-|   Register     |    <0.001 |      170 |    106400 |            0.16 |
+|   Register     |    <0.001 |      167 |    106400 |            0.16 |
 |   Others       |     0.000 |       20 |       --- |             --- |
-| Signals        |    <0.001 |      308 |       --- |             --- |
+| Signals        |    <0.001 |      304 |       --- |             --- |
 | MMCM           |     0.115 |        1 |         4 |           25.00 |
 | I/O            |    <0.001 |       21 |       125 |           16.80 |
 | Static Power   |     0.108 |          |           |                 |

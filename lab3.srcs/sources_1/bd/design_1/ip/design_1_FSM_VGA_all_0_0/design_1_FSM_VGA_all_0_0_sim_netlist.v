@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Thu Dec 14 09:33:04 2023
+// Date        : Thu Dec 14 11:38:25 2023
 // Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/sims0702/DDC_project/lab3.srcs/sources_1/bd/design_1/ip/design_1_FSM_VGA_all_0_0/design_1_FSM_VGA_all_0_0_sim_netlist.v
@@ -769,8 +769,6 @@ module design_1_FSM_VGA_all_0_0_counter
   wire \rCurrent_count_reg[20]_i_1_n_5 ;
   wire \rCurrent_count_reg[20]_i_1_n_6 ;
   wire \rCurrent_count_reg[20]_i_1_n_7 ;
-  wire \rCurrent_count_reg[24]_i_1_n_3 ;
-  wire \rCurrent_count_reg[24]_i_1_n_6 ;
   wire \rCurrent_count_reg[24]_i_1_n_7 ;
   wire \rCurrent_count_reg[4]_i_1_n_0 ;
   wire \rCurrent_count_reg[4]_i_1_n_1 ;
@@ -788,9 +786,9 @@ module design_1_FSM_VGA_all_0_0_counter
   wire \rCurrent_count_reg[8]_i_1_n_5 ;
   wire \rCurrent_count_reg[8]_i_1_n_6 ;
   wire \rCurrent_count_reg[8]_i_1_n_7 ;
-  wire [25:0]w_oQ;
-  wire [3:1]\NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED ;
+  wire [24:0]w_oQ;
+  wire [3:0]\NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED ;
+  wire [3:1]\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED ;
 
   LUT6 #(
     .INIT(64'h0000010000000000)) 
@@ -858,52 +856,51 @@ module design_1_FSM_VGA_all_0_0_counter
   LUT4 #(
     .INIT(16'hFFDF)) 
     \FSM_onehot_rFSM_current[5]_i_3 
-       (.I0(w_oQ[14]),
+       (.I0(w_oQ[16]),
         .I1(w_oQ[15]),
-        .I2(w_oQ[16]),
+        .I2(w_oQ[18]),
         .I3(w_oQ[17]),
         .O(\FSM_onehot_rFSM_current[5]_i_3_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \FSM_onehot_rFSM_current[5]_i_4 
-       (.I0(w_oQ[19]),
-        .I1(w_oQ[18]),
-        .I2(w_oQ[21]),
-        .I3(w_oQ[20]),
+       (.I0(w_oQ[20]),
+        .I1(w_oQ[19]),
+        .I2(w_oQ[22]),
+        .I3(w_oQ[21]),
         .O(\FSM_onehot_rFSM_current[5]_i_4_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \FSM_onehot_rFSM_current[5]_i_5 
-       (.I0(w_oQ[7]),
-        .I1(w_oQ[6]),
-        .I2(w_oQ[9]),
-        .I3(w_oQ[8]),
+       (.I0(w_oQ[8]),
+        .I1(w_oQ[7]),
+        .I2(w_oQ[10]),
+        .I3(w_oQ[9]),
         .O(\FSM_onehot_rFSM_current[5]_i_5_n_0 ));
   LUT4 #(
-    .INIT(16'hDFFF)) 
+    .INIT(16'h7FFF)) 
     \FSM_onehot_rFSM_current[5]_i_6 
-       (.I0(w_oQ[11]),
-        .I1(w_oQ[10]),
-        .I2(w_oQ[13]),
-        .I3(w_oQ[12]),
+       (.I0(w_oQ[12]),
+        .I1(w_oQ[11]),
+        .I2(w_oQ[14]),
+        .I3(w_oQ[13]),
         .O(\FSM_onehot_rFSM_current[5]_i_6_n_0 ));
   LUT4 #(
-    .INIT(16'h7FFF)) 
+    .INIT(16'hFF7F)) 
     \FSM_onehot_rFSM_current[5]_i_7 
-       (.I0(w_oQ[3]),
-        .I1(w_oQ[2]),
+       (.I0(w_oQ[4]),
+        .I1(w_oQ[3]),
         .I2(w_oQ[5]),
-        .I3(w_oQ[4]),
+        .I3(w_oQ[6]),
         .O(\FSM_onehot_rFSM_current[5]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'hFBFFFFFFFFFFFFFF)) 
+  LUT5 #(
+    .INIT(32'hDFFFFFFF)) 
     \FSM_onehot_rFSM_current[5]_i_8 
-       (.I0(w_oQ[25]),
-        .I1(w_oQ[24]),
-        .I2(w_oQ[23]),
-        .I3(w_oQ[22]),
+       (.I0(w_oQ[0]),
+        .I1(w_oQ[23]),
+        .I2(w_oQ[24]),
+        .I3(w_oQ[2]),
         .I4(w_oQ[1]),
-        .I5(w_oQ[0]),
         .O(\FSM_onehot_rFSM_current[5]_i_8_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFEEFE)) 
@@ -1056,17 +1053,11 @@ module design_1_FSM_VGA_all_0_0_counter
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \rCurrent_count_reg[24]_i_1 
        (.CI(\rCurrent_count_reg[20]_i_1_n_0 ),
-        .CO({\NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED [3:1],\rCurrent_count_reg[24]_i_1_n_3 }),
+        .CO(\NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED [3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED [3:2],\rCurrent_count_reg[24]_i_1_n_6 ,\rCurrent_count_reg[24]_i_1_n_7 }),
-        .S({1'b0,1'b0,w_oQ[25:24]}));
-  FDRE \rCurrent_count_reg[25] 
-       (.C(iClk),
-        .CE(Q[1]),
-        .D(\rCurrent_count_reg[24]_i_1_n_6 ),
-        .Q(w_oQ[25]),
-        .R(\rCurrent_count[0]_i_1_n_0 ));
+        .O({\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED [3:1],\rCurrent_count_reg[24]_i_1_n_7 }),
+        .S({1'b0,1'b0,1'b0,w_oQ[24]}));
   FDRE \rCurrent_count_reg[2] 
        (.C(iClk),
         .CE(Q[1]),

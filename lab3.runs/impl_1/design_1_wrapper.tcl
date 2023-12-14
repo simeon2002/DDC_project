@@ -125,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
+  set_param xicom.use_bs_reader 1
   set_param synth.incrementalSynthesisCache ./.Xil/Vivado-10022-billionaire-he-will-be/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg400-1

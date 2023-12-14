@@ -1,0 +1,3 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+$stop called at time : 9140 ns : File "/home/sims0702/DDC_project/lab3.srcs/sim_1/new/FSM_VGA_all_NEW_TB.v" Line 75

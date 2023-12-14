@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
--- Date        : Thu Dec 14 09:33:03 2023
+-- Date        : Thu Dec 14 11:38:25 2023
 -- Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_FSM_VGA_all_0_0_sim_netlist.vhdl
@@ -71,8 +71,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter is
   signal \rCurrent_count_reg[20]_i_1_n_5\ : STD_LOGIC;
   signal \rCurrent_count_reg[20]_i_1_n_6\ : STD_LOGIC;
   signal \rCurrent_count_reg[20]_i_1_n_7\ : STD_LOGIC;
-  signal \rCurrent_count_reg[24]_i_1_n_3\ : STD_LOGIC;
-  signal \rCurrent_count_reg[24]_i_1_n_6\ : STD_LOGIC;
   signal \rCurrent_count_reg[24]_i_1_n_7\ : STD_LOGIC;
   signal \rCurrent_count_reg[4]_i_1_n_0\ : STD_LOGIC;
   signal \rCurrent_count_reg[4]_i_1_n_1\ : STD_LOGIC;
@@ -90,9 +88,9 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_counter is
   signal \rCurrent_count_reg[8]_i_1_n_5\ : STD_LOGIC;
   signal \rCurrent_count_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \rCurrent_count_reg[8]_i_1_n_7\ : STD_LOGIC;
-  signal w_oQ : STD_LOGIC_VECTOR ( 25 downto 0 );
-  signal \NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
-  signal \NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  signal w_oQ : STD_LOGIC_VECTOR ( 24 downto 0 );
+  signal \NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \FSM_onehot_rFSM_current[3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \FSM_onehot_rFSM_current[4]_i_1\ : label is "soft_lutpair0";
@@ -192,9 +190,9 @@ begin
       INIT => X"FFDF"
     )
         port map (
-      I0 => w_oQ(14),
+      I0 => w_oQ(16),
       I1 => w_oQ(15),
-      I2 => w_oQ(16),
+      I2 => w_oQ(18),
       I3 => w_oQ(17),
       O => \FSM_onehot_rFSM_current[5]_i_3_n_0\
     );
@@ -203,10 +201,10 @@ begin
       INIT => X"7FFF"
     )
         port map (
-      I0 => w_oQ(19),
-      I1 => w_oQ(18),
-      I2 => w_oQ(21),
-      I3 => w_oQ(20),
+      I0 => w_oQ(20),
+      I1 => w_oQ(19),
+      I2 => w_oQ(22),
+      I3 => w_oQ(21),
       O => \FSM_onehot_rFSM_current[5]_i_4_n_0\
     );
 \FSM_onehot_rFSM_current[5]_i_5\: unisim.vcomponents.LUT4
@@ -214,45 +212,44 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => w_oQ(7),
-      I1 => w_oQ(6),
-      I2 => w_oQ(9),
-      I3 => w_oQ(8),
+      I0 => w_oQ(8),
+      I1 => w_oQ(7),
+      I2 => w_oQ(10),
+      I3 => w_oQ(9),
       O => \FSM_onehot_rFSM_current[5]_i_5_n_0\
     );
 \FSM_onehot_rFSM_current[5]_i_6\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"DFFF"
+      INIT => X"7FFF"
     )
         port map (
-      I0 => w_oQ(11),
-      I1 => w_oQ(10),
-      I2 => w_oQ(13),
-      I3 => w_oQ(12),
+      I0 => w_oQ(12),
+      I1 => w_oQ(11),
+      I2 => w_oQ(14),
+      I3 => w_oQ(13),
       O => \FSM_onehot_rFSM_current[5]_i_6_n_0\
     );
 \FSM_onehot_rFSM_current[5]_i_7\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7FFF"
+      INIT => X"FF7F"
     )
         port map (
-      I0 => w_oQ(3),
-      I1 => w_oQ(2),
+      I0 => w_oQ(4),
+      I1 => w_oQ(3),
       I2 => w_oQ(5),
-      I3 => w_oQ(4),
+      I3 => w_oQ(6),
       O => \FSM_onehot_rFSM_current[5]_i_7_n_0\
     );
-\FSM_onehot_rFSM_current[5]_i_8\: unisim.vcomponents.LUT6
+\FSM_onehot_rFSM_current[5]_i_8\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FBFFFFFFFFFFFFFF"
+      INIT => X"DFFFFFFF"
     )
         port map (
-      I0 => w_oQ(25),
-      I1 => w_oQ(24),
-      I2 => w_oQ(23),
-      I3 => w_oQ(22),
+      I0 => w_oQ(0),
+      I1 => w_oQ(23),
+      I2 => w_oQ(24),
+      I3 => w_oQ(2),
       I4 => w_oQ(1),
-      I5 => w_oQ(0),
       O => \FSM_onehot_rFSM_current[5]_i_8_n_0\
     );
 \rCurrent_count[0]_i_1\: unisim.vcomponents.LUT5
@@ -475,23 +472,13 @@ begin
 \rCurrent_count_reg[24]_i_1\: unisim.vcomponents.CARRY4
      port map (
       CI => \rCurrent_count_reg[20]_i_1_n_0\,
-      CO(3 downto 1) => \NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED\(3 downto 1),
-      CO(0) => \rCurrent_count_reg[24]_i_1_n_3\,
+      CO(3 downto 0) => \NLW_rCurrent_count_reg[24]_i_1_CO_UNCONNECTED\(3 downto 0),
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
-      O(3 downto 2) => \NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED\(3 downto 2),
-      O(1) => \rCurrent_count_reg[24]_i_1_n_6\,
+      O(3 downto 1) => \NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED\(3 downto 1),
       O(0) => \rCurrent_count_reg[24]_i_1_n_7\,
-      S(3 downto 2) => B"00",
-      S(1 downto 0) => w_oQ(25 downto 24)
-    );
-\rCurrent_count_reg[25]\: unisim.vcomponents.FDRE
-     port map (
-      C => iClk,
-      CE => Q(1),
-      D => \rCurrent_count_reg[24]_i_1_n_6\,
-      Q => w_oQ(25),
-      R => \rCurrent_count[0]_i_1_n_0\
+      S(3 downto 1) => B"000",
+      S(0) => w_oQ(24)
     );
 \rCurrent_count_reg[2]\: unisim.vcomponents.FDRE
      port map (
