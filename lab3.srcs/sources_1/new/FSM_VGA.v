@@ -52,7 +52,7 @@ module FSM_VGA #(
     assign w_iRst_timer = (rFSM_current == sIdle || iRst || rFSM_current == sMove_up || rFSM_current == sMove_right ||rFSM_current == sMove_down || rFSM_current == sMove_left) ? 1: 0;
     timer_1s #(.CLOCK_FREQ(CLOCK_FREQ))
         timer_inst(.iClk(iClk), .iRst(w_iRst_timer), .iEn(r_iEn_timer), .oQ(oTimer));
-//    reg w_iBoundary_vert, w_iBoundary_hor;
+    reg w_iBoundary_vert, w_iBoundary_hor;
 always @(*)
 begin
     case (rFSM_current)
@@ -70,10 +70,26 @@ begin
         sWait: begin
             if (iPush == 1 && oTimer == 1) begin
                 case (iDirection_pushed)
-                    0: wFSM_next = sMove_up;
-                    1: wFSM_next = sMove_right;
-                    2: wFSM_next = sMove_down;
-                    3: wFSM_next = sMove_left;
+                    0:  if (w_iBoundary_vert == 0) begin
+                            wFSM_next = sMove_up;
+                        end else begin
+                            wFSM_next = sWait;
+                        end
+                    1:  if (w_iBoundary_hor == 0) begin
+                            wFSM_next = sMove_right;
+                        end else begin
+                            wFSM_next = sWait;
+                        end
+                    2:  if (w_iBoundary_vert == 0) begin
+                            wFSM_next = sMove_down;
+                        end else begin
+                            wFSM_next = sWait;
+                        end
+                    3:  if (w_iBoundary_hor == 0) begin
+                        wFSM_next = sMove_left;
+                        end else begin
+                            wFSM_next = sWait;
+                        end
                     default: wFSM_next = sWait;
                 endcase
             end else if (iPush == 1 && oTimer == 0) begin
@@ -176,79 +192,69 @@ end
     end
     
     
-//    // defining boundaries
-//    always @(*)
-//    begin
-//        if (rFSM_current == sWait) // in waiting state
-//        begin
-//            if (r_oShapeX_current == HORIZONTAL_MIN)
-//            begin
-//                if (iDirection_pushed == 1) // if right pushed at minimum
-//                begin
-//                    w_iBoundary_hor <= 0;
-//                end
-//                else // if at minimum and left button is pushed
-//                begin
-//                    w_iBoundary_hor <= 1;
-//                end
-//            end
-//            else if (r_oShapeX_current == HORIZONTAL_MAX)
-//            begin
-//                if (iDirection_pushed == 3) // at max if left button pushed
-//                begin
-//                    w_iBoundary_hor <= 0;
-//                end
-//                else // at max if right button pushed
-//                begin
-//                    w_iBoundary_hor <= 1;
-//                end
-//            end
-            
-//            if (r_oShapeY_current == VERTICAL_MIN)
-//            begin
-//                if (iDirection_pushed == 2) // at min if down button pushed
-//                begin
-//                    w_iBoundary_vert <= 0;
-//                end
-//                else // at min if up button pushed
-//                begin
-//                    w_iBoundary_vert <= 1;
-//                end
-//            end 
-//            else if (r_oShapeY_current == VERTICAL_MAX)
-//            begin
-//                if (iDirection_pushed == 0)  // at max if up button pushed
-//                begin
-//                    w_iBoundary_vert <= 0;
-//                end
-//                else // at max if down button pushed
-//                begin
-//                    w_iBoundary_vert <= 1;
-//                end
-//            end
-//        end
-//        else // if not in waiting state
-//        begin
-//            if (r_oShapeY_current == VERTICAL_MIN || r_oShapeY_current == VERTICAL_MAX)
-//            begin
-//                w_iBoundary_vert <= 1;
-//            end
-//            else 
-//            begin
-//                w_iBoundary_vert <= 0;
-//            end
-            
-//            if (r_oShapeX_current == HORIZONTAL_MIN || r_oShapeX_current  == HORIZONTAL_MAX)
-//            begin
-//                w_iBoundary_hor <= 1;
-//            end
-//            else 
-//            begin
-//                w_iBoundary_hor <= 0;
-//            end
-//        end
-        
-//    end
+    // defining boundaries
+    
+    // horizontal boundary
+    always @(*)
+    begin
+        if (rFSM_current == sWait) begin // in waiting state
+            if (r_oShapeX_current == HORIZONTAL_MIN - 1) begin
+                if (iDirection_pushed == 1) begin // if right pushed at minimum
+                    w_iBoundary_hor = 0;
+                end
+                else begin // if at minimum and left button is pushed
+                    w_iBoundary_hor = 1;
+                end
+            end
+            else if (r_oShapeX_current == HORIZONTAL_MAX - 1) begin
+                if (iDirection_pushed == 3) begin // at max if left button pushed
+                    w_iBoundary_hor = 0;
+                end
+                else begin // at max if right button pushed
+                    w_iBoundary_hor = 1;
+                end
+            end
+        end
+        else begin // if not in waiting state
+            if (r_oShapeX_current == HORIZONTAL_MIN - 1|| r_oShapeX_current  == HORIZONTAL_MAX - 1) begin
+                w_iBoundary_hor = 1;
+            end
+            else begin
+                w_iBoundary_hor = 0;
+            end
+        end
+    end
+    
+    // vertical boundary
+    always @(*)
+    begin
+        if (rFSM_current == sWait) begin // in waiting state
+            if (r_oShapeY_current == VERTICAL_MIN - 1) begin
+                if (iDirection_pushed == 2) begin // at min if down button pushed
+                    w_iBoundary_vert = 0;
+                end
+                else begin // at min if up button pushed
+                    w_iBoundary_vert = 1;
+                end
+            end 
+            else if (r_oShapeY_current == VERTICAL_MAX - 1) begin
+                if (iDirection_pushed == 0) begin // at max if up button pushed
+                    w_iBoundary_vert = 0;
+                end
+                else begin // at max if down button pushed
+                    w_iBoundary_vert = 1;
+                end
+            end
+        end
+        else begin // if not in waiting state
+            if (r_oShapeY_current == VERTICAL_MIN - 1|| r_oShapeY_current == VERTICAL_MAX - 1) begin
+                w_iBoundary_vert = 1;
+            end
+            else begin
+                w_iBoundary_vert = 0;
+            end
+        end
+    end
     // defining direction that is pushed
 //    always @(*)
 //    begin

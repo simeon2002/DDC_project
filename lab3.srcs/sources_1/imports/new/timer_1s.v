@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module timer_1s 
-    #(parameter CLOCK_FREQ = 25_000_000) 
+    #(parameter CLOCK_FREQ = 25_000) 
     (
     input iRst, iClk, iEn,
     output oQ

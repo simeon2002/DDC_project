@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Thu Dec 14 11:38:25 2023
+// Date        : Thu Dec 14 12:44:59 2023
 // Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/sims0702/DDC_project/lab3.srcs/sources_1/bd/design_1/ip/design_1_FSM_VGA_all_0_0/design_1_FSM_VGA_all_0_0_sim_netlist.v
@@ -71,37 +71,59 @@ module design_1_FSM_VGA_all_0_0
         .iPush_up(iPush_up),
         .iRst(iRst),
         .oLED(oLED),
-        .oShapeX({oShapeX[9:2],oShapeX[0]}),
-        .oShapeY({oShapeY[9:2],oShapeY[0]}),
+        .oShapeX({oShapeX[9],oShapeX[7]}),
+        .oShapeY({oShapeY[9],oShapeY[0]}),
+        .\r_oShapeX_current_reg[0] (oShapeX[0]),
         .\r_oShapeX_current_reg[1] (oShapeX[1]),
-        .\r_oShapeY_current_reg[1] (oShapeY[1]));
+        .\r_oShapeX_current_reg[2] (oShapeX[2]),
+        .\r_oShapeX_current_reg[3] (oShapeX[3]),
+        .\r_oShapeX_current_reg[4] (oShapeX[4]),
+        .\r_oShapeX_current_reg[5] (oShapeX[5]),
+        .\r_oShapeX_current_reg[6] (oShapeX[6]),
+        .\r_oShapeX_current_reg[8] (oShapeX[8]),
+        .\r_oShapeY_current_reg[1] (oShapeY[1]),
+        .\r_oShapeY_current_reg[2] (oShapeY[2]),
+        .\r_oShapeY_current_reg[3] (oShapeY[3]),
+        .\r_oShapeY_current_reg[4] (oShapeY[4]),
+        .\r_oShapeY_current_reg[5] (oShapeY[5]),
+        .\r_oShapeY_current_reg[6] (oShapeY[6]),
+        .\r_oShapeY_current_reg[7] (oShapeY[7]),
+        .\r_oShapeY_current_reg[8] (oShapeY[8]));
 endmodule
 
 (* ORIG_REF_NAME = "FSM_VGA" *) 
 module design_1_FSM_VGA_all_0_0_FSM_VGA
    (oShapeX,
-    \r_oShapeX_current_reg[9]_0 ,
     oShapeY,
+    \r_oShapeX_current_reg[8]_0 ,
+    \r_oShapeX_current_reg[9]_0 ,
+    \r_oShapeY_current_reg[8]_0 ,
     \r_oShapeY_current_reg[9]_0 ,
     oLED,
     iRst,
     iClk,
-    iPush_right,
-    iPush_up,
     iPush_down,
-    iPush_left);
+    iPush_left,
+    iPush_up,
+    iPush_right);
   output [7:0]oShapeX;
-  output [1:0]\r_oShapeX_current_reg[9]_0 ;
   output [7:0]oShapeY;
-  output [1:0]\r_oShapeY_current_reg[9]_0 ;
+  output \r_oShapeX_current_reg[8]_0 ;
+  output [0:0]\r_oShapeX_current_reg[9]_0 ;
+  output \r_oShapeY_current_reg[8]_0 ;
+  output [0:0]\r_oShapeY_current_reg[9]_0 ;
   output oLED;
   input iRst;
   input iClk;
-  input iPush_right;
-  input iPush_up;
   input iPush_down;
   input iPush_left;
+  input iPush_up;
+  input iPush_right;
 
+  wire \FSM_onehot_rFSM_current[2]_i_3_n_0 ;
+  wire \FSM_onehot_rFSM_current[2]_i_4_n_0 ;
+  wire \FSM_onehot_rFSM_current[3]_i_2_n_0 ;
+  wire \FSM_onehot_rFSM_current[5]_i_3_n_0 ;
   wire \FSM_onehot_rFSM_current[6]_i_1_n_0 ;
   wire \FSM_onehot_rFSM_current[6]_i_2_n_0 ;
   wire \FSM_onehot_rFSM_current_reg_n_0_[0] ;
@@ -150,8 +172,8 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   wire iPush_right;
   wire iPush_up;
   wire iRst;
-  wire [9:1]in6;
-  wire [9:1]in7;
+  wire [9:1]in8;
+  wire [9:1]in9;
   wire oLED;
   wire [7:0]oShapeX;
   wire [7:0]oShapeY;
@@ -163,40 +185,94 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   wire \r_oShapeX_current[3]_i_1_n_0 ;
   wire \r_oShapeX_current[9]_i_1_n_0 ;
   wire \r_oShapeX_current[9]_i_2_n_0 ;
-  wire [1:0]\r_oShapeX_current_reg[9]_0 ;
+  wire \r_oShapeX_current_reg[8]_0 ;
+  wire [0:0]\r_oShapeX_current_reg[9]_0 ;
   wire \r_oShapeY_current[0]_i_1_n_0 ;
   wire \r_oShapeY_current[1]_i_1_n_0 ;
   wire \r_oShapeY_current[3]_i_1_n_0 ;
   wire \r_oShapeY_current[9]_i_1_n_0 ;
   wire \r_oShapeY_current[9]_i_2_n_0 ;
-  wire [1:0]\r_oShapeY_current_reg[9]_0 ;
+  wire \r_oShapeY_current_reg[8]_0 ;
+  wire [0:0]\r_oShapeY_current_reg[9]_0 ;
   wire timer_inst_n_0;
   wire timer_inst_n_1;
   wire timer_inst_n_2;
   wire timer_inst_n_3;
   wire timer_inst_n_4;
+  wire w_iBoundary_hor;
+  wire w_iBoundary_hor__0;
+  wire w_iBoundary_hor_reg_i_1_n_0;
+  wire w_iBoundary_hor_reg_i_3_n_0;
+  wire w_iBoundary_hor_reg_i_4_n_0;
+  wire w_iBoundary_hor_reg_i_5_n_0;
+  wire w_iBoundary_vert;
+  wire w_iBoundary_vert__0;
+  wire w_iBoundary_vert_reg_i_1_n_0;
+  wire w_iBoundary_vert_reg_i_3_n_0;
+  wire w_iBoundary_vert_reg_i_4_n_0;
+  wire w_iBoundary_vert_reg_i_5_n_0;
   wire [3:0]NLW___24_carry__1_CO_UNCONNECTED;
   wire [3:1]NLW___24_carry__1_O_UNCONNECTED;
   wire [3:0]NLW__carry__1_CO_UNCONNECTED;
   wire [3:1]NLW__carry__1_O_UNCONNECTED;
 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
-    .INIT(16'hAFAE)) 
+    .INIT(16'h0001)) 
+    \FSM_onehot_rFSM_current[2]_i_3 
+       (.I0(iPush_up),
+        .I1(iPush_right),
+        .I2(iPush_down),
+        .I3(iPush_left),
+        .O(\FSM_onehot_rFSM_current[2]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hBBBBAABA8888AA8A)) 
+    \FSM_onehot_rFSM_current[2]_i_4 
+       (.I0(w_iBoundary_vert),
+        .I1(iPush_up),
+        .I2(iPush_left),
+        .I3(iPush_down),
+        .I4(iPush_right),
+        .I5(w_iBoundary_hor),
+        .O(\FSM_onehot_rFSM_current[2]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFBABB)) 
+    \FSM_onehot_rFSM_current[3]_i_2 
+       (.I0(w_iBoundary_hor),
+        .I1(iPush_right),
+        .I2(iPush_down),
+        .I3(iPush_left),
+        .I4(iPush_up),
+        .O(\FSM_onehot_rFSM_current[3]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hAAAAEFEE)) 
+    \FSM_onehot_rFSM_current[5]_i_3 
+       (.I0(w_iBoundary_vert),
+        .I1(iPush_right),
+        .I2(iPush_down),
+        .I3(iPush_left),
+        .I4(iPush_up),
+        .O(\FSM_onehot_rFSM_current[5]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAFEAA)) 
     \FSM_onehot_rFSM_current[6]_i_1 
        (.I0(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
-        .I1(\FSM_onehot_rFSM_current_reg_n_0_[6] ),
-        .I2(\FSM_onehot_rFSM_current[6]_i_2_n_0 ),
-        .I3(r_iEn_timer),
+        .I1(r_iEn_timer),
+        .I2(\FSM_onehot_rFSM_current_reg_n_0_[6] ),
+        .I3(\FSM_onehot_rFSM_current[6]_i_2_n_0 ),
+        .I4(iPush_down),
+        .I5(iPush_left),
         .O(\FSM_onehot_rFSM_current[6]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
     \FSM_onehot_rFSM_current[6]_i_2 
-       (.I0(iPush_down),
+       (.I0(iPush_right),
         .I1(iPush_up),
-        .I2(iPush_right),
-        .I3(iPush_left),
         .O(\FSM_onehot_rFSM_current[6]_i_2_n_0 ));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDSE #(
     .INIT(1'b1)) 
     \FSM_onehot_rFSM_current_reg[0] 
@@ -205,7 +281,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(1'b0),
         .Q(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .S(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[1] 
@@ -214,7 +290,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(timer_inst_n_4),
         .Q(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
         .R(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[2] 
@@ -223,7 +299,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(timer_inst_n_3),
         .Q(r_iEn_timer),
         .R(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[3] 
@@ -232,7 +308,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(timer_inst_n_2),
         .Q(p_0_in),
         .R(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[4] 
@@ -241,7 +317,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(timer_inst_n_1),
         .Q(p_1_in),
         .R(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[5] 
@@ -250,7 +326,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .D(timer_inst_n_0),
         .Q(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
         .R(iRst));
-  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_left:0000010,sMove_down:0010000,sMove_right:0001000,sMove_up:0100000,sIdle:1000000,sWait:0000100" *) 
+  (* FSM_ENCODED_STATES = "sInit:0000001,sMove_up:0100000,sMove_right:0001000,sMove_down:0010000,sMove_left:0000010,sIdle:1000000,sWait:0000100" *) 
   FDRE #(
     .INIT(1'b0)) 
     \FSM_onehot_rFSM_current_reg[6] 
@@ -266,7 +342,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO({__24_carry_n_0,__24_carry_n_1,__24_carry_n_2,__24_carry_n_3}),
         .CYINIT(oShapeY[0]),
         .DI({oShapeY[3:1],__24_carry_i_1_n_0}),
-        .O(in7[4:1]),
+        .O(in9[4:1]),
         .S({__24_carry_i_2_n_0,__24_carry_i_3_n_0,__24_carry_i_4_n_0,__24_carry_i_5_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-8 {cell *THIS*}}" *) 
@@ -275,13 +351,13 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO({__24_carry__0_n_0,__24_carry__0_n_1,__24_carry__0_n_2,__24_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI(oShapeY[7:4]),
-        .O(in7[8:5]),
+        .O(in9[8:5]),
         .S({__24_carry__0_i_1_n_0,__24_carry__0_i_2_n_0,__24_carry__0_i_3_n_0,__24_carry__0_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     __24_carry__0_i_1
        (.I0(oShapeY[7]),
-        .I1(\r_oShapeY_current_reg[9]_0 [0]),
+        .I1(\r_oShapeY_current_reg[8]_0 ),
         .O(__24_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
@@ -308,13 +384,13 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO(NLW___24_carry__1_CO_UNCONNECTED[3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW___24_carry__1_O_UNCONNECTED[3:1],in7[9]}),
+        .O({NLW___24_carry__1_O_UNCONNECTED[3:1],in9[9]}),
         .S({1'b0,1'b0,1'b0,__24_carry__1_i_1_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     __24_carry__1_i_1
-       (.I0(\r_oShapeY_current_reg[9]_0 [0]),
-        .I1(\r_oShapeY_current_reg[9]_0 [1]),
+       (.I0(\r_oShapeY_current_reg[8]_0 ),
+        .I1(\r_oShapeY_current_reg[9]_0 ),
         .O(__24_carry__1_i_1_n_0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -352,7 +428,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO({_carry_n_0,_carry_n_1,_carry_n_2,_carry_n_3}),
         .CYINIT(oShapeX[0]),
         .DI({oShapeX[3:1],_carry_i_1_n_0}),
-        .O(in6[4:1]),
+        .O(in8[4:1]),
         .S({_carry_i_2_n_0,_carry_i_3_n_0,_carry_i_4_n_0,_carry_i_5_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-8 {cell *THIS*}}" *) 
@@ -361,13 +437,13 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO({_carry__0_n_0,_carry__0_n_1,_carry__0_n_2,_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI(oShapeX[7:4]),
-        .O(in6[8:5]),
+        .O(in8[8:5]),
         .S({_carry__0_i_1_n_0,_carry__0_i_2_n_0,_carry__0_i_3_n_0,_carry__0_i_4_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__0_i_1
        (.I0(oShapeX[7]),
-        .I1(\r_oShapeX_current_reg[9]_0 [0]),
+        .I1(\r_oShapeX_current_reg[8]_0 ),
         .O(_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
@@ -394,13 +470,13 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .CO(NLW__carry__1_CO_UNCONNECTED[3:0]),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({NLW__carry__1_O_UNCONNECTED[3:1],in6[9]}),
+        .O({NLW__carry__1_O_UNCONNECTED[3:1],in8[9]}),
         .S({1'b0,1'b0,1'b0,_carry__1_i_1_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__1_i_1
-       (.I0(\r_oShapeX_current_reg[9]_0 [0]),
-        .I1(\r_oShapeX_current_reg[9]_0 [1]),
+       (.I0(\r_oShapeX_current_reg[8]_0 ),
+        .I1(\r_oShapeX_current_reg[9]_0 ),
         .O(_carry__1_i_1_n_0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -434,11 +510,11 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     oLED_INST_0
-       (.I0(p_1_in),
+       (.I0(r_iEn_timer),
         .I1(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
-        .I3(p_0_in),
-        .I4(r_iEn_timer),
+        .I2(p_1_in),
+        .I3(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
+        .I4(p_0_in),
         .O(oLED));
   LUT1 #(
     .INIT(2'h1)) 
@@ -446,36 +522,36 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
        (.I0(oShapeX[0]),
         .O(\r_oShapeX_current[0]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hFFABFFA8)) 
+    .INIT(32'hEEEFEEEC)) 
     \r_oShapeX_current[1]_i_1 
-       (.I0(in6[1]),
-        .I1(p_0_in),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
-        .I3(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+       (.I0(in8[1]),
+        .I1(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I2(p_0_in),
+        .I3(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
         .I4(oShapeX[1]),
         .O(\r_oShapeX_current[1]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hFFABFFA8)) 
+    .INIT(32'hEEEFEEEC)) 
     \r_oShapeX_current[3]_i_1 
-       (.I0(in6[3]),
-        .I1(p_0_in),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
-        .I3(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+       (.I0(in8[3]),
+        .I1(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I2(p_0_in),
+        .I3(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
         .I4(oShapeX[3]),
         .O(\r_oShapeX_current[3]_i_1_n_0 ));
   LUT3 #(
-    .INIT(8'h02)) 
+    .INIT(8'h10)) 
     \r_oShapeX_current[9]_i_1 
-       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
         .I1(p_0_in),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
+        .I2(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .O(\r_oShapeX_current[9]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'hFE)) 
     \r_oShapeX_current[9]_i_2 
-       (.I0(p_0_in),
-        .I1(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I1(p_0_in),
+        .I2(\FSM_onehot_rFSM_current_reg_n_0_[1] ),
         .O(\r_oShapeX_current[9]_i_2_n_0 ));
   FDRE \r_oShapeX_current_reg[0] 
        (.C(iClk),
@@ -492,7 +568,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   FDRE \r_oShapeX_current_reg[2] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[2]),
+        .D(in8[2]),
         .Q(oShapeX[2]),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[3] 
@@ -504,38 +580,38 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   FDRE \r_oShapeX_current_reg[4] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[4]),
+        .D(in8[4]),
         .Q(oShapeX[4]),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[5] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[5]),
+        .D(in8[5]),
         .Q(oShapeX[5]),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[6] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[6]),
+        .D(in8[6]),
         .Q(oShapeX[6]),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[7] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[7]),
+        .D(in8[7]),
         .Q(oShapeX[7]),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[8] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[8]),
-        .Q(\r_oShapeX_current_reg[9]_0 [0]),
+        .D(in8[8]),
+        .Q(\r_oShapeX_current_reg[8]_0 ),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   FDRE \r_oShapeX_current_reg[9] 
        (.C(iClk),
         .CE(\r_oShapeX_current[9]_i_2_n_0 ),
-        .D(in6[9]),
-        .Q(\r_oShapeX_current_reg[9]_0 [1]),
+        .D(in8[9]),
+        .Q(\r_oShapeX_current_reg[9]_0 ),
         .R(\r_oShapeX_current[9]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
@@ -543,36 +619,36 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
        (.I0(oShapeY[0]),
         .O(\r_oShapeY_current[0]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hFFABFFA8)) 
+    .INIT(32'hEEEFEEEC)) 
     \r_oShapeY_current[1]_i_1 
-       (.I0(in7[1]),
-        .I1(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
+       (.I0(in9[1]),
+        .I1(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .I2(p_1_in),
-        .I3(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I3(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
         .I4(oShapeY[1]),
         .O(\r_oShapeY_current[1]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hFFABFFA8)) 
+    .INIT(32'hEEEFEEEC)) 
     \r_oShapeY_current[3]_i_1 
-       (.I0(in7[3]),
-        .I1(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
+       (.I0(in9[3]),
+        .I1(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .I2(p_1_in),
-        .I3(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I3(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
         .I4(oShapeY[3]),
         .O(\r_oShapeY_current[3]_i_1_n_0 ));
   LUT3 #(
-    .INIT(8'h02)) 
+    .INIT(8'h10)) 
     \r_oShapeY_current[9]_i_1 
-       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
-        .I1(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
-        .I2(p_1_in),
+       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
+        .I1(p_1_in),
+        .I2(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .O(\r_oShapeY_current[9]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'hFE)) 
     \r_oShapeY_current[9]_i_2 
-       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
+       (.I0(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
         .I1(p_1_in),
-        .I2(\FSM_onehot_rFSM_current_reg_n_0_[0] ),
+        .I2(\FSM_onehot_rFSM_current_reg_n_0_[5] ),
         .O(\r_oShapeY_current[9]_i_2_n_0 ));
   FDRE \r_oShapeY_current_reg[0] 
        (.C(iClk),
@@ -589,7 +665,7 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   FDRE \r_oShapeY_current_reg[2] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[2]),
+        .D(in9[2]),
         .Q(oShapeY[2]),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[3] 
@@ -601,42 +677,46 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
   FDRE \r_oShapeY_current_reg[4] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[4]),
+        .D(in9[4]),
         .Q(oShapeY[4]),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[5] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[5]),
+        .D(in9[5]),
         .Q(oShapeY[5]),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[6] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[6]),
+        .D(in9[6]),
         .Q(oShapeY[6]),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[7] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[7]),
+        .D(in9[7]),
         .Q(oShapeY[7]),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[8] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[8]),
-        .Q(\r_oShapeY_current_reg[9]_0 [0]),
+        .D(in9[8]),
+        .Q(\r_oShapeY_current_reg[8]_0 ),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   FDRE \r_oShapeY_current_reg[9] 
        (.C(iClk),
         .CE(\r_oShapeY_current[9]_i_2_n_0 ),
-        .D(in7[9]),
-        .Q(\r_oShapeY_current_reg[9]_0 [1]),
+        .D(in9[9]),
+        .Q(\r_oShapeY_current_reg[9]_0 ),
         .R(\r_oShapeY_current[9]_i_1_n_0 ));
   design_1_FSM_VGA_all_0_0_timer_1s timer_inst
        (.D({timer_inst_n_0,timer_inst_n_1,timer_inst_n_2,timer_inst_n_3,timer_inst_n_4}),
-        .\FSM_onehot_rFSM_current_reg[2] (\FSM_onehot_rFSM_current[6]_i_2_n_0 ),
+        .\FSM_onehot_rFSM_current_reg[2] (\FSM_onehot_rFSM_current[2]_i_3_n_0 ),
+        .\FSM_onehot_rFSM_current_reg[2]_0 (\FSM_onehot_rFSM_current[2]_i_4_n_0 ),
+        .\FSM_onehot_rFSM_current_reg[3] (\FSM_onehot_rFSM_current[3]_i_2_n_0 ),
+        .\FSM_onehot_rFSM_current_reg[4] (\FSM_onehot_rFSM_current[6]_i_2_n_0 ),
+        .\FSM_onehot_rFSM_current_reg[5] (\FSM_onehot_rFSM_current[5]_i_3_n_0 ),
         .Q({\FSM_onehot_rFSM_current_reg_n_0_[6] ,\FSM_onehot_rFSM_current_reg_n_0_[5] ,p_1_in,p_0_in,r_iEn_timer,\FSM_onehot_rFSM_current_reg_n_0_[1] }),
         .iClk(iClk),
         .iPush_down(iPush_down),
@@ -644,32 +724,170 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA
         .iPush_right(iPush_right),
         .iPush_up(iPush_up),
         .iRst(iRst));
+  LDCP w_iBoundary_hor_reg
+       (.CLR(w_iBoundary_hor_reg_i_3_n_0),
+        .D(w_iBoundary_hor_reg_i_1_n_0),
+        .G(w_iBoundary_hor__0),
+        .PRE(w_iBoundary_hor_reg_i_4_n_0),
+        .Q(w_iBoundary_hor));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hFEFF)) 
+    w_iBoundary_hor_reg_i_1
+       (.I0(iPush_up),
+        .I1(iPush_right),
+        .I2(iPush_down),
+        .I3(iPush_left),
+        .O(w_iBoundary_hor_reg_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h55555555D5555555)) 
+    w_iBoundary_hor_reg_i_2
+       (.I0(r_iEn_timer),
+        .I1(oShapeX[0]),
+        .I2(oShapeX[2]),
+        .I3(oShapeX[5]),
+        .I4(oShapeX[1]),
+        .I5(w_iBoundary_hor_reg_i_5_n_0),
+        .O(w_iBoundary_hor__0));
+  LUT6 #(
+    .INIT(64'h00000000BFFFFFFF)) 
+    w_iBoundary_hor_reg_i_3
+       (.I0(w_iBoundary_hor_reg_i_5_n_0),
+        .I1(oShapeX[1]),
+        .I2(oShapeX[5]),
+        .I3(oShapeX[2]),
+        .I4(oShapeX[0]),
+        .I5(r_iEn_timer),
+        .O(w_iBoundary_hor_reg_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h0000000040000000)) 
+    w_iBoundary_hor_reg_i_4
+       (.I0(r_iEn_timer),
+        .I1(oShapeX[0]),
+        .I2(oShapeX[2]),
+        .I3(oShapeX[5]),
+        .I4(oShapeX[1]),
+        .I5(w_iBoundary_hor_reg_i_5_n_0),
+        .O(w_iBoundary_hor_reg_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hFDFFFFFFFFFFFFFF)) 
+    w_iBoundary_hor_reg_i_5
+       (.I0(\r_oShapeX_current_reg[9]_0 ),
+        .I1(\r_oShapeX_current_reg[8]_0 ),
+        .I2(oShapeX[7]),
+        .I3(oShapeX[3]),
+        .I4(oShapeX[4]),
+        .I5(oShapeX[6]),
+        .O(w_iBoundary_hor_reg_i_5_n_0));
+  LDCP w_iBoundary_vert_reg
+       (.CLR(w_iBoundary_vert_reg_i_3_n_0),
+        .D(w_iBoundary_vert_reg_i_1_n_0),
+        .G(w_iBoundary_vert__0),
+        .PRE(w_iBoundary_vert_reg_i_4_n_0),
+        .Q(w_iBoundary_vert));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h00FE)) 
+    w_iBoundary_vert_reg_i_1
+       (.I0(iPush_right),
+        .I1(iPush_down),
+        .I2(iPush_left),
+        .I3(iPush_up),
+        .O(w_iBoundary_vert_reg_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h555555555555D555)) 
+    w_iBoundary_vert_reg_i_2
+       (.I0(r_iEn_timer),
+        .I1(oShapeY[2]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[7]),
+        .I4(oShapeY[5]),
+        .I5(w_iBoundary_vert_reg_i_5_n_0),
+        .O(w_iBoundary_vert__0));
+  LUT6 #(
+    .INIT(64'h00000000EFFFFFFF)) 
+    w_iBoundary_vert_reg_i_3
+       (.I0(w_iBoundary_vert_reg_i_5_n_0),
+        .I1(oShapeY[5]),
+        .I2(oShapeY[7]),
+        .I3(oShapeY[1]),
+        .I4(oShapeY[2]),
+        .I5(r_iEn_timer),
+        .O(w_iBoundary_vert_reg_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000004000)) 
+    w_iBoundary_vert_reg_i_4
+       (.I0(r_iEn_timer),
+        .I1(oShapeY[2]),
+        .I2(oShapeY[1]),
+        .I3(oShapeY[7]),
+        .I4(oShapeY[5]),
+        .I5(w_iBoundary_vert_reg_i_5_n_0),
+        .O(w_iBoundary_vert_reg_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hFFFF7FFFFFFFFFFF)) 
+    w_iBoundary_vert_reg_i_5
+       (.I0(oShapeY[4]),
+        .I1(oShapeY[6]),
+        .I2(oShapeY[3]),
+        .I3(oShapeY[0]),
+        .I4(\r_oShapeY_current_reg[9]_0 ),
+        .I5(\r_oShapeY_current_reg[8]_0 ),
+        .O(w_iBoundary_vert_reg_i_5_n_0));
 endmodule
 
 (* ORIG_REF_NAME = "FSM_VGA_all" *) 
 module design_1_FSM_VGA_all_0_0_FSM_VGA_all
-   (\r_oShapeX_current_reg[1] ,
-    oShapeX,
+   (\r_oShapeX_current_reg[0] ,
+    \r_oShapeX_current_reg[2] ,
+    \r_oShapeX_current_reg[5] ,
+    \r_oShapeX_current_reg[1] ,
+    \r_oShapeY_current_reg[2] ,
     \r_oShapeY_current_reg[1] ,
+    \r_oShapeY_current_reg[7] ,
+    \r_oShapeY_current_reg[5] ,
+    \r_oShapeX_current_reg[3] ,
+    \r_oShapeX_current_reg[4] ,
+    \r_oShapeX_current_reg[6] ,
+    \r_oShapeX_current_reg[8] ,
+    oShapeX,
+    \r_oShapeY_current_reg[3] ,
+    \r_oShapeY_current_reg[4] ,
+    \r_oShapeY_current_reg[6] ,
+    \r_oShapeY_current_reg[8] ,
     oShapeY,
     oLED,
     iRst,
     iClk,
-    iPush_right,
-    iPush_up,
     iPush_down,
-    iPush_left);
+    iPush_left,
+    iPush_up,
+    iPush_right);
+  output \r_oShapeX_current_reg[0] ;
+  output \r_oShapeX_current_reg[2] ;
+  output \r_oShapeX_current_reg[5] ;
   output \r_oShapeX_current_reg[1] ;
-  output [8:0]oShapeX;
+  output \r_oShapeY_current_reg[2] ;
   output \r_oShapeY_current_reg[1] ;
-  output [8:0]oShapeY;
+  output \r_oShapeY_current_reg[7] ;
+  output \r_oShapeY_current_reg[5] ;
+  output \r_oShapeX_current_reg[3] ;
+  output \r_oShapeX_current_reg[4] ;
+  output \r_oShapeX_current_reg[6] ;
+  output \r_oShapeX_current_reg[8] ;
+  output [1:0]oShapeX;
+  output \r_oShapeY_current_reg[3] ;
+  output \r_oShapeY_current_reg[4] ;
+  output \r_oShapeY_current_reg[6] ;
+  output \r_oShapeY_current_reg[8] ;
+  output [1:0]oShapeY;
   output oLED;
   input iRst;
   input iClk;
-  input iPush_right;
-  input iPush_up;
   input iPush_down;
   input iPush_left;
+  input iPush_up;
+  input iPush_right;
 
   wire iClk;
   wire iPush_down;
@@ -678,10 +896,24 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA_all
   wire iPush_up;
   wire iRst;
   wire oLED;
-  wire [8:0]oShapeX;
-  wire [8:0]oShapeY;
+  wire [1:0]oShapeX;
+  wire [1:0]oShapeY;
+  wire \r_oShapeX_current_reg[0] ;
   wire \r_oShapeX_current_reg[1] ;
+  wire \r_oShapeX_current_reg[2] ;
+  wire \r_oShapeX_current_reg[3] ;
+  wire \r_oShapeX_current_reg[4] ;
+  wire \r_oShapeX_current_reg[5] ;
+  wire \r_oShapeX_current_reg[6] ;
+  wire \r_oShapeX_current_reg[8] ;
   wire \r_oShapeY_current_reg[1] ;
+  wire \r_oShapeY_current_reg[2] ;
+  wire \r_oShapeY_current_reg[3] ;
+  wire \r_oShapeY_current_reg[4] ;
+  wire \r_oShapeY_current_reg[5] ;
+  wire \r_oShapeY_current_reg[6] ;
+  wire \r_oShapeY_current_reg[7] ;
+  wire \r_oShapeY_current_reg[8] ;
 
   design_1_FSM_VGA_all_0_0_FSM_VGA FSM_VGA_inst
        (.iClk(iClk),
@@ -691,10 +923,12 @@ module design_1_FSM_VGA_all_0_0_FSM_VGA_all
         .iPush_up(iPush_up),
         .iRst(iRst),
         .oLED(oLED),
-        .oShapeX({oShapeX[6:1],\r_oShapeX_current_reg[1] ,oShapeX[0]}),
-        .oShapeY({oShapeY[6:1],\r_oShapeY_current_reg[1] ,oShapeY[0]}),
-        .\r_oShapeX_current_reg[9]_0 (oShapeX[8:7]),
-        .\r_oShapeY_current_reg[9]_0 (oShapeY[8:7]));
+        .oShapeX({oShapeX[0],\r_oShapeX_current_reg[6] ,\r_oShapeX_current_reg[5] ,\r_oShapeX_current_reg[4] ,\r_oShapeX_current_reg[3] ,\r_oShapeX_current_reg[2] ,\r_oShapeX_current_reg[1] ,\r_oShapeX_current_reg[0] }),
+        .oShapeY({\r_oShapeY_current_reg[7] ,\r_oShapeY_current_reg[6] ,\r_oShapeY_current_reg[5] ,\r_oShapeY_current_reg[4] ,\r_oShapeY_current_reg[3] ,\r_oShapeY_current_reg[2] ,\r_oShapeY_current_reg[1] ,oShapeY[0]}),
+        .\r_oShapeX_current_reg[8]_0 (\r_oShapeX_current_reg[8] ),
+        .\r_oShapeX_current_reg[9]_0 (oShapeX[1]),
+        .\r_oShapeY_current_reg[8]_0 (\r_oShapeY_current_reg[8] ),
+        .\r_oShapeY_current_reg[9]_0 (oShapeY[1]));
 endmodule
 
 (* ORIG_REF_NAME = "counter" *) 
@@ -702,32 +936,44 @@ module design_1_FSM_VGA_all_0_0_counter
    (D,
     Q,
     iClk,
-    \FSM_onehot_rFSM_current_reg[2] ,
-    iPush_right,
-    iPush_up,
+    \FSM_onehot_rFSM_current_reg[4] ,
     iPush_down,
     iPush_left,
+    \FSM_onehot_rFSM_current_reg[3] ,
+    \FSM_onehot_rFSM_current_reg[2] ,
+    \FSM_onehot_rFSM_current_reg[2]_0 ,
+    iPush_right,
+    iPush_up,
+    \FSM_onehot_rFSM_current_reg[5] ,
     iRst);
   output [4:0]D;
   input [5:0]Q;
   input iClk;
-  input \FSM_onehot_rFSM_current_reg[2] ;
-  input iPush_right;
-  input iPush_up;
+  input \FSM_onehot_rFSM_current_reg[4] ;
   input iPush_down;
   input iPush_left;
+  input \FSM_onehot_rFSM_current_reg[3] ;
+  input \FSM_onehot_rFSM_current_reg[2] ;
+  input \FSM_onehot_rFSM_current_reg[2]_0 ;
+  input iPush_right;
+  input iPush_up;
+  input \FSM_onehot_rFSM_current_reg[5] ;
   input iRst;
 
   wire [4:0]D;
   wire \FSM_onehot_rFSM_current[2]_i_2_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_2_n_0 ;
-  wire \FSM_onehot_rFSM_current[5]_i_3_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_4_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_5_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_6_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_7_n_0 ;
   wire \FSM_onehot_rFSM_current[5]_i_8_n_0 ;
+  wire \FSM_onehot_rFSM_current[5]_i_9_n_0 ;
   wire \FSM_onehot_rFSM_current_reg[2] ;
+  wire \FSM_onehot_rFSM_current_reg[2]_0 ;
+  wire \FSM_onehot_rFSM_current_reg[3] ;
+  wire \FSM_onehot_rFSM_current_reg[4] ;
+  wire \FSM_onehot_rFSM_current_reg[5] ;
   wire [5:0]Q;
   wire iClk;
   wire iPush_down;
@@ -791,125 +1037,128 @@ module design_1_FSM_VGA_all_0_0_counter
   wire [3:1]\NLW_rCurrent_count_reg[24]_i_1_O_UNCONNECTED ;
 
   LUT6 #(
-    .INIT(64'h0000010000000000)) 
+    .INIT(64'h0000000040404000)) 
     \FSM_onehot_rFSM_current[1]_i_1 
-       (.I0(iPush_right),
-        .I1(iPush_up),
-        .I2(iPush_down),
-        .I3(iPush_left),
-        .I4(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
-        .I5(Q[1]),
+       (.I0(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
+        .I1(Q[1]),
+        .I2(\FSM_onehot_rFSM_current_reg[4] ),
+        .I3(iPush_down),
+        .I4(iPush_left),
+        .I5(\FSM_onehot_rFSM_current_reg[3] ),
         .O(D[0]));
-  LUT5 #(
-    .INIT(32'hFAEAEAEA)) 
+  LUT6 #(
+    .INIT(64'hBBBABBBABBBABABA)) 
     \FSM_onehot_rFSM_current[2]_i_1 
        (.I0(\FSM_onehot_rFSM_current[2]_i_2_n_0 ),
-        .I1(Q[5]),
-        .I2(\FSM_onehot_rFSM_current_reg[2] ),
+        .I1(\FSM_onehot_rFSM_current_reg[2] ),
+        .I2(Q[5]),
         .I3(Q[1]),
-        .I4(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
+        .I4(\FSM_onehot_rFSM_current_reg[2]_0 ),
+        .I5(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
         .O(D[1]));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \FSM_onehot_rFSM_current[2]_i_2 
        (.I0(Q[2]),
         .I1(Q[0]),
-        .I2(Q[4]),
-        .I3(Q[3]),
+        .I2(Q[3]),
+        .I3(Q[4]),
         .O(\FSM_onehot_rFSM_current[2]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h0400)) 
-    \FSM_onehot_rFSM_current[3]_i_1 
-       (.I0(iPush_up),
-        .I1(iPush_right),
-        .I2(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
-        .I3(Q[1]),
-        .O(D[2]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h00100000)) 
+    .INIT(32'h00004440)) 
+    \FSM_onehot_rFSM_current[3]_i_1 
+       (.I0(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
+        .I1(Q[1]),
+        .I2(iPush_right),
+        .I3(iPush_up),
+        .I4(\FSM_onehot_rFSM_current_reg[3] ),
+        .O(D[2]));
+  LUT6 #(
+    .INIT(64'h0000000040404000)) 
     \FSM_onehot_rFSM_current[4]_i_1 
-       (.I0(iPush_up),
-        .I1(iPush_right),
-        .I2(iPush_down),
-        .I3(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
-        .I4(Q[1]),
+       (.I0(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
+        .I1(Q[1]),
+        .I2(\FSM_onehot_rFSM_current_reg[4] ),
+        .I3(iPush_down),
+        .I4(iPush_left),
+        .I5(\FSM_onehot_rFSM_current_reg[5] ),
         .O(D[3]));
-  LUT3 #(
-    .INIT(8'h40)) 
+  LUT5 #(
+    .INIT(32'h00004440)) 
     \FSM_onehot_rFSM_current[5]_i_1 
        (.I0(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
         .I1(Q[1]),
-        .I2(iPush_up),
+        .I2(iPush_right),
+        .I3(iPush_up),
+        .I4(\FSM_onehot_rFSM_current_reg[5] ),
         .O(D[4]));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \FSM_onehot_rFSM_current[5]_i_2 
-       (.I0(\FSM_onehot_rFSM_current[5]_i_3_n_0 ),
-        .I1(\FSM_onehot_rFSM_current[5]_i_4_n_0 ),
-        .I2(\FSM_onehot_rFSM_current[5]_i_5_n_0 ),
-        .I3(\FSM_onehot_rFSM_current[5]_i_6_n_0 ),
-        .I4(\FSM_onehot_rFSM_current[5]_i_7_n_0 ),
-        .I5(\FSM_onehot_rFSM_current[5]_i_8_n_0 ),
+       (.I0(\FSM_onehot_rFSM_current[5]_i_4_n_0 ),
+        .I1(\FSM_onehot_rFSM_current[5]_i_5_n_0 ),
+        .I2(\FSM_onehot_rFSM_current[5]_i_6_n_0 ),
+        .I3(\FSM_onehot_rFSM_current[5]_i_7_n_0 ),
+        .I4(\FSM_onehot_rFSM_current[5]_i_8_n_0 ),
+        .I5(\FSM_onehot_rFSM_current[5]_i_9_n_0 ),
         .O(\FSM_onehot_rFSM_current[5]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    \FSM_onehot_rFSM_current[5]_i_3 
-       (.I0(w_oQ[16]),
-        .I1(w_oQ[15]),
-        .I2(w_oQ[18]),
-        .I3(w_oQ[17]),
-        .O(\FSM_onehot_rFSM_current[5]_i_3_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \FSM_onehot_rFSM_current[5]_i_4 
-       (.I0(w_oQ[20]),
-        .I1(w_oQ[19]),
-        .I2(w_oQ[22]),
-        .I3(w_oQ[21]),
+       (.I0(w_oQ[16]),
+        .I1(w_oQ[14]),
+        .I2(w_oQ[21]),
+        .I3(w_oQ[20]),
         .O(\FSM_onehot_rFSM_current[5]_i_4_n_0 ));
   LUT4 #(
-    .INIT(16'hFFFE)) 
+    .INIT(16'hEFFF)) 
     \FSM_onehot_rFSM_current[5]_i_5 
-       (.I0(w_oQ[8]),
-        .I1(w_oQ[7]),
-        .I2(w_oQ[10]),
-        .I3(w_oQ[9]),
-        .O(\FSM_onehot_rFSM_current[5]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \FSM_onehot_rFSM_current[5]_i_6 
-       (.I0(w_oQ[12]),
-        .I1(w_oQ[11]),
-        .I2(w_oQ[14]),
+       (.I0(w_oQ[23]),
+        .I1(w_oQ[8]),
+        .I2(w_oQ[24]),
         .I3(w_oQ[13]),
+        .O(\FSM_onehot_rFSM_current[5]_i_5_n_0 ));
+  LUT3 #(
+    .INIT(8'h7F)) 
+    \FSM_onehot_rFSM_current[5]_i_6 
+       (.I0(w_oQ[22]),
+        .I1(w_oQ[18]),
+        .I2(w_oQ[3]),
         .O(\FSM_onehot_rFSM_current[5]_i_6_n_0 ));
   LUT4 #(
-    .INIT(16'hFF7F)) 
+    .INIT(16'hDFFF)) 
     \FSM_onehot_rFSM_current[5]_i_7 
-       (.I0(w_oQ[4]),
-        .I1(w_oQ[3]),
+       (.I0(w_oQ[19]),
+        .I1(w_oQ[7]),
         .I2(w_oQ[5]),
-        .I3(w_oQ[6]),
+        .I3(w_oQ[1]),
         .O(\FSM_onehot_rFSM_current[5]_i_7_n_0 ));
-  LUT5 #(
-    .INIT(32'hDFFFFFFF)) 
+  LUT4 #(
+    .INIT(16'hEFFF)) 
     \FSM_onehot_rFSM_current[5]_i_8 
-       (.I0(w_oQ[0]),
-        .I1(w_oQ[23]),
-        .I2(w_oQ[24]),
+       (.I0(w_oQ[15]),
+        .I1(w_oQ[6]),
+        .I2(w_oQ[12]),
         .I3(w_oQ[2]),
-        .I4(w_oQ[1]),
         .O(\FSM_onehot_rFSM_current[5]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFF7FF)) 
+    \FSM_onehot_rFSM_current[5]_i_9 
+       (.I0(w_oQ[4]),
+        .I1(w_oQ[0]),
+        .I2(w_oQ[9]),
+        .I3(w_oQ[11]),
+        .I4(w_oQ[10]),
+        .I5(w_oQ[17]),
+        .O(\FSM_onehot_rFSM_current[5]_i_9_n_0 ));
   LUT5 #(
-    .INIT(32'hFFFFEEFE)) 
+    .INIT(32'hFEFEFFFE)) 
     \rCurrent_count[0]_i_1 
-       (.I0(\FSM_onehot_rFSM_current[2]_i_2_n_0 ),
+       (.I0(Q[5]),
         .I1(iRst),
-        .I2(Q[1]),
-        .I3(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
-        .I4(Q[5]),
+        .I2(\FSM_onehot_rFSM_current[2]_i_2_n_0 ),
+        .I3(Q[1]),
+        .I4(\FSM_onehot_rFSM_current[5]_i_2_n_0 ),
         .O(\rCurrent_count[0]_i_1_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1129,24 +1378,36 @@ module design_1_FSM_VGA_all_0_0_timer_1s
    (D,
     Q,
     iClk,
-    \FSM_onehot_rFSM_current_reg[2] ,
-    iPush_right,
-    iPush_up,
+    \FSM_onehot_rFSM_current_reg[4] ,
     iPush_down,
     iPush_left,
+    \FSM_onehot_rFSM_current_reg[3] ,
+    \FSM_onehot_rFSM_current_reg[2] ,
+    \FSM_onehot_rFSM_current_reg[2]_0 ,
+    iPush_right,
+    iPush_up,
+    \FSM_onehot_rFSM_current_reg[5] ,
     iRst);
   output [4:0]D;
   input [5:0]Q;
   input iClk;
-  input \FSM_onehot_rFSM_current_reg[2] ;
-  input iPush_right;
-  input iPush_up;
+  input \FSM_onehot_rFSM_current_reg[4] ;
   input iPush_down;
   input iPush_left;
+  input \FSM_onehot_rFSM_current_reg[3] ;
+  input \FSM_onehot_rFSM_current_reg[2] ;
+  input \FSM_onehot_rFSM_current_reg[2]_0 ;
+  input iPush_right;
+  input iPush_up;
+  input \FSM_onehot_rFSM_current_reg[5] ;
   input iRst;
 
   wire [4:0]D;
   wire \FSM_onehot_rFSM_current_reg[2] ;
+  wire \FSM_onehot_rFSM_current_reg[2]_0 ;
+  wire \FSM_onehot_rFSM_current_reg[3] ;
+  wire \FSM_onehot_rFSM_current_reg[4] ;
+  wire \FSM_onehot_rFSM_current_reg[5] ;
   wire [5:0]Q;
   wire iClk;
   wire iPush_down;
@@ -1158,6 +1419,10 @@ module design_1_FSM_VGA_all_0_0_timer_1s
   design_1_FSM_VGA_all_0_0_counter counter_inst
        (.D(D),
         .\FSM_onehot_rFSM_current_reg[2] (\FSM_onehot_rFSM_current_reg[2] ),
+        .\FSM_onehot_rFSM_current_reg[2]_0 (\FSM_onehot_rFSM_current_reg[2]_0 ),
+        .\FSM_onehot_rFSM_current_reg[3] (\FSM_onehot_rFSM_current_reg[3] ),
+        .\FSM_onehot_rFSM_current_reg[4] (\FSM_onehot_rFSM_current_reg[4] ),
+        .\FSM_onehot_rFSM_current_reg[5] (\FSM_onehot_rFSM_current_reg[5] ),
         .Q(Q),
         .iClk(iClk),
         .iPush_down(iPush_down),
